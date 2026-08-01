@@ -1,0 +1,19 @@
+/* ============================================================
+   TGAB site configuration — edit these values only.
+   ============================================================ */
+
+// Paste your Finnhub API key between the quotes.
+// Leave empty to show the built-in indicative sample quotes.
+window.TGAB_CONFIG = {
+  FINNHUB_KEY: "",
+
+  // B2Core (or other white-label) portal endpoints.
+  // Replace once your portal subdomain is live.
+  LOGIN_URL: "https://portal.tgab.com/login",
+  SIGNUP_URL: "https://portal.tgab.com/register",
+
+  // Symbols shown in the tape and the live markets panel.
+  SYMBOLS: ["SPY","QQQ","AAPL","MSFT","NVDA","TSLA","AMZN","META","GOOGL","AMD"],
+
+  CONTACT_EMAIL: "hello@tgab.com"
+};

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markets — TGAB | US equities, options &amp; multi-asset access</title>
+<meta name="description" content="Trade US equities, listed options, and ETFs at launch, with futures, FX, metals, and more on the TGAB roadmap. Market hours and instrument coverage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="markets">
+
+<main>
+  <section class="page-hero">
+    <div class="fx-stage" aria-hidden="true"><div class="gridlines"></div><div class="aurora a2" style="left:60%;top:-30%"></div></div>
+    <div class="wrap rv">
+      <span class="eyebrow">01 / Markets</span>
+      <h1>US markets first. The <span class="it">world</span> next.</h1>
+      <p>TGAB launches with deep access to the world's most liquid market — US equities and listed options, cleared through Velocity Clearing — and expands from there under a full-service dealer mandate.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head-row rv">
+        <div>
+          <span class="eyebrow">02 / Live board</span>
+          <h2>Today's <span class="it">tape.</span></h2>
+        </div>
+      </div>
+      <div class="quotes rv" id="quotesPanel" aria-label="Market quotes"></div>
+      <div class="data-note">Quotes may be delayed or indicative · Not for trading decisions</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head-row rv">
+        <div>
+          <span class="eyebrow">03 / Coverage</span>
+          <h2>Instrument <span class="it">coverage.</span></h2>
+        </div>
+      </div>
+      <div class="rv" style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Asset class</th><th>Venues / underlyings</th><th>Order types</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>US Equities</td><td>NYSE, Nasdaq, major US venues</td><td>Market, limit, stop, stop-limit</td><td class="mono">At launch</td></tr>
+            <tr><td>Listed Options</td><td>US-listed single names, ETFs, indices</td><td>Single-leg &amp; multi-leg strategies</td><td class="mono">At launch</td></tr>
+            <tr><td>ETFs</td><td>US-listed index, sector &amp; thematic funds</td><td>Market, limit, stop</td><td class="mono">At launch</td></tr>
+            <tr><td>Futures</td><td>Index, rates, commodities</td><td>—</td><td class="mono">Roadmap</td></tr>
+            <tr><td>Foreign Exchange</td><td>Majors, minors, EM crosses</td><td>—</td><td class="mono">Roadmap</td></tr>
+            <tr><td>Metals &amp; Commodities</td><td>Precious metals, energy, softs</td><td>—</td><td class="mono">Roadmap</td></tr>
+            <tr><td>Indices</td><td>Global benchmark indices</td><td>—</td><td class="mono">Roadmap</td></tr>
+            <tr><td>Fixed Income</td><td>Government &amp; corporate debt</td><td>—</td><td class="mono">Roadmap</td></tr>
+            <tr><td>Digital Assets</td><td>Subject to applicable approvals</td><td>—</td><td class="mono">Roadmap</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="hours">
+    <div class="wrap">
+      <div class="head-row rv">
+        <div>
+          <span class="eyebrow">04 / Market hours</span>
+          <h2>US session <span class="it">times.</span></h2>
+        </div>
+      </div>
+      <div class="rv" style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Session</th><th>Eastern Time (ET)</th><th>London (UK)</th><th>Dubai (GST)</th></tr></thead>
+          <tbody>
+            <tr><td>Pre-market</td><td class="mono">04:00 – 09:30</td><td class="mono">09:00 – 14:30</td><td class="mono">12:00 – 17:30</td></tr>
+            <tr><td>Regular session</td><td class="mono">09:30 – 16:00</td><td class="mono">14:30 – 21:00</td><td class="mono">17:30 – 00:00</td></tr>
+            <tr><td>After-hours</td><td class="mono">16:00 – 20:00</td><td class="mono">21:00 – 01:00</td><td class="mono">00:00 – 04:00</td></tr>
+            <tr><td>Options (regular)</td><td class="mono">09:30 – 16:00</td><td class="mono">14:30 – 21:00</td><td class="mono">17:30 – 00:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub rv" style="margin-top:18px">London and Dubai columns reflect standard offsets during US daylight saving time; times shift by one hour outside DST. US markets are closed on US public holidays and close early on certain days around holidays.</p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap rv">
+      <h2>Ready when the <span class="it">bell</span> rings.</h2>
+      <p>Open an account and be trading US markets from day one of launch.</p>
+      <div class="hero-cta">
+        <a class="btn btn-amber btn-lg" href="#" data-cta="signup">Open account</a>
+        <a class="btn btn-ghost btn-lg" href="pricing.html">See pricing</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script>document.querySelectorAll('[data-cta="signup"]').forEach(a=>a.href=(window.TGAB_CONFIG||{}).SIGNUP_URL||"#");</script>
+</body>
+</html>

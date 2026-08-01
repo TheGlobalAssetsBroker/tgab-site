@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TGAB — The Global Assets Broker | Institutional access to global markets</title>
+<meta name="description" content="TGAB is a multi-asset brokerage delivering institutional-grade access to US equities, options, and global markets, built on regulated infrastructure and transparent pricing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="home">
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="fx-stage" aria-hidden="true">
+      <div class="gridlines"></div>
+      <div class="aurora a1"></div>
+      <div class="aurora a2"></div>
+      <div class="aurora a3"></div>
+    </div>
+    <canvas id="globe" width="600" height="600" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <span class="eyebrow">01 / Multi-asset brokerage · In formation</span>
+      <h1>Global markets, engineered for <span class="it">capital</span> that moves.</h1>
+      <p class="lead">TGAB is building a full-service brokerage for serious traders — US equities and listed options at launch, cleared through institutional infrastructure, with a multi-asset roadmap behind it.</p>
+      <div class="hero-cta">
+        <a class="btn btn-amber btn-lg" href="#" data-cta="signup">Open account</a>
+        <a class="btn btn-ghost btn-lg" href="markets.html">Explore markets</a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stats-grid">
+        <div class="stat rv"><div class="v">US<span>+</span></div><div class="k">Equities &amp; options at launch</div></div>
+        <div class="stat rv"><div class="v"><span class="count" data-count="9">0</span></div><div class="k">Asset classes on the roadmap</div></div>
+        <div class="stat rv"><div class="v">Velocity</div><div class="k">Institutional clearing</div></div>
+        <div class="stat rv"><div class="v"><span class="count" data-count="24">0</span><span>/</span>5</div><div class="k">Client coverage</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORD MARQUEE -->
+  <div class="word-marquee" aria-hidden="true">
+    <div class="word-track" id="wordTrack"></div>
+  </div>
+
+  <!-- LIVE MARKETS -->
+  <section class="block">
+    <div class="wrap">
+      <div class="head-row rv">
+        <div>
+          <span class="eyebrow">02 / Market data</span>
+          <h2>The tape, on the <span class="it">table.</span></h2>
+        </div>
+        <a class="btn btn-ghost" href="markets.html">All markets →</a>
+      </div>
+      <div class="quotes rv" id="quotesPanel" aria-label="Market quotes"></div>
+      <div class="data-note">Quotes may be delayed or indicative · Not for trading decisions</div>
+    </div>
+  </section>
+
+  <!-- MARKET ACCESS SUITE -->
+  <section class="block">
+    <div class="wrap">
+      <div class="head-row rv">
+        <div>
+          <span class="eyebrow">03 / Market access</span>
+          <h2>A complete <span class="it">market access</span> suite.</h2>
+        </div>
+      </div>
+      <div class="mgrid rv">
+        <div class="mcell"><span class="tag live">At launch</span><span class="num">EQ</span><h3>US Equities</h3><p>NYSE, Nasdaq and major US venues, cleared through Velocity Clearing.</p></div>
+        <div class="mcell"><span class="tag live">At launch</span><span class="num">OPT</span><h3>Listed Options</h3><p>Single-leg and multi-leg strategies on US-listed underlyings.</p></div>
+        <div class="mcell"><span class="tag live">At launch</span><span class="num">ETF</span><h3>ETFs</h3><p>Index, sector, and thematic exposure through US-listed funds.</p></div>
+        <div class="mcell"><span class="tag">Roadmap</span><span class="num">FUT</span><h3>Futures</h3><p>Index, rates, and commodity futures on major global exchanges.</p></div>
+        <div class="mcell"><span class="tag">Roadmap</span><span class="num">FX</span><h3>Foreign Exchange</h3><p>Majors, minors, and EM crosses with institutional liquidity.</p></div>
+        <div class="mcell"><span class="tag">Roadmap</span><span class="num">MTL</span><h3>Metals &amp; Commodities</h3><p>Precious metals and key commodity markets.</p></div>
+        <div class="mcell"><span class="tag">Roadmap</span><span class="num">IDX</span><h3>Indices</h3><p>Broad-market index exposure across global sessions.</p></div>
+        <div class="mcell"><span class="tag">Roadmap</span><span class="num">FI</span><h3>Fixed Income</h3><p>Government and corporate debt for yield-focused portfolios.</p></div>
+        <div class="mcell"><span class="tag">Roadmap</span><span class="num">DA</span><h3>Digital Assets</h3><p>Regulated digital-asset access, subject to applicable approvals.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFRASTRUCTURE -->
+  <section class="block">
+    <div class="wrap">
+      <div class="split">
+        <div class="rv">
+          <span class="eyebrow">04 / Infrastructure</span>
+          <h2>Institutional <span class="it">plumbing,</span> not retail shortcuts.</h2>
+          <p class="sub">Every layer of the stack — clearing, custody, execution, onboarding — is chosen for durability and auditability, the way an institution would build it.</p>
+          <ul class="checks">
+            <li>Clearing and custody through Velocity Clearing LLC for US equities and options</li>
+            <li>Regulated group structure anchored by a Mauritius FSC Investment Dealer licence (application in progress)</li>
+            <li>Bank-grade KYC / AML onboarding before a single order is accepted</li>
+            <li>Segregation of client assets in line with applicable regulatory requirements</li>
+          </ul>
+        </div>
+        <div class="panel-art rv" aria-hidden="true">
+          <div class="row"><span>CLEARING &amp; CUSTODY</span><b>Velocity Clearing LLC</b></div>
+          <div class="row"><span>LICENCE (IN APPLICATION)</span><b>Investment Dealer — FSC Mauritius</b></div>
+          <div class="row"><span>EXECUTION</span><b>US listed venues</b></div>
+          <div class="row"><span>ONBOARDING</span><b>Full KYC / AML</b></div>
+          <div class="row"><span>CLIENT PORTAL</span><b>Institutional white-label</b></div>
+          <div class="row"><span>DATA</span><b>Real-time &amp; historical feeds</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TGAB -->
+  <section class="block">
+    <div class="wrap">
+      <div class="head-row rv">
+        <div>
+          <span class="eyebrow">05 / Why TGAB</span>
+          <h2>What we hold <span class="it">ourselves</span> to.</h2>
+        </div>
+      </div>
+      <div class="cards rv">
+        <div class="card"><span class="glyph">01</span><h3>Transparent pricing</h3><p>A published fee schedule with no hidden spreads or surprise charges.</p></div>
+        <div class="card"><span class="glyph">02</span><h3>Regulated structure</h3><p>Licensed operations first. We launch when approvals are in place — not before.</p></div>
+        <div class="card"><span class="glyph">03</span><h3>Serious execution</h3><p>Institutional clearing and market access built for active traders.</p></div>
+        <div class="card"><span class="glyph">04</span><h3>Global by design</h3><p>A group built to serve eligible clients across multiple jurisdictions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="fx-stage" aria-hidden="true"><div class="aurora a1" style="left:30%;top:10%"></div><div class="aurora a2" style="left:55%;top:30%"></div></div>
+    <div class="wrap rv">
+      <span class="eyebrow">06 / Get in early</span>
+      <h2>Be first through the <span class="it">door.</span></h2>
+      <p>Register your interest now and get priority onboarding when TGAB goes live.</p>
+      <div class="hero-cta">
+        <a class="btn btn-amber btn-lg" href="#" data-cta="signup">Open account</a>
+        <a class="btn btn-ghost btn-lg" href="contact.html">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/globe.js"></script>
+<script>
+  // Point hero/CTA signup buttons at the configured portal URL
+  document.querySelectorAll('[data-cta="signup"]').forEach(a => a.href = (window.TGAB_CONFIG||{}).SIGNUP_URL || "#");
+</script>
+</body>
+</html>
