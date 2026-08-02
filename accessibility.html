@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility Statement — TGAB</title>
+<meta name="description" content="TGAB's accessibility commitment and how to report an accessibility issue on this website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Red+Hat+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="accessibility">
+
+<main>
+  <section class="page-hero">
+    <div class="fx-stage" aria-hidden="true"><div class="gridlines"></div><div class="aurora a2" style="left:60%;top:-30%" data-parallax="0.08"></div></div>
+    <div class="wrap rv">
+      <span class="eyebrow">01 / Accessibility</span>
+      <h1>Built to be usable by <span class="it">everyone.</span></h1>
+      <p>An honest statement of where we're aiming and what's actually implemented today.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="legal-layout">
+        <nav class="legal-nav" aria-label="Accessibility statement sections">
+          <a href="#aim">Our aim</a>
+          <a href="#implemented">What's implemented</a>
+          <a href="#known">Known limitations</a>
+          <a href="#contact">Report an issue</a>
+        </nav>
+        <div class="legal-body rv">
+
+          <h2 id="aim">Our aim</h2>
+          <p>We aim for this website to be usable by as many people as possible, and to work toward WCAG 2.1 Level AA as a practical target. This is a stated aim, not a certification — we have not undergone third-party accessibility audit or conformance testing.</p>
+
+          <h2 id="implemented">What's implemented today</h2>
+          <ul>
+            <li>Semantic HTML landmarks and heading structure throughout</li>
+            <li>Visible keyboard focus states on links, buttons, and interactive controls</li>
+            <li><code>prefers-reduced-motion</code> is respected — animations, parallax, and auto-playing motion are disabled when requested at the OS level</li>
+            <li>Colour is never the only signal (e.g. price moves pair colour with ▲/▼ glyphs, not colour alone)</li>
+            <li>Interactive components (navigation menu, FAQ accordion) are operable by keyboard and expose <code>aria-expanded</code> / <code>aria-controls</code> state</li>
+            <li>Text and background colours are chosen for contrast against the dark theme</li>
+          </ul>
+
+          <h2 id="known">Known limitations</h2>
+          <p>As a pre-launch site under active development, some interior pages may not yet meet every WCAG success criterion. We treat accessibility issues as bugs, not feature requests, and prioritise fixes reported to us.</p>
+
+          <h2 id="contact">Report an issue</h2>
+          <p>If you encounter an accessibility barrier anywhere on this site, contact <a href="mailto:hello@tgab.com" style="color:var(--gold-hi)">hello@tgab.com</a> with "Accessibility" in the subject line, including the page and what happened. We aim to acknowledge accessibility reports within five business days, in line with our <a href="legal.html#complaints" style="color:var(--gold-hi)">complaints process</a>.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

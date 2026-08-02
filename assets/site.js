@@ -5,6 +5,12 @@
   const C = window.TGAB_CONFIG || {};
   const page = document.body.dataset.page || "";
 
+  /* ---------- scroll progress ---------- */
+  const progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.prepend(progress);
+
   /* ---------- header ---------- */
   const header = document.createElement("header");
   header.className = "site-header";
@@ -18,7 +24,9 @@
         <a href="markets.html" data-nav="markets">Markets</a>
         <a href="platforms.html" data-nav="platforms">Platforms</a>
         <a href="pricing.html" data-nav="pricing">Pricing</a>
+        <a href="security.html" data-nav="security">Security</a>
         <a href="company.html" data-nav="company">Company</a>
+        <a href="faq.html" data-nav="faq">FAQ</a>
         <a href="legal.html" data-nav="legal">Legal</a>
         <a href="contact.html" data-nav="contact">Contact</a>
       </div>
@@ -53,6 +61,7 @@
         <div class="foot-brand">
           <div class="mark">TGAB<span>.</span></div>
           <p>Institutional-grade access to global markets, built on regulated infrastructure and transparent pricing.</p>
+          <span class="foot-badge"><span class="dot"></span>In formation &middot; FSC Mauritius application pending</span>
         </div>
         <div>
           <h4>Trading</h4>
@@ -64,7 +73,14 @@
         <div>
           <h4>Company</h4>
           <a href="company.html">About TGAB</a>
-          <a href="company.html#structure">Group structure</a>
+          <a href="security.html">Security &amp; trust</a>
+          <a href="careers.html">Careers</a>
+          <a href="insights.html">Insights</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="faq.html">FAQ</a>
+          <a href="support.html">Help centre</a>
           <a href="contact.html">Contact</a>
         </div>
         <div>
@@ -73,11 +89,21 @@
           <a href="legal.html#risk">Risk disclosure</a>
           <a href="legal.html#terms">Terms of use</a>
           <a href="legal.html#privacy">Privacy</a>
+          <a href="legal.html#complaints">Complaints</a>
         </div>
       </div>
       <div class="legalese">
-        <p><b>Company in formation.</b> The Global Assets Broker ("TGAB") is being established under a group structure comprising a licensed Mauritius broking entity and affiliated companies. An application for an Investment Dealer (Full Service Dealer, excluding Underwriting) licence has been made to the Financial Services Commission, Mauritius. TGAB does not offer, solicit, or provide any investment services or accept clients until all required licences and approvals have been granted. Nothing on this website constitutes an offer, solicitation, or recommendation.</p>
+        <p><b>Company in formation.</b> The Global Assets Broker ("TGAB") is being established under a group structure comprising a licensed Mauritius broking entity and affiliated companies. An application for an Investment Dealer (Full Service Dealer, excluding Underwriting) licence has been made to the Financial Services Commission, Mauritius (licence number to be confirmed upon approval). TGAB does not offer, solicit, or provide any investment services or accept clients until all required licences and approvals have been granted. Nothing on this website constitutes an offer, solicitation, or recommendation. Details of any applicable investor-compensation or protection scheme will be published once confirmed by the regulator.</p>
         <p><b>Risk warning.</b> Trading in equities, options, and other financial instruments involves significant risk and can result in the loss of your entire invested capital. Options are complex instruments and are not suitable for all investors. Past performance is not a reliable indicator of future results. Market data shown on this site may be delayed or indicative and must not be relied upon for trading decisions.</p>
+      </div>
+      <div class="foot-utility">
+        <a href="sitemap.html">Sitemap</a>
+        <span class="sep">/</span>
+        <a href="cookies.html">Cookie policy</a>
+        <span class="sep">/</span>
+        <a href="accessibility.html">Accessibility</a>
+        <span class="sep">/</span>
+        <span class="tape-note" style="position:static;background:none;padding:0;color:var(--mut-2)">System status — published at launch</span>
       </div>
       <div class="foot-meta">
         <span>© ${year} The Global Assets Broker</span>
@@ -85,6 +111,11 @@
       </div>
     </div>`;
   document.body.append(footer);
+
+  /* ---------- trading platform name (single source in config.js) ---------- */
+  document.querySelectorAll("[data-platform-name]").forEach((el) => {
+    el.textContent = C.TRADING_PLATFORM_NAME || "our trading platform";
+  });
 
   /* ---------- quotes: Finnhub with fallback ---------- */
   const SYMBOLS = C.SYMBOLS || ["SPY","QQQ","AAPL","MSFT","NVDA"];
@@ -186,5 +217,98 @@
       });
     }, { threshold: 0.12 });
     rvs.forEach((el) => io.observe(el));
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll(".faq-q").forEach((btn) => {
+    const ans = document.getElementById(btn.getAttribute("aria-controls"));
+    if (!ans) return;
+    btn.addEventListener("click", () => {
+      const open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      ans.style.maxHeight = open ? null : ans.scrollHeight + "px";
+    });
+  });
+
+  /* ---------- FAQ category filter (optional, present only on faq.html) ---------- */
+  const faqCats = document.querySelector(".faq-cats");
+  if (faqCats) {
+    const buttons = faqCats.querySelectorAll("button");
+    const items = document.querySelectorAll(".faq-item");
+    buttons.forEach((b) => b.addEventListener("click", () => {
+      buttons.forEach((x) => x.classList.remove("active"));
+      b.classList.add("active");
+      const cat = b.dataset.cat;
+      items.forEach((it) => {
+        const show = cat === "all" || it.dataset.cat === cat;
+        it.style.display = show ? "" : "none";
+      });
+    }));
+  }
+
+  /* ---------- scroll progress bar ---------- */
+  const bar = document.querySelector(".scroll-progress");
+  if (bar) {
+    const setBar = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    };
+    document.addEventListener("scroll", setBar, { passive: true });
+    setBar();
+  }
+
+  /* ---------- pointer-driven micro-interactions (skipped under reduced motion) ---------- */
+  if (!reduced) {
+    /* cursor-follow spotlight on cards / market-access cells */
+    document.querySelectorAll(".card, .mcell").forEach((el) => {
+      el.addEventListener("mousemove", (e) => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", e.clientX - r.left + "px");
+        el.style.setProperty("--my", e.clientY - r.top + "px");
+      });
+    });
+
+    /* magnetic pull — reserved for 1-2 focal elements per page */
+    document.querySelectorAll("[data-magnetic]").forEach((el) => {
+      el.addEventListener("mousemove", (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * 0.25;
+        const y = (e.clientY - r.top - r.height / 2) * 0.25;
+        el.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      el.addEventListener("mouseleave", () => { el.style.transform = ""; });
+    });
+
+    /* hero tilt panel — subtle 3D pointer tilt, disabled on touch */
+    const tilt = document.querySelector(".tilt-card");
+    if (tilt && window.matchMedia("(hover: hover)").matches) {
+      const stage = tilt.closest(".hero") || tilt.parentElement;
+      stage.addEventListener("mousemove", (e) => {
+        const r = stage.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        tilt.style.transform = `rotateY(${px * 8}deg) rotateX(${-py * 8}deg)`;
+      });
+      stage.addEventListener("mouseleave", () => { tilt.style.transform = ""; });
+    }
+
+    /* parallax on decorative background layers only */
+    const parallaxEls = document.querySelectorAll("[data-parallax]");
+    if (parallaxEls.length) {
+      let ticking = false;
+      window.addEventListener("scroll", () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          parallaxEls.forEach((el) => {
+            const speed = parseFloat(el.dataset.parallax) || 0.12;
+            el.style.transform = `translateY(${y * speed}px)`;
+          });
+          ticking = false;
+        });
+      }, { passive: true });
+    }
   }
 })();

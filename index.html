@@ -7,7 +7,7 @@
 <meta name="description" content="TGAB is a multi-asset brokerage delivering institutional-grade access to US equities, options, and global markets, built on regulated infrastructure and transparent pricing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Red+Hat+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body data-page="home">
@@ -18,25 +18,58 @@
   <section class="hero">
     <div class="fx-stage" aria-hidden="true">
       <div class="gridlines"></div>
-      <div class="aurora a1"></div>
-      <div class="aurora a2"></div>
-      <div class="aurora a3"></div>
+      <div class="aurora a1" data-parallax="0.06"></div>
+      <div class="aurora a2" data-parallax="0.1"></div>
+      <div class="aurora a3" data-parallax="0.04"></div>
     </div>
     <canvas id="globe" width="600" height="600" aria-hidden="true"></canvas>
     <div class="hero-inner">
       <span class="eyebrow">01 / Multi-asset brokerage · In formation</span>
-      <h1>Global markets, engineered for <span class="it">capital</span> that moves.</h1>
-      <p class="lead">TGAB is building a full-service brokerage for serious traders — US equities and listed options at launch, cleared through institutional infrastructure, with a multi-asset roadmap behind it.</p>
+      <h1>Global markets. <span class="it">Institutional</span> access.</h1>
+      <p class="lead">A multi-asset brokerage built on regulated infrastructure, transparent pricing, and institutional-grade execution.</p>
       <div class="hero-cta">
-        <a class="btn btn-amber btn-lg" href="#" data-cta="signup">Open account</a>
+        <a class="btn btn-amber btn-lg" href="#" data-cta="signup" data-magnetic>Open account</a>
         <a class="btn btn-ghost btn-lg" href="markets.html">Explore markets</a>
+      </div>
+    </div>
+    <div class="hero-device" aria-hidden="true">
+      <div class="device-glow"></div>
+      <span class="device-badge badge-a rv">Real-time data</span>
+      <span class="device-badge badge-b rv"><span data-platform-name>cTrader</span></span>
+      <div class="phone-float">
+        <div class="phone tilt-card" id="heroPhone">
+          <div class="phone-screen">
+            <div class="phone-brand"><span class="mark">TGAB<span>.</span></span></div>
+            <div class="phone-equity">
+              <span class="eq-label">Account equity</span>
+              <div class="eq-figure">$248,310.55</div>
+              <div class="eq-pl up">+$4,182.20 (+1.71%)</div>
+            </div>
+            <svg class="phone-chart" viewBox="0 0 220 40" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartFillGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--gold)" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="chart-fill" d="M0,32 L18,27 L36,29 L54,20 L72,23 L90,13 L108,17 L126,8 L144,12 L162,4 L180,9 L198,4 L220,6 L220,40 L0,40 Z"/>
+              <path class="chart-line" d="M0,32 L18,27 L36,29 L54,20 L72,23 L90,13 L108,17 L126,8 L144,12 L162,4 L180,9 L198,4 L220,6"/>
+            </svg>
+            <div class="phone-positions">
+              <div class="pos-row"><span class="pos-sym">SPY</span><span class="pos-qty">120 sh</span><span class="pos-pl up">+$212.40</span></div>
+              <div class="pos-row"><span class="pos-sym">AAPL</span><span class="pos-qty">60 sh</span><span class="pos-pl down">−$84.10</span></div>
+              <div class="pos-row"><span class="pos-sym">NVDA</span><span class="pos-qty">25 sh</span><span class="pos-pl up">+$156.90</span></div>
+            </div>
+            <span class="btn btn-ghost phone-view-btn">View portfolio</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="stats">
       <div class="stats-grid">
-        <div class="stat rv"><div class="v">US<span>+</span></div><div class="k">Equities &amp; options at launch</div></div>
-        <div class="stat rv"><div class="v"><span class="count" data-count="9">0</span></div><div class="k">Asset classes on the roadmap</div></div>
-        <div class="stat rv"><div class="v">Velocity</div><div class="k">Institutional clearing</div></div>
+        <div class="stat rv"><div class="v">From $0.003</div><div class="k">Per share, equities</div></div>
+        <div class="stat rv"><div class="v">From $0.50</div><div class="k">Per contract, options</div></div>
+        <div class="stat rv"><div class="v">Free</div><div class="k">Account opening, no minimum</div></div>
         <div class="stat rv"><div class="v"><span class="count" data-count="24">0</span><span>/</span>5</div><div class="k">Client coverage</div></div>
       </div>
     </div>
@@ -72,15 +105,15 @@
         </div>
       </div>
       <div class="mgrid rv">
-        <div class="mcell"><span class="tag live">At launch</span><span class="num">EQ</span><h3>US Equities</h3><p>NYSE, Nasdaq and major US venues, cleared through Velocity Clearing.</p></div>
-        <div class="mcell"><span class="tag live">At launch</span><span class="num">OPT</span><h3>Listed Options</h3><p>Single-leg and multi-leg strategies on US-listed underlyings.</p></div>
-        <div class="mcell"><span class="tag live">At launch</span><span class="num">ETF</span><h3>ETFs</h3><p>Index, sector, and thematic exposure through US-listed funds.</p></div>
-        <div class="mcell"><span class="tag">Roadmap</span><span class="num">FUT</span><h3>Futures</h3><p>Index, rates, and commodity futures on major global exchanges.</p></div>
-        <div class="mcell"><span class="tag">Roadmap</span><span class="num">FX</span><h3>Foreign Exchange</h3><p>Majors, minors, and EM crosses with institutional liquidity.</p></div>
-        <div class="mcell"><span class="tag">Roadmap</span><span class="num">MTL</span><h3>Metals &amp; Commodities</h3><p>Precious metals and key commodity markets.</p></div>
-        <div class="mcell"><span class="tag">Roadmap</span><span class="num">IDX</span><h3>Indices</h3><p>Broad-market index exposure across global sessions.</p></div>
-        <div class="mcell"><span class="tag">Roadmap</span><span class="num">FI</span><h3>Fixed Income</h3><p>Government and corporate debt for yield-focused portfolios.</p></div>
-        <div class="mcell"><span class="tag">Roadmap</span><span class="num">DA</span><h3>Digital Assets</h3><p>Regulated digital-asset access, subject to applicable approvals.</p></div>
+        <div class="mcell big"><span class="num">EQ</span><div class="mcell-head"><h3>US Equities</h3><span class="tag live">At launch</span></div><p>NYSE, Nasdaq and major US venues, cleared through regulated institutional infrastructure.</p></div>
+        <div class="mcell big"><span class="num">OPT</span><div class="mcell-head"><h3>Listed Options</h3><span class="tag live">At launch</span></div><p>Single-leg and multi-leg strategies on US-listed underlyings.</p></div>
+        <div class="mcell big"><span class="num">ETF</span><div class="mcell-head"><h3>ETFs</h3><span class="tag live">At launch</span></div><p>Index, sector, and thematic exposure through US-listed funds.</p></div>
+        <div class="mcell"><span class="num">FUT</span><div class="mcell-head"><h3>Futures</h3><span class="tag">Roadmap</span></div><p>Index, rates, and commodity futures on major global exchanges.</p></div>
+        <div class="mcell"><span class="num">FX</span><div class="mcell-head"><h3>Foreign Exchange</h3><span class="tag">Roadmap</span></div><p>Majors, minors, and EM crosses with institutional liquidity.</p></div>
+        <div class="mcell"><span class="num">MTL</span><div class="mcell-head"><h3>Metals &amp; Commodities</h3><span class="tag">Roadmap</span></div><p>Precious metals and key commodity markets.</p></div>
+        <div class="mcell"><span class="num">IDX</span><div class="mcell-head"><h3>Indices</h3><span class="tag">Roadmap</span></div><p>Broad-market index exposure across global sessions.</p></div>
+        <div class="mcell"><span class="num">FI</span><div class="mcell-head"><h3>Fixed Income</h3><span class="tag">Roadmap</span></div><p>Government and corporate debt for yield-focused portfolios.</p></div>
+        <div class="mcell"><span class="num">DA</span><div class="mcell-head"><h3>Digital Assets</h3><span class="tag">Roadmap</span></div><p>Regulated digital-asset access, subject to applicable approvals.</p></div>
       </div>
     </div>
   </section>
@@ -94,20 +127,39 @@
           <h2>Institutional <span class="it">plumbing,</span> not retail shortcuts.</h2>
           <p class="sub">Every layer of the stack — clearing, custody, execution, onboarding — is chosen for durability and auditability, the way an institution would build it.</p>
           <ul class="checks">
-            <li>Clearing and custody through Velocity Clearing LLC for US equities and options</li>
+            <li>Clearing and custody through regulated institutional clearing partners for US equities and options</li>
             <li>Regulated group structure anchored by a Mauritius FSC Investment Dealer licence (application in progress)</li>
             <li>Bank-grade KYC / AML onboarding before a single order is accepted</li>
             <li>Segregation of client assets in line with applicable regulatory requirements</li>
           </ul>
         </div>
-        <div class="panel-art rv" aria-hidden="true">
-          <div class="row"><span>CLEARING &amp; CUSTODY</span><b>Velocity Clearing LLC</b></div>
+        <div class="panel-art rv glow-edge" aria-hidden="true">
+          <div class="row"><span>CLEARING &amp; CUSTODY</span><b>Institutional clearing partners</b></div>
           <div class="row"><span>LICENCE (IN APPLICATION)</span><b>Investment Dealer — FSC Mauritius</b></div>
-          <div class="row"><span>EXECUTION</span><b>US listed venues</b></div>
+          <div class="row"><span>EXECUTION</span><b data-platform-name>cTrader</b></div>
           <div class="row"><span>ONBOARDING</span><b>Full KYC / AML</b></div>
-          <div class="row"><span>CLIENT PORTAL</span><b>Institutional white-label</b></div>
+          <div class="row"><span>CLIENT PORTAL</span><b>Regulated client portal</b></div>
           <div class="row"><span>DATA</span><b>Real-time &amp; historical feeds</b></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="block">
+    <div class="wrap">
+      <div class="head-row rv">
+        <div>
+          <span class="eyebrow">05 / How it works</span>
+          <h2>From registration to your <span class="it">first</span> trade.</h2>
+        </div>
+        <a class="btn btn-ghost" href="support.html">Full walkthrough →</a>
+      </div>
+      <div class="steps rv">
+        <div class="step"><h3>Register interest</h3><p>Use "Open account" now to be prioritised for onboarding once TGAB is licensed and live.</p></div>
+        <div class="step"><h3>Verify &amp; open</h3><p>Complete digital KYC/AML in the TGAB client portal.</p></div>
+        <div class="step"><h3>Fund your account</h3><p>Deposit through the client portal, held per TGAB's segregation policy.</p></div>
+        <div class="step"><h3>Trade launch markets</h3><p>Access US equities, options, and ETFs, with more asset classes as the roadmap opens.</p></div>
       </div>
     </div>
   </section>
@@ -117,7 +169,7 @@
     <div class="wrap">
       <div class="head-row rv">
         <div>
-          <span class="eyebrow">05 / Why TGAB</span>
+          <span class="eyebrow">06 / Why TGAB</span>
           <h2>What we hold <span class="it">ourselves</span> to.</h2>
         </div>
       </div>
@@ -132,13 +184,13 @@
 
   <!-- CTA -->
   <section class="cta-band">
-    <div class="fx-stage" aria-hidden="true"><div class="aurora a1" style="left:30%;top:10%"></div><div class="aurora a2" style="left:55%;top:30%"></div></div>
+    <div class="fx-stage" aria-hidden="true"><div class="aurora a1" style="left:30%;top:10%" data-parallax="0.05"></div><div class="aurora a2" style="left:55%;top:30%" data-parallax="0.08"></div></div>
     <div class="wrap rv">
-      <span class="eyebrow">06 / Get in early</span>
-      <h2>Be first through the <span class="it">door.</span></h2>
+      <span class="eyebrow">07 / Get in early</span>
+      <h2>Be first through the <span class="it grad-text">door.</span></h2>
       <p>Register your interest now and get priority onboarding when TGAB goes live.</p>
       <div class="hero-cta">
-        <a class="btn btn-amber btn-lg" href="#" data-cta="signup">Open account</a>
+        <a class="btn btn-amber btn-lg" href="#" data-cta="signup" data-magnetic>Open account</a>
         <a class="btn btn-ghost btn-lg" href="contact.html">Talk to us</a>
       </div>
     </div>
