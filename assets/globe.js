@@ -39,7 +39,7 @@
     ctx.scale(1, 0.28);
     ctx.beginPath();
     ctx.arc(0, 0, R * 1.28, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(212,178,106,.14)";
+    ctx.strokeStyle = "rgba(110,155,199,.14)";
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.restore();
@@ -54,7 +54,7 @@
       const s = (0.6 + depth * 1.1) * (1 / (1.9 - z * 0.7));
       ctx.beginPath();
       ctx.arc(sx, sy, s, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(212,178,106,${a})`;
+      ctx.fillStyle = `rgba(110,155,199,${a})`;
       ctx.fill();
     }
     rot += 0.0016; t += 0.016;

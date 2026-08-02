@@ -7,7 +7,7 @@
 window.TGAB_CONFIG = {
   FINNHUB_KEY: "",
 
-  // B2Core (or other white-label) portal endpoints.
+  // Client portal endpoints (login / registration).
   // Replace once your portal subdomain is live.
   LOGIN_URL: "https://portal.tgab.com/login",
   SIGNUP_URL: "https://portal.tgab.com/register",
@@ -15,5 +15,11 @@ window.TGAB_CONFIG = {
   // Symbols shown in the tape and the live markets panel.
   SYMBOLS: ["SPY","QQQ","AAPL","MSFT","NVDA","TSLA","AMZN","META","GOOGL","AMD"],
 
-  CONTACT_EMAIL: "hello@tgab.com"
+  CONTACT_EMAIL: "hello@tgab.com",
+
+  // Name of the third-party licensed trading platform TGAB will run on
+  // (TGAB integrates a third-party platform rather than building its own).
+  // Candidates under evaluation: cTrader / MT5 / DXtrade — not finalized.
+  // Change it here only; every page pulls this value via [data-platform-name].
+  TRADING_PLATFORM_NAME: "cTrader"
 };
