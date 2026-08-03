@@ -9,6 +9,7 @@
   const DPR = Math.min(window.devicePixelRatio || 1, 2);
   const GLOW = "rgba(110,155,199,1)";
   const UP = "87,200,143"; /* --up, as r,g,b */
+  const STREAK_GREEN = "46,235,122"; /* brighter, more saturated green for the activity streaks */
 
   let W, H, R;
   function size() {
@@ -79,11 +80,11 @@
       const t2 = tailT + (headT - tailT) * ((i + 1) / steps);
       const p1 = bez(s, t1), p2 = bez(s, t2);
       const localP = i / steps;
-      const alpha = 0.45 * localP * localP;
+      const alpha = 0.7 * localP * localP;
       ctx.beginPath();
       ctx.moveTo(p1.x, p1.y);
       ctx.lineTo(p2.x, p2.y);
-      ctx.strokeStyle = `rgba(${UP},${alpha})`;
+      ctx.strokeStyle = `rgba(${STREAK_GREEN},${alpha})`;
       ctx.lineWidth = 1.1;
       ctx.stroke();
     }
@@ -97,15 +98,15 @@
     const pulse = 0.7 + 0.3 * Math.sin(now / 220);
     ctx.beginPath();
     ctx.arc(head.x, head.y, 2.1 * pulse, 0, Math.PI * 2);
-    ctx.shadowColor = `rgba(${UP},1)`;
-    ctx.shadowBlur = 10 * pulse;
-    ctx.fillStyle = `rgba(${UP},${(labelAlpha).toFixed(3)})`;
+    ctx.shadowColor = `rgba(${STREAK_GREEN},1)`;
+    ctx.shadowBlur = 15 * pulse;
+    ctx.fillStyle = `rgba(${STREAK_GREEN},${(labelAlpha).toFixed(3)})`;
     ctx.fill();
     ctx.shadowBlur = 0;
 
     ctx.font = "500 11px Inter, system-ui, sans-serif";
     ctx.textBaseline = "middle";
-    ctx.fillStyle = `rgba(${UP},${(labelAlpha * 0.85).toFixed(3)})`;
+    ctx.fillStyle = `rgba(${STREAK_GREEN},${(labelAlpha * 0.95).toFixed(3)})`;
     ctx.fillText(s.label, head.x + 11, head.y - 8);
   }
   let streaks = [];
