@@ -66,7 +66,7 @@
       x1, y1, x2, y2, mx, my,
       label: randomLabel(),
       start: now,
-      duration: 2500 + Math.random() * 500,
+      duration: 5000 + Math.random() * 1000,
     };
   }
   function drawStreak(s, now) {
@@ -159,7 +159,7 @@
       streaks = streaks.filter((s) => now - s.start < s.duration);
       if (streaks.length < 2 && now >= nextSpawnAt) {
         streaks.push(spawnStreak(cx, cy, now));
-        nextSpawnAt = now + 3000 + Math.random() * 2000;
+        nextSpawnAt = now + 6000 + Math.random() * 2000;
       }
       for (const s of streaks) drawStreak(s, now);
     }
