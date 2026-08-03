@@ -35,12 +35,12 @@
   const TICKERS = ["AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "META", "GOOGL", "AMD", "SPY", "QQQ"];
   function randomLabel() {
     if (Math.random() < 0.5) {
-      const amt = Math.floor(80 + Math.random() * 24000);
+      const amt = Math.floor(800 + Math.random() * 240000);
       return "+$" + amt.toLocaleString("en-US");
     }
     const ticker = TICKERS[Math.floor(Math.random() * TICKERS.length)];
     const isContract = Math.random() < 0.35;
-    const qty = isContract ? Math.floor(1 + Math.random() * 40) : Math.floor(10 + Math.random() * 480);
+    const qty = isContract ? Math.floor(10 + Math.random() * 400) : Math.floor(100 + Math.random() * 4800);
     const unit = isContract ? (qty === 1 ? "contract" : "contracts") : "shares";
     return `Filled ${qty} ${unit} ${ticker}`;
   }
