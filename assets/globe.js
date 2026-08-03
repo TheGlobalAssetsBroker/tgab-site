@@ -1,4 +1,6 @@
-/* Refined dot-sphere: steel-blue glowing points, revolving glow ring, slow drift. */
+/* Refined dot-sphere: steel-blue glowing points, revolving glow ring, slow drift,
+   plus an ambient "live activity" layer — faint green streaks with sample
+   fill/P&L labels arcing near the globe. Purely decorative/illustrative. */
 (function () {
   const cv = document.getElementById("globe");
   if (!cv) return;
@@ -6,6 +8,7 @@
   const ctx = cv.getContext("2d");
   const DPR = Math.min(window.devicePixelRatio || 1, 2);
   const GLOW = "rgba(110,155,199,1)";
+  const UP = "87,200,143"; /* --up, as r,g,b */
 
   let W, H, R;
   function size() {
@@ -26,6 +29,87 @@
     const th = GA * i;
     pts.push({ x: Math.cos(th) * r, y, z: Math.sin(th) * r, tw: Math.random() * Math.PI * 2 });
   }
+
+  /* ---------- ambient activity streaks ---------- */
+  const TICKERS = ["AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "META", "GOOGL", "AMD", "SPY", "QQQ"];
+  function randomLabel() {
+    if (Math.random() < 0.5) {
+      const amt = Math.floor(80 + Math.random() * 24000);
+      return "+$" + amt.toLocaleString("en-US");
+    }
+    const ticker = TICKERS[Math.floor(Math.random() * TICKERS.length)];
+    const isContract = Math.random() < 0.35;
+    const qty = isContract ? Math.floor(1 + Math.random() * 40) : Math.floor(10 + Math.random() * 480);
+    const unit = isContract ? (qty === 1 ? "contract" : "contracts") : "shares";
+    return `Filled ${qty} ${unit} ${ticker}`;
+  }
+  function bez(s, t) {
+    const mt = 1 - t;
+    return {
+      x: mt * mt * s.x1 + 2 * mt * t * s.mx + t * t * s.x2,
+      y: mt * mt * s.y1 + 2 * mt * t * s.my + t * t * s.y2,
+    };
+  }
+  function spawnStreak(cx, cy, now) {
+    const angle = Math.random() * Math.PI * 2;
+    const dx = Math.cos(angle), dy = Math.sin(angle);
+    const perpAngle = angle + Math.PI / 2;
+    const offset = (Math.random() - 0.5) * R * 2.1;
+    const px = cx + Math.cos(perpAngle) * offset;
+    const py = cy + Math.sin(perpAngle) * offset;
+    const halfLen = Math.max(W, H) * 0.7;
+    const x1 = px - dx * halfLen, y1 = py - dy * halfLen;
+    const x2 = px + dx * halfLen, y2 = py + dy * halfLen;
+    const bow = (Math.random() - 0.5) * R * 0.7;
+    const mx = (x1 + x2) / 2 - dy * bow, my = (y1 + y2) / 2 + dx * bow;
+    return {
+      x1, y1, x2, y2, mx, my,
+      label: randomLabel(),
+      start: now,
+      duration: 2500 + Math.random() * 500,
+    };
+  }
+  function drawStreak(s, now) {
+    const t = (now - s.start) / s.duration;
+    if (t <= 0 || t >= 1) return;
+    const headT = t, tailT = Math.max(0, t - 0.3);
+    const steps = 12;
+    for (let i = 0; i < steps; i++) {
+      const t1 = tailT + (headT - tailT) * (i / steps);
+      const t2 = tailT + (headT - tailT) * ((i + 1) / steps);
+      const p1 = bez(s, t1), p2 = bez(s, t2);
+      const localP = i / steps;
+      const alpha = 0.45 * localP * localP;
+      ctx.beginPath();
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.strokeStyle = `rgba(${UP},${alpha})`;
+      ctx.lineWidth = 1.1;
+      ctx.stroke();
+    }
+    let labelAlpha;
+    if (t < 0.22) labelAlpha = t / 0.22;
+    else if (t > 0.78) labelAlpha = (1 - t) / 0.22;
+    else labelAlpha = 1;
+    const head = bez(s, headT);
+
+    /* comet head: glowing dot with its own independent pulse */
+    const pulse = 0.7 + 0.3 * Math.sin(now / 220);
+    ctx.beginPath();
+    ctx.arc(head.x, head.y, 2.1 * pulse, 0, Math.PI * 2);
+    ctx.shadowColor = `rgba(${UP},1)`;
+    ctx.shadowBlur = 10 * pulse;
+    ctx.fillStyle = `rgba(${UP},${(labelAlpha).toFixed(3)})`;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    ctx.font = "500 11px Inter, system-ui, sans-serif";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = `rgba(${UP},${(labelAlpha * 0.85).toFixed(3)})`;
+    ctx.fillText(s.label, head.x + 11, head.y - 8);
+  }
+  let streaks = [];
+  let nextSpawnAt = performance.now() + 900 + Math.random() * 1400;
 
   let rot = 0, t = 0, ringAngle = -0.42;
   function draw() {
@@ -69,6 +153,16 @@
       ctx.fill();
     }
     ctx.shadowBlur = 0;
+
+    if (!reduced) {
+      const now = performance.now();
+      streaks = streaks.filter((s) => now - s.start < s.duration);
+      if (streaks.length < 2 && now >= nextSpawnAt) {
+        streaks.push(spawnStreak(cx, cy, now));
+        nextSpawnAt = now + 3000 + Math.random() * 2000;
+      }
+      for (const s of streaks) drawStreak(s, now);
+    }
 
     rot += 0.0016; t += 0.016; ringAngle += 0.0022;
     if (!reduced) requestAnimationFrame(draw);
