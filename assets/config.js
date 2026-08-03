@@ -15,7 +15,7 @@ window.TGAB_CONFIG = {
   // Symbols shown in the tape and the live markets panel.
   SYMBOLS: ["SPY","QQQ","AAPL","MSFT","NVDA","TSLA","AMZN","META","GOOGL","AMD"],
 
-  CONTACT_EMAIL: "hello@tgab.com",
+  CONTACT_EMAIL: "accounts@tgab.net",
 
   // Name of the third-party licensed trading platform TGAB will run on
   // (TGAB integrates a third-party platform rather than building its own).

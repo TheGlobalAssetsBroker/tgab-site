@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Interest — TGAB | Be first through the door</title>
+<meta name="description" content="Register your interest in a TGAB account. We'll be in touch by email to complete onboarding once TGAB is licensed and live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="register">
+
+<main>
+  <section class="page-hero">
+    <div class="fx-stage" aria-hidden="true"><div class="gridlines"></div><div class="aurora a2" style="left:60%;top:-30%" data-parallax="0.08"></div></div>
+    <div class="wrap rv">
+      <span class="eyebrow">01 / Register interest</span>
+      <h1>Be first through the <span class="it">door.</span></h1>
+      <p>TGAB is in formation and not yet accepting clients or client money. Register now and we'll keep you informed as we move toward launch.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="form-card rv">
+        <form id="registerForm" novalidate>
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="company_website">Leave this field blank</label>
+            <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-row">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" name="fullName" required autocomplete="name">
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <div class="form-row">
+            <label for="country">Country of residence</label>
+            <input type="text" id="country" name="country" required autocomplete="country-name" placeholder="e.g. United Kingdom">
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone number <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+
+          <div class="form-row">
+            <label for="tier">Which account are you interested in?</label>
+            <select id="tier" name="tier">
+              <option value="core">Core</option>
+              <option value="prime">Prime</option>
+              <option value="unsure" selected>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="heard">How did you hear about TGAB? <span class="optional">(optional)</span></label>
+            <select id="heard" name="heard">
+              <option value="" selected>Prefer not to say</option>
+              <option value="search">Search</option>
+              <option value="social">Social media</option>
+              <option value="referral">Referral</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <p class="form-note">We'll be in touch by email to complete onboarding once TGAB is licensed and live. We never ask for payments, deposits, or credentials by email.</p>
+
+          <button type="submit" class="btn btn-amber btn-lg" id="submitBtn">Register interest</button>
+          <div class="form-error" id="formError" role="alert" hidden></div>
+        </form>
+
+        <div class="form-success" id="formSuccess" hidden>
+          <h2>Thanks — <span class="it">received.</span></h2>
+          <p>We've received your details and will be in touch via email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  const form = document.getElementById("registerForm");
+  const success = document.getElementById("formSuccess");
+  const errorBox = document.getElementById("formError");
+  const btn = document.getElementById("submitBtn");
+  const tierSelect = document.getElementById("tier");
+
+  const params = new URLSearchParams(window.location.search);
+  const tierParam = (params.get("tier") || "").toLowerCase();
+  if (tierSelect && (tierParam === "core" || tierParam === "prime")) {
+    tierSelect.value = tierParam;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorBox.hidden = true;
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    if (!data.fullName?.trim() || !data.email?.trim() || !data.country?.trim()) {
+      errorBox.textContent = "Please fill in your name, email, and country — these are required.";
+      errorBox.hidden = false;
+      return;
+    }
+
+    const originalLabel = btn.textContent;
+    btn.classList.add("is-loading");
+    btn.disabled = true;
+    btn.textContent = "Submitting…";
+
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      let result = {};
+      try { result = await res.json(); } catch (_) {}
+
+      if (!res.ok || !result.ok) {
+        throw new Error(result.error || "Something went wrong. Please try again.");
+      }
+
+      form.hidden = true;
+      success.hidden = false;
+    } catch (err) {
+      errorBox.textContent = err.message || "Something went wrong. Please try again, or email accounts@tgab.net directly.";
+      errorBox.hidden = false;
+      btn.classList.remove("is-loading");
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    }
+  });
+})();
+</script>
+</body>
+</html>

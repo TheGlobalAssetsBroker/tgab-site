@@ -91,7 +91,7 @@
             <li>Standard support, 1–2 business day response</li>
           </ul>
           <p class="tier-why">Why Core: <b>you're getting started</b> and want full market access without extra complexity.</p>
-          <a class="btn btn-ghost" href="#" data-cta="signup">Open account</a>
+          <a class="btn btn-ghost" href="#" data-cta="signup" data-tier="core">Open account</a>
         </div>
         <div class="tier-card featured">
           <span class="tier-badge">Priority tier</span>
@@ -104,7 +104,7 @@
             <li>Dedicated onboarding assistance for account setup</li>
           </ul>
           <p class="tier-why">Why Prime: <b>you trade frequently</b> and want priority service as you scale.</p>
-          <a class="btn btn-amber" href="#" data-cta="signup">Open account</a>
+          <a class="btn btn-amber" href="#" data-cta="signup" data-tier="prime">Open account</a>
         </div>
       </div>
       <p class="sub rv" style="margin-top:28px;font-size:.82rem">Both tiers trade the same launch markets under the same regulatory structure — the difference is service priority, not market access. Final tier terms will be confirmed at launch.</p>
@@ -245,9 +245,5 @@
 <script src="assets/config.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/globe.js"></script>
-<script>
-  // Point hero/CTA signup buttons at the configured portal URL
-  document.querySelectorAll('[data-cta="signup"]').forEach(a => a.href = (window.TGAB_CONFIG||{}).SIGNUP_URL || "#");
-</script>
 </body>
 </html>

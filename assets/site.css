@@ -649,3 +649,29 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
   .tier-card,.tier-card.featured::before{transition:none}
   .tiers-grid.in .tier-card{animation:none}
 }
+
+/* ---------- register / interest form ---------- */
+.form-card{max-width:640px;margin:0 auto;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel);padding:48px 44px}
+.form-row{margin-bottom:22px}
+.form-row label{display:block;font-family:"Inter",system-ui,sans-serif;font-size:.8rem;color:var(--mut);margin-bottom:8px;letter-spacing:.01em}
+.form-row .optional{color:var(--mut-2);font-weight:300}
+.form-row input,.form-row select{
+  width:100%;padding:13px 16px;border-radius:var(--r-md);border:1px solid var(--line);
+  background:var(--bg-2);color:var(--text);font-family:"Inter",system-ui,sans-serif;font-size:.95rem;
+  transition:border-color .25s,background .25s;
+}
+.form-row select{
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23757F8E' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;
+}
+.form-row input::placeholder{color:var(--mut-2)}
+.form-row input:focus,.form-row select:focus{outline:none;border-color:var(--gold-line);background:var(--bg)}
+.form-note{font-size:.85rem;color:var(--mut);font-weight:300;margin:28px 0;line-height:1.6}
+.form-honeypot{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden}
+.form-error{margin-top:18px;padding:14px 18px;border-radius:var(--r-md);border:1px solid rgba(224,96,96,.35);background:rgba(224,96,96,.08);color:var(--down);font-size:.88rem}
+.form-success{text-align:center;padding:40px 10px}
+.form-success h2{font-size:1.9rem;margin-bottom:14px}
+.form-success p{color:var(--mut);max-width:44ch;margin:0 auto}
+.btn.is-loading{opacity:.65;pointer-events:none}
+#registerForm .btn{width:100%;text-align:center}

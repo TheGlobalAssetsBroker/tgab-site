@@ -102,9 +102,7 @@
 <script src="assets/config.js"></script>
 <script src="assets/site.js"></script>
 <script>
-  const cfg = window.TGAB_CONFIG||{};
-  document.querySelectorAll('[data-cta="signup"]').forEach(a=>a.href=cfg.SIGNUP_URL||"#");
-  document.querySelectorAll('[data-cta="login"]').forEach(a=>a.href=cfg.LOGIN_URL||"#");
+  document.querySelectorAll('[data-cta="login"]').forEach(a=>a.href=(window.TGAB_CONFIG||{}).LOGIN_URL||"#");
 </script>
 </body>
 </html>

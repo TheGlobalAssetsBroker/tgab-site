@@ -32,7 +32,7 @@
       </div>
       <div class="nav-cta">
         <a class="login" href="${C.LOGIN_URL || "#"}">Client login</a>
-        <a class="btn btn-amber" href="${C.SIGNUP_URL || "#"}">Open account</a>
+        <a class="btn btn-amber" href="register.html">Open account</a>
       </div>
       <button class="nav-burger" aria-label="Toggle menu">MENU</button>
     </nav>`;
@@ -116,6 +116,13 @@
   /* ---------- trading platform name (single source in config.js) ---------- */
   document.querySelectorAll("[data-platform-name]").forEach((el) => {
     el.textContent = C.TRADING_PLATFORM_NAME || "our trading platform";
+  });
+
+  /* ---------- "open account" / "register interest" CTAs -> register.html ---------- */
+  /* add data-tier="core"/"prime" on any CTA to deep-link the account dropdown. */
+  document.querySelectorAll('[data-cta="signup"]').forEach((el) => {
+    const tier = el.dataset.tier;
+    el.href = tier ? `register.html?tier=${encodeURIComponent(tier)}` : "register.html";
   });
 
   /* ---------- quotes: Finnhub with fallback ---------- */
