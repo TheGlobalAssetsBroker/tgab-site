@@ -54,8 +54,14 @@ export async function onRequestPost(context) {
   }
 
   const apiKey = env.RESEND_API_KEY;
+  // TEMPORARY DIAGNOSTIC — remove once the email-delivery issue is confirmed fixed.
+  // Reveals only whether the var is present and its length, never the value itself.
   if (!apiKey) {
-    return json({ ok: false, error: "Registration is temporarily unavailable. Please email accounts@tgab.net directly." }, 500);
+    return json({
+      ok: false,
+      error: "Registration is temporarily unavailable. Please email accounts@tgab.net directly.",
+      debug: "RESEND_API_KEY_MISSING",
+    }, 500);
   }
 
   const tierLabel = TIER_LABELS[data.tier] || "Not specified";
@@ -89,13 +95,23 @@ export async function onRequestPost(context) {
       }),
     });
 
+    // TEMPORARY DIAGNOSTIC — remove once the email-delivery issue is confirmed fixed.
+    const resendBodyText = await resendResp.text().catch(() => "");
     if (!resendResp.ok) {
-      return json({ ok: false, error: "We couldn't send your registration. Please try again or email accounts@tgab.net." }, 502);
+      return json({
+        ok: false,
+        error: "We couldn't send your registration. Please try again or email accounts@tgab.net.",
+        debug: { resendStatus: resendResp.status, resendBody: resendBodyText.slice(0, 500) },
+      }, 502);
     }
 
-    return json({ ok: true });
+    return json({ ok: true, debug: { resendStatus: resendResp.status, resendBody: resendBodyText.slice(0, 500) } });
   } catch (err) {
-    return json({ ok: false, error: "We couldn't send your registration. Please try again or email accounts@tgab.net." }, 500);
+    return json({
+      ok: false,
+      error: "We couldn't send your registration. Please try again or email accounts@tgab.net.",
+      debug: "FETCH_THREW: " + String(err && err.message || err),
+    }, 500);
   }
 }
 
