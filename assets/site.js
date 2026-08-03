@@ -68,6 +68,7 @@
           <a href="markets.html">Markets</a>
           <a href="platforms.html">Platforms</a>
           <a href="pricing.html">Pricing &amp; fees</a>
+          <a href="pricing-details.html">Core vs Prime</a>
           <a href="markets.html#hours">Market hours</a>
         </div>
         <div>
@@ -185,7 +186,7 @@
   }
 
   /* ---------- stagger indices for grid children ---------- */
-  document.querySelectorAll(".mgrid,.cards,.quotes").forEach((g) => {
+  document.querySelectorAll(".mgrid,.cards,.quotes,.tiers-grid").forEach((g) => {
     Array.from(g.children).forEach((c, i) => c.style.setProperty("--i", i));
   });
 
