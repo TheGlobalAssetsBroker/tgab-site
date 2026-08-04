@@ -8,6 +8,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TGAB — The Global Assets Broker">
+<meta property="og:title" content="TGAB — The Global Assets Broker | Institutional access to global markets">
+<meta property="og:description" content="TGAB is a multi-asset brokerage delivering institutional-grade access to US equities, options, and global markets, built on regulated infrastructure and transparent pricing.">
+<meta property="og:url" content="https://tgab.net/">
+<meta property="og:image" content="https://tgab.net/assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TGAB — The Global Assets Broker | Institutional access to global markets">
+<meta name="twitter:description" content="TGAB is a multi-asset brokerage delivering institutional-grade access to US equities, options, and global markets, built on regulated infrastructure and transparent pricing.">
+<meta name="twitter:image" content="https://tgab.net/assets/brand/og-image.png">
 <link rel="icon" type="image/svg+xml" href="assets/brand/tgab-favicon.svg">
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -19,8 +31,6 @@
   <section class="hero">
     <div class="fx-stage" aria-hidden="true">
       <div class="gridlines"></div>
-      <div class="aurora a1" data-parallax="0.06"></div>
-      <div class="aurora a2" data-parallax="0.1"></div>
       <div class="aurora a3" data-parallax="0.04"></div>
     </div>
     <canvas id="globe" width="600" height="600" aria-hidden="true"></canvas>
@@ -28,14 +38,14 @@
       <h1>Global markets. <span class="it">Institutional</span> access.</h1>
       <p class="lead">A multi-asset brokerage built on regulated infrastructure, transparent pricing, and institutional-grade execution.</p>
       <div class="hero-cta">
-        <a class="btn btn-amber btn-lg" href="#" data-cta="signup" data-magnetic>Open account</a>
+        <a class="btn btn-amber btn-lg" href="register.html" data-cta="signup" data-magnetic>Open account</a>
         <a class="btn btn-ghost btn-lg" href="markets.html">Explore markets</a>
       </div>
     </div>
     <div class="hero-device" aria-hidden="true">
       <div class="device-glow"></div>
       <span class="device-badge badge-a rv">Real-time data</span>
-      <span class="device-badge badge-b rv"><span data-platform-name>cTrader</span></span>
+      <span class="device-badge badge-b rv"><span data-platform-name>Pro trading platform</span></span>
       <div class="phone-float">
         <div class="phone tilt-card" id="heroPhone">
           <div class="phone-screen">
@@ -77,6 +87,16 @@
     </div>
   </section>
 
+  <!-- TRUST STRIP -->
+  <div class="trust-strip" role="note">
+    <div class="wrap">
+      <span>Regulated structure</span><span class="dot">·</span>
+      <span>Segregated client assets</span><span class="dot">·</span>
+      <span>Bank-grade KYC/AML</span><span class="dot">·</span>
+      <span>Transparent pricing</span>
+    </div>
+  </div>
+
   <!-- WORD MARQUEE -->
   <div class="word-marquee" aria-hidden="true">
     <div class="word-track" id="wordTrack"></div>
@@ -98,11 +118,11 @@
           <ul class="checks">
             <li>US equities, options &amp; ETFs from $0.003/share, $0.50/contract</li>
             <li>Free account opening, no minimum balance</li>
-            <li><span>Trade via <span data-platform-name>cTrader</span>, with funding and statements through the TGAB client portal</span></li>
+            <li><span>Trade via <span data-platform-name>an established third-party platform</span>, with funding and statements through the TGAB client portal</span></li>
             <li>Standard support, 1–2 business day response</li>
           </ul>
           <p class="tier-why">Why Core: <b>you're getting started</b> and want full market access without extra complexity.</p>
-          <a class="btn btn-ghost" href="#" data-cta="signup" data-tier="core">Open account</a>
+          <a class="btn btn-amber" href="register.html?tier=core" data-cta="signup" data-tier="core">Open account</a>
         </div>
         <div class="tier-card featured">
           <span class="tier-badge">Priority tier</span>
@@ -115,7 +135,7 @@
             <li>Dedicated onboarding assistance for account setup</li>
           </ul>
           <p class="tier-why">Why Prime: <b>you trade frequently</b> and want priority service as you scale.</p>
-          <a class="btn btn-amber" href="#" data-cta="signup" data-tier="prime">Open account</a>
+          <a class="btn btn-amber" href="register.html?tier=prime" data-cta="signup" data-tier="prime">Open account</a>
         </div>
       </div>
       <p class="sub rv" style="margin-top:28px;font-size:.82rem">Both tiers trade the same launch markets under the same regulatory structure — the difference is service priority, not market access. Final tier terms will be confirmed at launch.</p>
@@ -195,7 +215,7 @@
         <div class="panel-art rv glow-edge" aria-hidden="true">
           <div class="row"><span>CLEARING &amp; CUSTODY</span><b>Institutional clearing partners</b></div>
           <div class="row"><span>LICENCE (IN APPLICATION)</span><b>Investment Dealer</b></div>
-          <div class="row"><span>EXECUTION</span><b data-platform-name>cTrader</b></div>
+          <div class="row"><span>EXECUTION</span><b data-platform-name>Third-party institutional platform</b></div>
           <div class="row"><span>ONBOARDING</span><b>Full KYC / AML</b></div>
           <div class="row"><span>CLIENT PORTAL</span><b>Regulated client portal</b></div>
           <div class="row"><span>DATA</span><b>Real-time &amp; historical feeds</b></div>
@@ -230,7 +250,7 @@
       <h2>Be first through the <span class="it grad-text">door.</span></h2>
       <p>Register your interest now and get priority onboarding when TGAB goes live.</p>
       <div class="hero-cta">
-        <a class="btn btn-amber btn-lg" href="#" data-cta="signup" data-magnetic>Open account</a>
+        <a class="btn btn-amber btn-lg" href="register.html" data-cta="signup" data-magnetic>Open account</a>
         <a class="btn btn-ghost btn-lg" href="contact.html">Talk to us</a>
       </div>
     </div>

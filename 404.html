@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — TGAB</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/assets/brand/tgab-favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  /* standalone page — no shared chrome, so remove the fixed-header offset */
+  body{padding-top:0}
+  .nf{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 28px;position:relative;overflow:hidden}
+  .nf svg.mark{width:120px;height:120px;margin-bottom:34px;opacity:.9}
+  .nf h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:500;letter-spacing:-.03em}
+  .nf .code{font-family:"Inter",system-ui,sans-serif;font-size:.68rem;letter-spacing:.28em;color:var(--mut-2);text-transform:uppercase;margin-bottom:18px;display:block}
+  .nf p{margin:18px auto 34px;color:var(--mut);max-width:44ch;font-weight:300}
+  .nf .code b{color:var(--signal-green);font-weight:500}
+</style>
+</head>
+<body>
+
+<main class="nf">
+  <div class="fx-stage" aria-hidden="true">
+    <div class="gridlines"></div>
+    <div class="aurora a2" style="left:58%;top:-20%"></div>
+  </div>
+  <svg class="mark" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g transform="translate(44 44) scale(1.27) translate(-44 -44)">
+      <circle cx="44" cy="44" r="26" stroke="#46566E" stroke-width="1.5"/>
+      <ellipse cx="44" cy="44" rx="26" ry="10.2" stroke="#46566E" stroke-width="1" opacity="0.7"/>
+      <ellipse cx="44" cy="44" rx="10.8" ry="26" stroke="#46566E" stroke-width="1" opacity="0.7"/>
+      <circle cx="44" cy="18" r="2.2" fill="#6E9BC7"/>
+      <circle cx="66.5" cy="34" r="2.2" fill="#6E9BC7"/>
+      <circle cx="21.5" cy="54" r="2.2" fill="#6E9BC7"/>
+      <circle cx="27" cy="30" r="2" fill="#A8C8E8"/>
+      <circle cx="56" cy="59" r="2" fill="#A8C8E8"/>
+      <path d="M21.5 54 Q42 39 66.5 34" stroke="#2EEB7A" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="66.5" cy="34" r="2.9" fill="#2EEB7A"/>
+    </g>
+  </svg>
+  <span class="code"><b>404</b> — Not found</span>
+  <h1>This page went <span class="it">off</span> the grid.</h1>
+  <p>The address may have moved, or it never existed. Everything that does exist is one click away.</p>
+  <a class="btn btn-amber btn-lg" href="/">Back to TGAB</a>
+</main>
+
+</body>
+</html>

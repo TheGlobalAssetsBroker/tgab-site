@@ -20,6 +20,8 @@ window.TGAB_CONFIG = {
   // Name of the third-party licensed trading platform TGAB will run on
   // (TGAB integrates a third-party platform rather than building its own).
   // Candidates under evaluation: cTrader / MT5 / DXtrade — not finalized.
-  // Change it here only; every page pulls this value via [data-platform-name].
-  TRADING_PLATFORM_NAME: "cTrader"
+  // LEAVE EMPTY until the choice is confirmed: pages then show their own
+  // generic wording. Once set, the name is injected into every
+  // [data-platform-name] element site-wide.
+  TRADING_PLATFORM_NAME: ""
 };

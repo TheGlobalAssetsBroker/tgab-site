@@ -141,9 +141,12 @@
   document.body.append(footer);
 
   /* ---------- trading platform name (single source in config.js) ---------- */
-  document.querySelectorAll("[data-platform-name]").forEach((el) => {
-    el.textContent = C.TRADING_PLATFORM_NAME || "our trading platform";
-  });
+  /* only overwrite the authored generic wording once a platform is confirmed */
+  if (C.TRADING_PLATFORM_NAME) {
+    document.querySelectorAll("[data-platform-name]").forEach((el) => {
+      el.textContent = C.TRADING_PLATFORM_NAME;
+    });
+  }
 
   /* ---------- "open account" / "register interest" CTAs -> register.html ---------- */
   /* add data-tier="core"/"prime" on any CTA to deep-link the account dropdown. */
@@ -188,6 +191,21 @@
     }).join("");
   }
 
+  /* shimmer placeholders so slow connections never see empty cells */
+  function renderSkeletons() {
+    const track = document.getElementById("tapeTrack");
+    if (track) {
+      const item = `<span class="tape-item"><span class="skel" style="width:38px;height:10px"></span><span class="skel" style="width:52px;height:10px"></span></span>`;
+      track.innerHTML = item.repeat(10) + item.repeat(10);
+    }
+    const panel = document.getElementById("quotesPanel");
+    if (panel) {
+      panel.innerHTML = SYMBOLS.map(() =>
+        `<div class="q"><div class="skel" style="width:42px;height:10px"></div><div class="skel" style="width:74px;height:20px;margin-top:12px"></div><div class="skel" style="width:52px;height:10px;margin-top:8px"></div></div>`
+      ).join("");
+    }
+  }
+
   async function loadQuotes() {
     if (!C.FINNHUB_KEY) {
       renderTape(FALLBACK, "Indicative");
@@ -208,6 +226,7 @@
       renderPanel(FALLBACK);
     }
   }
+  if (C.FINNHUB_KEY) renderSkeletons(); /* real fetch pending — show shimmer */
   loadQuotes();
   if (C.FINNHUB_KEY) setInterval(loadQuotes, 60000);
 

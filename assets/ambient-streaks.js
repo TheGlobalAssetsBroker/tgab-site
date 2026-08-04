@@ -9,10 +9,13 @@
 
   const cv = document.createElement("canvas");
   cv.setAttribute("aria-hidden", "true");
-  cv.style.cssText = "position:fixed;inset:0;z-index:-1;pointer-events:none";
+  /* translateZ keeps the canvas on its own compositor layer */
+  cv.style.cssText = "position:fixed;inset:0;z-index:-1;pointer-events:none;transform:translateZ(0)";
   document.body.prepend(cv);
   const ctx = cv.getContext("2d");
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  /* 1x is enough — soft background streaks don't need retina sharpness,
+     and this quarters the pixels cleared/painted every frame */
+  const DPR = 1;
   const GREEN = "46,235,122"; /* Signal Green #2EEB7A */
 
   let W, H;
@@ -85,10 +88,24 @@
   let streaks = [];
   let nextSpawnAt = performance.now() + 1200 + Math.random() * 1500;
   let raf = null;
+  let idleTimer = null;
 
   function draw(now) {
-    ctx.clearRect(0, 0, W, H);
+    raf = null;
     streaks = streaks.filter((s) => now - s.start < s.duration);
+
+    /* idle skip: with nothing alive and the next spawn in the future,
+       clear once and sleep until it's due instead of redrawing at 60fps */
+    if (streaks.length === 0 && now < nextSpawnAt) {
+      ctx.clearRect(0, 0, W, H);
+      idleTimer = setTimeout(() => {
+        idleTimer = null;
+        if (!document.hidden) raf = requestAnimationFrame(draw);
+      }, nextSpawnAt - now + 20);
+      return;
+    }
+
+    ctx.clearRect(0, 0, W, H);
     if (streaks.length < 3 && now >= nextSpawnAt) {
       streaks.push(spawnStreak(now));
       nextSpawnAt = now + 3000 + Math.random() * 1000; /* every 3–4s */
@@ -100,7 +117,8 @@
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       if (raf) { cancelAnimationFrame(raf); raf = null; }
-    } else if (!raf) {
+      if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
+    } else if (!raf && !idleTimer) {
       /* drop stale streaks and hold off spawning briefly on return */
       streaks = [];
       nextSpawnAt = performance.now() + 1200 + Math.random() * 1500;

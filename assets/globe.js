@@ -6,7 +6,8 @@
   if (!cv) return;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const ctx = cv.getContext("2d");
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  /* 1.5x is plenty for soft glowing dots; full retina doubles the pixel work */
+  const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
   const GLOW = "rgba(110,155,199,1)";           /* Steel Blue #6E9BC7 */
   const STREAK_GREEN = "46,235,122";            /* Signal Green #2EEB7A */
 
@@ -17,6 +18,55 @@
     cv.width = W * DPR; cv.height = H * DPR;
     cv.style.width = W + "px"; cv.style.height = H + "px";
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    buildRing();
+  }
+
+  /* ---------- pre-rendered sprites ----------
+     shadowBlur on every dot fill was the single biggest cost on the page
+     (620 gaussian blurs per frame). The dots/halo are static artwork, so
+     render them once to small offscreen canvases and stamp with drawImage. */
+  function makeDotSprite(withGlow) {
+    const S = 48, c = document.createElement("canvas");
+    c.width = S; c.height = S;
+    const g = c.getContext("2d");
+    const half = S / 2;
+    const grad = g.createRadialGradient(half, half, 0, half, half, half);
+    if (withGlow) {
+      grad.addColorStop(0, "rgba(110,155,199,1)");
+      grad.addColorStop(0.22, "rgba(110,155,199,.9)");
+      grad.addColorStop(0.5, "rgba(110,155,199,.22)");
+      grad.addColorStop(1, "rgba(110,155,199,0)");
+    } else {
+      grad.addColorStop(0, "rgba(110,155,199,1)");
+      grad.addColorStop(0.42, "rgba(110,155,199,1)");
+      grad.addColorStop(0.52, "rgba(110,155,199,0)");
+    }
+    g.fillStyle = grad;
+    g.fillRect(0, 0, S, S);
+    return c;
+  }
+  const SPRITE_GLOW = makeDotSprite(true);   /* core radius ≈ .22 of half-size */
+  const SPRITE_PLAIN = makeDotSprite(false); /* core radius ≈ .5 of half-size */
+
+  /* revolving ring, pre-rendered once per resize (only its rotation animates) */
+  let ringCv = null;
+  function buildRing() {
+    ringCv = document.createElement("canvas");
+    const pad = 30; /* room for the glow */
+    const rw = (R * 1.28 * 2 + pad * 2) * DPR;
+    ringCv.width = rw;
+    ringCv.height = (R * 1.28 * 2 * 0.28 + pad * 2) * DPR;
+    const g = ringCv.getContext("2d");
+    g.setTransform(DPR, 0, 0, DPR, 0, 0);
+    g.translate(R * 1.28 + pad, R * 1.28 * 0.28 + pad);
+    g.scale(1, 0.28);
+    g.beginPath();
+    g.arc(0, 0, R * 1.28, 0, Math.PI * 2);
+    g.shadowColor = GLOW;
+    g.shadowBlur = 14;
+    g.strokeStyle = "rgba(110,155,199,.55)";
+    g.lineWidth = 1.4;
+    g.stroke();
   }
   size();
   window.addEventListener("resize", size);
@@ -112,26 +162,21 @@
   let nextSpawnAt = performance.now() + 900 + Math.random() * 1400;
 
   let rot = 0, t = 0, ringAngle = -0.42;
+  let rafId = null;
+  let inView = true;
+
   function draw() {
+    rafId = null;
     ctx.clearRect(0, 0, W, H);
     const cx = W / 2, cy = H / 2;
     const cos = Math.cos(rot), sin = Math.sin(rot);
 
-    /* revolving glow ring */
+    /* revolving glow ring — pre-rendered, just rotate the stamp */
     ctx.save();
     ctx.translate(cx, cy);
     ctx.rotate(ringAngle);
-    ctx.scale(1, 0.28);
-    ctx.beginPath();
-    ctx.arc(0, 0, R * 1.28, 0, Math.PI * 2);
-    ctx.shadowColor = GLOW;
-    ctx.shadowBlur = 14;
-    ctx.strokeStyle = "rgba(110,155,199,.55)";
-    ctx.lineWidth = 1.4;
-    ctx.stroke();
+    ctx.drawImage(ringCv, -ringCv.width / (2 * DPR), -ringCv.height / (2 * DPR), ringCv.width / DPR, ringCv.height / DPR);
     ctx.restore();
-
-    ctx.shadowBlur = 0;
 
     for (const p of pts) {
       const x = p.x * cos - p.z * sin;
@@ -141,18 +186,18 @@
       const twinkle = 0.75 + 0.25 * Math.sin(t * 0.8 + p.tw);
       const a = (0.1 + depth * 0.7) * twinkle;
       const s = (0.8 + depth * 1.5) * (1 / (1.9 - z * 0.7));
-      ctx.beginPath();
-      ctx.arc(sx, sy, s, 0, Math.PI * 2);
+      ctx.globalAlpha = Math.min(a, 1);
       if (depth > 0.45) {
-        ctx.shadowColor = GLOW;
-        ctx.shadowBlur = 5 + depth * 5;
+        /* glow sprite: core is ~.22 of half-size, so scale so core radius = s */
+        const d = s * 9;
+        ctx.drawImage(SPRITE_GLOW, sx - d / 2, sy - d / 2, d, d);
       } else {
-        ctx.shadowBlur = 0;
+        /* plain sprite: core is ~.5 of half-size */
+        const d = s * 4;
+        ctx.drawImage(SPRITE_PLAIN, sx - d / 2, sy - d / 2, d, d);
       }
-      ctx.fillStyle = `rgba(110,155,199,${Math.min(a, 1)})`;
-      ctx.fill();
     }
-    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
 
     if (!reduced) {
       const now = performance.now();
@@ -165,7 +210,17 @@
     }
 
     rot += 0.0016; t += 0.016; ringAngle += 0.0022;
-    if (!reduced) requestAnimationFrame(draw);
+    if (!reduced && inView) rafId = requestAnimationFrame(draw);
   }
+
+  /* stop the loop entirely while the hero is scrolled out of view */
+  if (!reduced && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      inView = entries[0].isIntersecting;
+      if (inView && rafId === null) rafId = requestAnimationFrame(draw);
+    });
+    io.observe(cv);
+  }
+
   draw();
 })();

@@ -12,7 +12,9 @@
   --ice:#A8C8E8;           /* highlights, hover states, secondary accent */
   --midnight:#0E1620;      /* footer, depth layers */
   --frost:#EDEFF2;         /* primary text on dark */
-  --slate:#8C97A6;         /* secondary text */
+  --slate:#98A3B1;         /* secondary text — screen tint of brand Slate Grey
+                              #8C97A6, nudged lighter for small-size contrast
+                              (6.2:1 on Graphite, 7.1:1 on Midnight — WCAG AA) */
   --signal-green:#2EEB7A;  /* gains, positive, key CTAs, brand energy */
   --signal-red:#E05C5C;    /* losses/alerts ONLY, never decorative */
 
@@ -80,7 +82,7 @@ body::after{
 /* ---------- header ---------- */
 .site-header{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(27,33,41,.72);backdrop-filter:blur(18px) saturate(1.2);
+  background:rgba(27,33,41,.84);backdrop-filter:blur(9px);
   border-bottom:1px solid var(--line-soft);
 }
 .nav{height:var(--nav-h);display:flex;align-items:center;gap:22px;max-width:var(--max);margin:0 auto;padding:0 28px}
@@ -132,7 +134,7 @@ body::after{
 /* ---------- ticker tape ---------- */
 .tape{
   position:fixed;top:var(--nav-h);left:0;right:0;z-index:99;height:var(--tape-h);
-  background:rgba(27,33,41,.85);backdrop-filter:blur(10px);
+  background:rgba(27,33,41,.96);
   border-bottom:1px solid var(--line-soft);overflow:hidden;display:flex;align-items:center;
 }
 .tape-track{display:flex;white-space:nowrap;animation:tape 70s linear infinite;will-change:transform}
@@ -150,13 +152,16 @@ body::after{
 
 /* ---------- aurora + grid backdrop ---------- */
 .fx-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+/* blur is baked into the gradient falloff instead of filter:blur(90px) —
+   an animated scale on a filtered layer forced a huge gaussian re-raster
+   every frame and was the single biggest frame cost on every page */
 .aurora{
-  position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform;
+  position:absolute;border-radius:50%;opacity:.5;will-change:transform;
   animation:drift 26s var(--ease) infinite alternate;
 }
-.aurora.a1{width:640px;height:640px;left:52%;top:-18%;background:radial-gradient(circle at 40% 40%,rgba(110,155,199,.30),transparent 65%)}
-.aurora.a2{width:560px;height:560px;left:68%;top:34%;background:radial-gradient(circle at 50% 50%,rgba(64,84,140,.35),transparent 65%);animation-delay:-9s;animation-duration:34s}
-.aurora.a3{width:420px;height:420px;left:-12%;top:52%;background:radial-gradient(circle at 50% 50%,rgba(110,155,199,.14),transparent 65%);animation-delay:-18s;animation-duration:30s}
+.aurora.a1{width:640px;height:640px;left:52%;top:-18%;background:radial-gradient(circle at 42% 42%,rgba(110,155,199,.26) 0%,rgba(110,155,199,.16) 30%,rgba(110,155,199,.08) 52%,rgba(110,155,199,.03) 70%,rgba(110,155,199,.01) 85%,transparent 100%)}
+.aurora.a2{width:560px;height:560px;left:68%;top:34%;background:radial-gradient(circle at 50% 50%,rgba(64,84,140,.30) 0%,rgba(64,84,140,.18) 30%,rgba(64,84,140,.09) 52%,rgba(64,84,140,.035) 70%,rgba(64,84,140,.012) 85%,transparent 100%);animation-delay:-9s;animation-duration:34s}
+.aurora.a3{width:420px;height:420px;left:-12%;top:52%;background:radial-gradient(circle at 50% 50%,rgba(110,155,199,.12) 0%,rgba(110,155,199,.07) 32%,rgba(110,155,199,.035) 55%,rgba(110,155,199,.012) 75%,transparent 100%);animation-delay:-18s;animation-duration:30s}
 @keyframes drift{
   0%{transform:translate(0,0) scale(1)}
   50%{transform:translate(-60px,40px) scale(1.12)}
@@ -178,12 +183,21 @@ body::after{
   max-width:15ch;text-wrap:balance;font-weight:500;
 }
 .hero h1 .amber{color:var(--gold-hi)}
+/* ice→steel gradient on the hero accent word; solid ice fallback */
+.hero h1 .it{color:var(--ice)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero h1 .it{
+    background:linear-gradient(100deg,var(--ice) 10%,var(--steel) 90%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:var(--ice);
+  }
+}
 .hero p.lead{margin-top:30px;max-width:54ch;color:var(--mut);font-size:1.1rem;font-weight:300}
 .hero-cta{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 #globe{position:absolute;right:-6%;top:48%;transform:translateY(-50%);z-index:1;opacity:.85;pointer-events:none}
 
 /* stat strip with counters */
-.stats{position:relative;z-index:3;border-top:1px solid var(--line-soft);background:rgba(255,255,255,.012);backdrop-filter:blur(6px)}
+.stats{position:relative;z-index:3;border-top:1px solid var(--line-soft);background:rgba(255,255,255,.012)}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--max);margin:0 auto}
 .stat{padding:34px 28px;border-right:1px solid var(--line-soft)}
 .stat:last-child{border-right:none}
@@ -201,8 +215,34 @@ body::after{
 }
 .word-track span.solid{color:var(--gold-dim)}
 
+/* ---------- loading skeletons (ticker tape + quotes board) ---------- */
+.skel{
+  position:relative;overflow:hidden;display:inline-block;border-radius:5px;
+  background:rgba(255,255,255,.05);
+}
+.skel::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);
+  animation:skel-sweep 1.3s linear infinite;
+}
+@keyframes skel-sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+
+/* ---------- trust strip (slim label row under the hero) ---------- */
+.trust-strip{border-bottom:1px solid var(--line-soft);padding:16px 0}
+.trust-strip .wrap{
+  display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;
+  font-family:"Inter",system-ui,sans-serif;font-size:.64rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--mut-2);
+}
+.trust-strip .dot{color:var(--gold);letter-spacing:0}
+
 /* ---------- sections ---------- */
 section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:relative}
+/* depth rhythm: every second content section sits on Midnight, with soft
+   gradient ramps at both ends so long pages get visual pacing */
+main > section.block:nth-of-type(even){
+  background:linear-gradient(180deg,var(--bg) 0%,var(--midnight) 12%,var(--midnight) 88%,var(--bg) 100%);
+}
 .block h2{font-size:clamp(2rem,4.4vw,3.3rem);max-width:24ch;font-weight:500}
 .block .sub{margin-top:18px;color:var(--mut);max-width:60ch;font-weight:300}
 .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:58px}
@@ -336,7 +376,7 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
 @keyframes pop{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){
   .rv{opacity:1;transform:none;filter:none;transition:none}
-  .tape-track,.word-track,.aurora{animation:none!important}
+  .tape-track,.word-track,.aurora,.skel::after{animation:none!important}
   .mgrid.in .mcell,.cards.in .card,.quotes.in .q{animation:none}
   html{scroll-behavior:auto}
   .grad-text{animation:none;background-position:0 center}
@@ -418,7 +458,7 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
 [id]{scroll-margin-top:calc(var(--nav-h) + var(--tape-h) + 22px)}
 
 /* extra aurora tone for variety on interior heroes */
-.aurora.a4{width:480px;height:480px;background:radial-gradient(circle at 50% 50%,rgba(46,235,122,.08),transparent 65%)}
+.aurora.a4{width:480px;height:480px;background:radial-gradient(circle at 50% 50%,rgba(46,235,122,.07) 0%,rgba(46,235,122,.04) 32%,rgba(46,235,122,.018) 55%,rgba(46,235,122,.007) 75%,transparent 100%)}
 
 /* gradient shimmer accent text — used sparingly, 1 per section max */
 .grad-text{
@@ -475,7 +515,7 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
   position:relative;z-index:2;width:186px;height:340px;
   border-radius:36px;border:1px solid var(--gold-line);
   background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(0,0,0,.35));
-  backdrop-filter:blur(14px) saturate(1.15);
+  backdrop-filter:blur(9px);
   box-shadow:0 0 0 1px rgba(255,255,255,.04) inset,0 30px 70px rgba(0,0,0,.55),0 0 40px rgba(110,155,199,.08);
   padding:18px 16px 16px;
 }
@@ -518,7 +558,7 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
 
 .device-badge{
   position:absolute;z-index:3;padding:7px 14px;border-radius:999px;
-  border:1px solid var(--line);background:rgba(8,8,8,.72);backdrop-filter:blur(8px);
+  border:1px solid var(--line);background:rgba(8,8,8,.85);
   font-family:"Inter",system-ui,sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);
   display:flex;align-items:center;gap:7px;white-space:nowrap;
 }
