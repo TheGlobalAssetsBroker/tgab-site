@@ -5,6 +5,22 @@
   const C = window.TGAB_CONFIG || {};
   const page = document.body.dataset.page || "";
 
+  /* official TGAB mark (assets/brand/tgab-logo-mark.svg), inlined so the
+     header/footer need no extra request and it inherits crisp SVG scaling */
+  const MARK_SVG = `
+    <svg class="brand-mark" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="44" cy="44" r="26" stroke="#46566E" stroke-width="1.5"/>
+      <ellipse cx="44" cy="44" rx="26" ry="10.2" stroke="#46566E" stroke-width="1" opacity="0.7"/>
+      <ellipse cx="44" cy="44" rx="10.8" ry="26" stroke="#46566E" stroke-width="1" opacity="0.7"/>
+      <circle cx="44" cy="18" r="2.2" fill="#6E9BC7"/>
+      <circle cx="66.5" cy="34" r="2.2" fill="#6E9BC7"/>
+      <circle cx="21.5" cy="54" r="2.2" fill="#6E9BC7"/>
+      <circle cx="27" cy="30" r="2" fill="#A8C8E8"/>
+      <circle cx="56" cy="59" r="2" fill="#A8C8E8"/>
+      <path d="M21.5 54 Q42 39 66.5 34" stroke="#2EEB7A" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="66.5" cy="34" r="2.9" fill="#2EEB7A"/>
+    </svg>`;
+
   /* ---------- scroll progress ---------- */
   const progress = document.createElement("div");
   progress.className = "scroll-progress";
@@ -17,8 +33,11 @@
   header.innerHTML = `
     <nav class="nav" aria-label="Main">
       <a class="brand" href="index.html" aria-label="TGAB home">
-        <span class="mark">TGAB<span>.</span></span>
-        <span class="sub">The Global Assets Broker</span>
+        ${MARK_SVG}
+        <span class="brand-text">
+          <span class="mark">TGAB</span>
+          <span class="sub">The Global Assets Broker</span>
+        </span>
       </a>
       <div class="nav-links">
         <a href="markets.html" data-nav="markets">Markets</a>
@@ -59,7 +78,13 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <div class="mark">TGAB<span>.</span></div>
+          <div class="lockup">
+            ${MARK_SVG}
+            <div>
+              <div class="mark">TGAB</div>
+              <span class="sub">The Global Assets Broker</span>
+            </div>
+          </div>
           <p>Institutional-grade access to global markets, built on regulated infrastructure and transparent pricing.</p>
           <span class="foot-badge"><span class="dot"></span>In formation &middot; FSC Mauritius application pending</span>
         </div>

@@ -7,9 +7,8 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const ctx = cv.getContext("2d");
   const DPR = Math.min(window.devicePixelRatio || 1, 2);
-  const GLOW = "rgba(110,155,199,1)";
-  const UP = "87,200,143"; /* --up, as r,g,b */
-  const STREAK_GREEN = "46,235,122"; /* brighter, more saturated green for the activity streaks */
+  const GLOW = "rgba(110,155,199,1)";           /* Steel Blue #6E9BC7 */
+  const STREAK_GREEN = "46,235,122";            /* Signal Green #2EEB7A */
 
   let W, H, R;
   function size() {

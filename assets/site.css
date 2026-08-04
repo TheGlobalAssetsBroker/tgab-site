@@ -1,26 +1,37 @@
 /* ============================================================
    TGAB — The Global Assets Broker
-   v2 design system: black editorial / champagne institutional
+   v3 design system: graphite editorial / steel + ice + signal green
    Type: Space Grotesk (display) · Instrument Serif (accent)
          Inter (body, labels, and data — tabular-nums for figures)
    ============================================================ */
 
 :root{
-  --bg:#1B2129;
+  /* ---- official brand palette (assets/brand/BRAND-COLORS.md) ---- */
+  --graphite:#1B2129;      /* primary background */
+  --steel:#6E9BC7;         /* primary brand accent */
+  --ice:#A8C8E8;           /* highlights, hover states, secondary accent */
+  --midnight:#0E1620;      /* footer, depth layers */
+  --frost:#EDEFF2;         /* primary text on dark */
+  --slate:#8C97A6;         /* secondary text */
+  --signal-green:#2EEB7A;  /* gains, positive, key CTAs, brand energy */
+  --signal-red:#E05C5C;    /* losses/alerts ONLY, never decorative */
+
+  /* ---- semantic tokens mapped onto the palette ---- */
+  --bg:var(--graphite);
   --bg-2:#222933;
   --panel:rgba(255,255,255,.022);
   --panel-hi:rgba(255,255,255,.045);
   --line:#2D3540;
   --line-soft:rgba(45,53,64,.7);
-  --text:#EDEFF2;
-  --mut:#C4C9D1;
-  --mut-2:#757F8E;
-  --gold:#6E9BC7;
-  --gold-hi:#8FB4D9;
+  --text:var(--frost);
+  --mut:#C4C9D1;           /* frost tint — long-form secondary copy stays readable */
+  --mut-2:var(--slate);
+  --gold:var(--steel);
+  --gold-hi:var(--ice);
   --gold-dim:rgba(110,155,199,.14);
   --gold-line:rgba(110,155,199,.35);
-  --up:#57C88F;
-  --down:#E06060;
+  --up:var(--signal-green);
+  --down:var(--signal-red);
   --r-lg:18px;
   --r-md:12px;
   --max:1180px;
@@ -60,7 +71,7 @@ body::after{
   font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
   color:var(--mut);margin-bottom:22px;display:block;
 }
-.eyebrow::before{content:"— ";color:var(--gold)}
+.eyebrow::before{content:"— ";color:var(--signal-green)}
 
 /* ---------- header ---------- */
 .site-header{
@@ -69,13 +80,15 @@ body::after{
   border-bottom:1px solid var(--line-soft);
 }
 .nav{height:var(--nav-h);display:flex;align-items:center;gap:22px;max-width:var(--max);margin:0 auto;padding:0 28px}
-.brand{display:flex;align-items:baseline;gap:12px;flex-shrink:0}
-.brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:-.02em}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-mark{width:38px;height:38px;flex-shrink:0;display:block}
+.brand-text{display:flex;flex-direction:column;justify-content:center;line-height:1.2}
+.brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.18rem;letter-spacing:.09em}
 .brand .mark span{color:var(--gold)}
-.brand .sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:.85rem;color:var(--mut);letter-spacing:.01em}
+.brand .sub{font-family:"Inter",system-ui,sans-serif;font-size:.5rem;letter-spacing:.27em;text-transform:uppercase;color:var(--slate)}
 .nav-links{display:flex;gap:19px}
 .nav-links a{font-size:.85rem;color:var(--mut);letter-spacing:.01em;transition:color .2s;position:relative;white-space:nowrap}
-.nav-links a:hover{color:var(--text)}
+.nav-links a:hover{color:var(--ice)}
 .nav-links a.active{color:var(--gold-hi)}
 .nav-cta{margin-left:auto;display:flex;align-items:center;gap:12px;flex-shrink:0}
 .nav-cta .login{
@@ -98,16 +111,16 @@ body::after{
   transition:transform .25s var(--ease),border-color .25s,background .25s,color .25s;cursor:pointer;
 }
 .btn:focus-visible,a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
-.btn-amber{background:var(--text);color:#0C1013}
-.btn-amber:hover{transform:translateY(-2px);background:#fff}
+.btn-amber{background:var(--signal-green);color:#0C1013;box-shadow:0 0 22px rgba(46,235,122,.22)}
+.btn-amber:hover{transform:translateY(-2px);background:#4FF092;box-shadow:0 0 30px rgba(46,235,122,.34)}
 .btn-amber::after{
   content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
-  background:linear-gradient(105deg,transparent,rgba(110,155,199,.5),transparent);
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);
   transform:skewX(-20deg);transition:left .6s var(--ease);
 }
 .btn-amber:hover::after{left:130%}
 .btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.015)}
-.btn-ghost:hover{border-color:var(--gold-line);transform:translateY(-2px)}
+.btn-ghost:hover{border-color:var(--gold-line);color:var(--ice);transform:translateY(-2px)}
 .btn-lg{padding:15px 34px;font-size:.95rem}
 .nav-burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:999px;color:var(--text);padding:8px 16px;font-family:"Inter",system-ui,sans-serif;font-size:.68rem;letter-spacing:.14em;cursor:pointer}
 
@@ -170,7 +183,7 @@ body::after{
 .stat{padding:34px 28px;border-right:1px solid var(--line-soft)}
 .stat:last-child{border-right:none}
 .stat .v{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:1.85rem;letter-spacing:-.02em}
-.stat .v span{color:var(--gold)}
+.stat .v span{color:var(--signal-green)}
 .stat .k{font-family:"Inter",system-ui,sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-top:8px}
 
 /* ---------- word marquee ---------- */
@@ -273,13 +286,16 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
 .cta-band .hero-cta{justify-content:center;position:relative;z-index:2}
 
 /* ---------- footer ---------- */
-.site-footer{background:#161C23;border-top:1px solid var(--line-soft);padding:76px 0 44px}
+.site-footer{background:var(--midnight);border-top:1px solid var(--line-soft);padding:76px 0 44px}
 .foot-grid{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:36px;margin-bottom:48px}
 .foot-grid h4{font-family:"Inter",system-ui,sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mut-2);margin-bottom:18px}
 .foot-grid a{display:block;font-size:.86rem;color:var(--mut);padding:5px 0;transition:color .2s}
 .foot-grid a:hover{color:var(--gold-hi)}
-.foot-brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.25rem}
+.foot-brand .lockup{display:flex;align-items:center;gap:16px}
+.foot-brand .lockup svg{width:54px;height:54px;flex-shrink:0}
+.foot-brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.25rem;letter-spacing:.09em;line-height:1.25}
 .foot-brand .mark span{color:var(--gold)}
+.foot-brand .lockup .sub{display:block;font-family:"Inter",system-ui,sans-serif;font-size:.52rem;letter-spacing:.27em;text-transform:uppercase;color:var(--slate)}
 .foot-brand p{margin-top:16px;font-size:.84rem;color:var(--mut-2);max-width:40ch;font-weight:300}
 .legalese{border-top:1px solid var(--line-soft);padding-top:30px;font-size:.74rem;line-height:1.75;color:var(--mut-2);font-weight:300}
 .legalese p{margin-bottom:12px}
@@ -372,7 +388,9 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
   .hero-inner{padding:84px 28px 72px}
   section.block{padding:84px 0}
   .nav{padding:0 14px;gap:8px}
-  .brand .mark{font-size:1.1rem}
+  .brand{gap:9px}
+  .brand-mark{width:30px;height:30px}
+  .brand .mark{font-size:1.02rem}
   .nav-cta{gap:6px}
   .nav-cta .login{font-size:.64rem;padding:7px 11px}
   .nav-cta .btn{padding:7px 11px;font-size:.64rem}
@@ -396,7 +414,7 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
 [id]{scroll-margin-top:calc(var(--nav-h) + var(--tape-h) + 22px)}
 
 /* extra aurora tone for variety on interior heroes */
-.aurora.a4{width:480px;height:480px;background:radial-gradient(circle at 50% 50%,rgba(87,200,143,.09),transparent 65%)}
+.aurora.a4{width:480px;height:480px;background:radial-gradient(circle at 50% 50%,rgba(46,235,122,.08),transparent 65%)}
 
 /* gradient shimmer accent text — used sparingly, 1 per section max */
 .grad-text{
@@ -463,8 +481,9 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
 }
 .phone-screen{margin-top:20px;display:flex;flex-direction:column;height:calc(100% - 24px)}
 
-.phone-brand{display:flex;align-items:baseline;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--line-soft)}
-.phone-brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:.76rem;letter-spacing:-.01em;color:var(--text)}
+.phone-brand{display:flex;align-items:center;gap:6px;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--line-soft)}
+.phone-brand svg{width:16px;height:16px;flex-shrink:0}
+.phone-brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:.76rem;letter-spacing:.07em;color:var(--text)}
 .phone-brand .mark span{color:var(--gold)}
 
 .phone-equity{margin-bottom:10px}
@@ -595,6 +614,7 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
 .tier-card .tier-name{font-family:"Space Grotesk",sans-serif;font-size:1.7rem;font-weight:500;letter-spacing:-.02em;display:block;margin-bottom:10px}
 .tier-card .tier-tag{font-size:.92rem;color:var(--mut);font-weight:300;display:block;margin-bottom:30px;max-width:34ch}
 .tier-card .checks{margin-top:0;margin-bottom:34px}
+.tier-card .checks li::before{color:var(--signal-green)}
 .tier-card .btn{width:100%;text-align:center}
 .tier-why{
   margin:auto 0 24px;padding-top:22px;border-top:1px solid var(--line-soft);
@@ -628,7 +648,7 @@ section.block{padding:118px 0;border-bottom:1px solid var(--line-soft);position:
 .tiers-more a:hover{gap:12px;color:var(--gold)}
 .tier-badge{
   position:absolute;top:0;right:40px;transform:translateY(-50%);z-index:1;
-  padding:5px 14px;border-radius:999px;background:var(--gold);color:#0C1013;
+  padding:5px 14px;border-radius:999px;background:var(--signal-green);color:#0C1013;
   font-family:"Inter",system-ui,sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
 }
 .tiers-grid.in .tier-card{animation:pop .8s var(--ease) both}

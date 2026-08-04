@@ -1,0 +1,17 @@
+<svg width="340" height="88" viewBox="0 0 340 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- TGAB primary lockup — for light backgrounds -->
+  <g>
+    <circle cx="44" cy="44" r="26" stroke="#9AA6B8" stroke-width="1.5"/>
+    <ellipse cx="44" cy="44" rx="26" ry="10.2" stroke="#9AA6B8" stroke-width="1" opacity="0.7"/>
+    <ellipse cx="44" cy="44" rx="10.8" ry="26" stroke="#9AA6B8" stroke-width="1" opacity="0.7"/>
+    <circle cx="44" cy="18" r="2.2" fill="#4A7BAA"/>
+    <circle cx="66.5" cy="34" r="2.2" fill="#4A7BAA"/>
+    <circle cx="21.5" cy="54" r="2.2" fill="#4A7BAA"/>
+    <circle cx="27" cy="30" r="2" fill="#7FA8CC"/>
+    <circle cx="56" cy="59" r="2" fill="#7FA8CC"/>
+    <path d="M21.5 54 Q42 39 66.5 34" stroke="#17B85C" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="66.5" cy="34" r="2.9" fill="#17B85C"/>
+  </g>
+  <text x="100" y="50" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="32" letter-spacing="2" fill="#1B2129">TGAB</text>
+  <text x="101" y="67" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="10" letter-spacing="2.7" fill="#5C6673">THE GLOBAL ASSETS BROKER</text>
+</svg>
