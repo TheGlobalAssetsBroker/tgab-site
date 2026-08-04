@@ -42,7 +42,11 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-html,body{background:var(--bg);color:var(--text)}
+/* background lives on html only — body stays transparent so the fixed
+   ambient-streaks canvas (z-index:-1) can paint between the page base
+   color and the content */
+html{background:var(--bg)}
+html,body{color:var(--text)}
 body{
   font-family:"Inter",system-ui,sans-serif;
   font-size:16px;line-height:1.65;

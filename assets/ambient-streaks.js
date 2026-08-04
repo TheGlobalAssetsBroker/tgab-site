@@ -1,9 +1,9 @@
 /* Ambient background shooting stars — homepage trial.
-   A fixed full-viewport canvas behind all content, spawning occasional
-   faint green streaks. Deliberately much subtler than the hero-globe
-   layer: no labels, lower opacity, long spawn intervals, max two live.
-   Disabled entirely under prefers-reduced-motion; spawning pauses while
-   the tab is hidden. */
+   A fixed full-viewport canvas between the page base color (on html)
+   and all content (body is transparent), spawning faint green streaks
+   every 3-4s, max three live. Subtler than the hero-globe layer: no
+   labels, lower opacity. Disabled entirely under prefers-reduced-motion;
+   spawning pauses while the tab is hidden. */
 (function () {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -58,7 +58,7 @@
       const t2 = tailT + (headT - tailT) * ((i + 1) / steps);
       const p1 = bez(s, t1), p2 = bez(s, t2);
       const localP = i / steps;
-      const alpha = 0.14 * localP * localP; /* far fainter than the globe's 0.7 */
+      const alpha = 0.28 * localP * localP; /* fainter than the globe's 0.7, but visible */
       ctx.beginPath();
       ctx.moveTo(p1.x, p1.y);
       ctx.lineTo(p2.x, p2.y);
@@ -75,23 +75,23 @@
     const pulse = 0.7 + 0.3 * Math.sin(now / 240);
     ctx.beginPath();
     ctx.arc(head.x, head.y, 1.5 * pulse, 0, Math.PI * 2);
-    ctx.shadowColor = `rgba(${GREEN},.8)`;
-    ctx.shadowBlur = 7 * pulse;
-    ctx.fillStyle = `rgba(${GREEN},${(0.3 * fade).toFixed(3)})`;
+    ctx.shadowColor = `rgba(${GREEN},.9)`;
+    ctx.shadowBlur = 8 * pulse;
+    ctx.fillStyle = `rgba(${GREEN},${(0.5 * fade).toFixed(3)})`;
     ctx.fill();
     ctx.shadowBlur = 0;
   }
 
   let streaks = [];
-  let nextSpawnAt = performance.now() + 4000 + Math.random() * 6000;
+  let nextSpawnAt = performance.now() + 1200 + Math.random() * 1500;
   let raf = null;
 
   function draw(now) {
     ctx.clearRect(0, 0, W, H);
     streaks = streaks.filter((s) => now - s.start < s.duration);
-    if (streaks.length < 2 && now >= nextSpawnAt) {
+    if (streaks.length < 3 && now >= nextSpawnAt) {
       streaks.push(spawnStreak(now));
-      nextSpawnAt = now + 8000 + Math.random() * 7000; /* every 8–15s */
+      nextSpawnAt = now + 3000 + Math.random() * 1000; /* every 3–4s */
     }
     for (const s of streaks) drawStreak(s, now);
     raf = requestAnimationFrame(draw);
@@ -103,7 +103,7 @@
     } else if (!raf) {
       /* drop stale streaks and hold off spawning briefly on return */
       streaks = [];
-      nextSpawnAt = performance.now() + 4000 + Math.random() * 6000;
+      nextSpawnAt = performance.now() + 1200 + Math.random() * 1500;
       raf = requestAnimationFrame(draw);
     }
   });
