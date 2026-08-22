@@ -31,7 +31,7 @@ export function Header() {
         <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="primary-links" onClick={() => setOpen((value) => !value)}>{open ? "Close" : "Menu"}</button>
         <div className={`nav-drawer${open ? " open" : ""}`} id="primary-links">
           <div className="nav-links">{links.map(([label, to]) => <NavLink key={to} to={to}>{label}</NavLink>)}</div>
-          <div className="nav-actions"><span className="nav-status"><i /> In formation</span><a className="nav-login" href={siteConfig.loginUrl}>Client login</a><Link className="button button-orange" to="/register">Open account <span aria-hidden="true">↗</span></Link></div>
+          <div className="nav-actions"><span className="locale-pill" aria-label="Global brokerage"><span aria-hidden="true">◎</span> Global</span><a className="nav-login" href={siteConfig.loginUrl}>Log In</a><Link className="button button-orange" to="/register">Open Account</Link></div>
         </div>
       </nav>
     </header>
