@@ -1,0 +1,99 @@
+import { usePageEffects } from "../hooks/usePageEffects";
+
+export default function FaqPage() {
+  usePageEffects("faq", "FAQ — TGAB | Common questions about launch, accounts &amp; fees", "Answers to common questions about TGAB&#39;s regulatory status, launch timeline, account opening, trading platform, fees, and security.");
+  return (
+    <main>
+      <section className="page-hero">
+        <div className="wrap rv">
+          <span className="eyebrow">01 / FAQ</span>
+          <h1>Questions people <span className="it">actually</span> ask.</h1>
+          <p>Straight answers about where TGAB stands today, what happens at launch, and how the account, platform, and pricing will work.</p>
+        </div>
+      </section>
+      <section className="block">
+        <div className="wrap">
+          <div className="faq-cats rv" role="tablist" aria-label="Filter questions by category">
+            <button className="active" data-cat="all" type="button">All</button>
+            <button data-cat="general" type="button">General</button>
+            <button data-cat="account" type="button">Account &amp; KYC</button>
+            <button data-cat="platform" type="button">Platform &amp; trading</button>
+            <button data-cat="fees" type="button">Fees</button>
+            <button data-cat="security" type="button">Security</button>
+          </div>
+          <div className="faq-list rv">
+            <div className="faq-item" data-cat="general">
+              <button className="faq-q" id="q1" aria-expanded="false" aria-controls="a1"><span>Is TGAB licensed today?</span></button>
+              <div className="faq-a" id="a1"><p>No. TGAB's licensed dealing entity has applied for an Investment Dealer licence and that application is still in progress. TGAB does not offer services, accept clients, or hold client money until it's granted — full detail in our <a href="/legal#regulatory">regulatory status</a> section.</p></div>
+            </div>
+            <div className="faq-item" data-cat="general">
+              <button className="faq-q" id="q2" aria-expanded="false" aria-controls="a2"><span>Can I open an account right now?</span></button>
+              <div className="faq-a" id="a2"><p>Not yet. You can register your interest via "Open account" to be prioritised for onboarding once TGAB is licensed and live — no funds or documents are collected at this stage.</p></div>
+            </div>
+            <div className="faq-item" data-cat="general">
+              <button className="faq-q" id="q3" aria-expanded="false" aria-controls="a3"><span>When will TGAB launch?</span></button>
+              <div className="faq-a" id="a3"><p>Launch depends on our regulatory licensing outcome, so we're not publishing a fixed date. Registered contacts get priority updates as milestones are reached.</p></div>
+            </div>
+            <div className="faq-item" data-cat="general">
+              <button className="faq-q" id="q4" aria-expanded="false" aria-controls="a4"><span>Which markets does TGAB start with?</span></button>
+              <div className="faq-a" id="a4"><p>US equities, listed options, and ETFs at launch, cleared through regulated institutional clearing partners. Futures, FX, metals, indices, fixed income, and digital assets are on the roadmap — see <a href="/markets">Markets</a> for the full coverage table.</p></div>
+            </div>
+            <div className="faq-item" data-cat="account">
+              <button className="faq-q" id="q5" aria-expanded="false" aria-controls="a5"><span>What will I need to open an account?</span></button>
+              <div className="faq-a" id="a5"><p>Standard KYC/AML onboarding: proof of identity, proof of address, and information on your financial situation and experience, consistent with a regulated dealer. Full requirements will be published with the final onboarding flow.</p></div>
+            </div>
+            <div className="faq-item" data-cat="account">
+              <button className="faq-q" id="q6" aria-expanded="false" aria-controls="a6"><span>Who is eligible to open an account?</span></button>
+              <div className="faq-a" id="a6"><p>Eligible clients in jurisdictions where TGAB is lawfully permitted to offer services, who pass onboarding, suitability, and KYC/AML checks. TGAB will not offer services in jurisdictions where doing so would be unlawful, including sanctioned jurisdictions. See <a href="/legal#regulatory">regulatory status</a>.</p></div>
+            </div>
+            <div className="faq-item" data-cat="account">
+              <button className="faq-q" id="q7" aria-expanded="false" aria-controls="a7"><span>How long does verification take?</span></button>
+              <div className="faq-a" id="a7"><p>Exact turnaround times will be published once the onboarding flow through the TGAB client portal is finalised. It's a full digital process — no paper forms.</p></div>
+            </div>
+            <div className="faq-item" data-cat="platform">
+              <button className="faq-q" id="q8" aria-expanded="false" aria-controls="a8"><span>What platform will I trade on?</span></button>
+              <div className="faq-a" id="a8"><p>Trading execution runs through <span data-platform-name>a licensed third-party trading platform</span> — TGAB doesn't build its own trading software. Account management, funding, and statements are handled separately through the TGAB client portal. See <a href="/platforms">Platforms</a>.</p></div>
+            </div>
+            <div className="faq-item" data-cat="platform">
+              <button className="faq-q" id="q9" aria-expanded="false" aria-controls="a9"><span>Is there a mobile app?</span></button>
+              <div className="faq-a" id="a9"><p>At launch, yes — via <span data-platform-name>the trading platform</span>'s own web, desktop, and mobile apps, alongside the TGAB client portal for account management. No TGAB-branded app store listings exist today; nothing here is a claim otherwise.</p></div>
+            </div>
+            <div className="faq-item" data-cat="platform">
+              <button className="faq-q" id="q10" aria-expanded="false" aria-controls="a10"><span>What order types are supported?</span></button>
+              <div className="faq-a" id="a10"><p>Market, limit, stop, and stop-limit orders on equities and ETFs; single-leg and multi-leg strategies on listed options. Full detail on the <a href="/markets">Markets</a> coverage table.</p></div>
+            </div>
+            <div className="faq-item" data-cat="fees">
+              <button className="faq-q" id="q11" aria-expanded="false" aria-controls="a11"><span>What will trading cost?</span></button>
+              <div className="faq-a" id="a11"><p>Our indicative pre-launch schedule is published on <a href="/pricing">Pricing</a> — commission per share/contract, exchange pass-throughs, and no hidden spreads. The final, binding schedule is confirmed at onboarding.</p></div>
+            </div>
+            <div className="faq-item" data-cat="fees">
+              <button className="faq-q" id="q12" aria-expanded="false" aria-controls="a12"><span>Are there account or inactivity fees?</span></button>
+              <div className="faq-a" id="a12"><p>Account opening and maintenance are free in the current indicative schedule, with no monthly or inactivity charge. See the account &amp; service fees table on <a href="/pricing">Pricing</a>.</p></div>
+            </div>
+            <div className="faq-item" data-cat="security">
+              <button className="faq-q" id="q13" aria-expanded="false" aria-controls="a13"><span>Is my money safe before launch?</span></button>
+              <div className="faq-a" id="a13"><p>TGAB does not accept client money before licensing is complete — there is nothing to safeguard yet because nothing is deposited. Once live, client assets are intended to be segregated from TGAB's own operating capital. See <a href="/security">Security &amp; trust</a>.</p></div>
+            </div>
+            <div className="faq-item" data-cat="security">
+              <button className="faq-q" id="q14" aria-expanded="false" aria-controls="a14"><span>How is my personal data protected?</span></button>
+              <div className="faq-a" id="a14"><p>Encrypted connections, role-restricted internal access, and data collection limited to what onboarding and regulation require. Details in our <a href="/legal#privacy">privacy notice</a>.</p></div>
+            </div>
+          </div>
+          <div className="role-note rv">
+            <p>Can't find your answer? <a href="/contact">Contact us directly</a> or browse the <a href="/support">help centre</a>.</p>
+          </div>
+        </div>
+      </section>
+      <section className="cta-band">
+        <div className="wrap rv">
+          <h2>Still have a <span className="it">question?</span></h2>
+          <p>A person reads every message — no bots, no ticket queue.</p>
+          <div className="hero-cta">
+            <a className="btn btn-amber btn-lg" href="/contact">Contact us</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+  );
+}
