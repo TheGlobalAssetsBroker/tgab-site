@@ -1,0 +1,117 @@
+.platform-title-row {
+  margin: 132px 0 58px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.platform-title-row .platform-title {
+  margin: 0;
+}
+
+.feature-carousel-controls {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+}
+
+.carousel-arrow {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .32);
+  border-radius: 50%;
+  color: #fff;
+  background: transparent;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.carousel-arrow:hover {
+  border-color: var(--orange);
+  color: var(--deep-green);
+  background: var(--orange);
+  transform: translateY(-2px);
+}
+
+.carousel-arrow:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.platform-stage .feature-carousel {
+  grid-auto-columns: clamp(420px, 34vw, 520px);
+  gap: 40px;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.platform-stage .feature-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.platform-stage .feature-card {
+  min-height: 690px;
+  padding: 32px;
+}
+
+.platform-stage .feature-card h3 {
+  font-size: clamp(34px, 3vw, 48px);
+}
+
+.platform-stage .feature-card img {
+  inset: 42% 0 0;
+  height: 58%;
+}
+
+@media (max-width: 760px) {
+  .platform-title-row {
+    margin-top: 96px;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+
+  .carousel-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .platform-stage .feature-carousel {
+    grid-auto-columns: min(84vw, 420px);
+    gap: 20px;
+  }
+
+  .platform-stage .feature-card {
+    min-height: 0;
+    padding: 26px;
+  }
+}
+
+@media (max-width: 520px) {
+  .platform-title-row {
+    align-items: flex-end;
+    gap: 18px;
+  }
+
+  .feature-carousel-controls {
+    gap: 8px;
+  }
+
+  .carousel-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 21px;
+  }
+
+  .platform-stage .feature-carousel {
+    grid-auto-columns: 82vw;
+  }
+
+  .platform-stage .feature-card h3 {
+    font-size: 30px;
+  }
+}

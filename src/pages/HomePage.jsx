@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { usePageEffects } from "../hooks/usePageEffects";
+import "../feature-carousel.css";
 
 const advantages = [
   ["01", "Transparent pricing", "A published fee schedule with no hidden spreads or surprise charges."],
@@ -32,7 +34,18 @@ const infrastructure = [
 ];
 
 export default function HomePage() {
+  const featureCarouselRef = useRef(null);
+
   usePageEffects("home", "TGAB — The Global Assets Broker | Institutional access to global markets", "Institutional-grade access to US equities, options, ETFs, and global markets through regulated infrastructure and transparent pricing.");
+
+  const scrollFeatureCarousel = (direction) => {
+    const carousel = featureCarouselRef.current;
+    const card = carousel?.querySelector(".feature-card");
+    if (!carousel || !card) return;
+
+    const gap = Number.parseFloat(window.getComputedStyle(carousel).columnGap) || 0;
+    carousel.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: "smooth" });
+  };
 
   return (
     <main>
@@ -136,8 +149,14 @@ export default function HomePage() {
           <h2 className="platform-intro rv">Advanced trading at your fingertips.</h2>
           <div className="platform-hero rv"><img src="/images/platform-laptop-mockup.png" alt="Professional trading platform displayed on a laptop" /></div>
           <p className="platform-caption rv"><b>Professional trading technology.</b> Advanced charting, live watchlists, options chains, and order management in one workspace.</p>
-          <h2 className="platform-title rv">Power Meets Precision</h2>
-          <div className="feature-carousel rv">
+          <div className="platform-title-row rv">
+            <h2 className="platform-title">Power Meets Precision</h2>
+            <div className="feature-carousel-controls" aria-label="Platform feature carousel controls">
+              <button className="carousel-arrow" type="button" aria-label="Show previous platform feature" onClick={() => scrollFeatureCarousel(-1)}>←</button>
+              <button className="carousel-arrow" type="button" aria-label="Show next platform feature" onClick={() => scrollFeatureCarousel(1)}>→</button>
+            </div>
+          </div>
+          <div className="feature-carousel rv" ref={featureCarouselRef} role="region" aria-label="Platform features" tabIndex={0}>
             <FeatureCard eyebrow="Advanced charting" title="Read the market with deeper context." image="/images/feature-advanced-charting.png" position="50% 50%" />
             <FeatureCard eyebrow="Options chains" title="Build and manage listed-options strategies." image="/images/feature-options-chains.png" position="50% 50%" />
             <FeatureCard eyebrow="Order management" title="Move from analysis to execution cleanly." image="/images/feature-order-management.png" position="50% 50%" />
