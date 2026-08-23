@@ -138,10 +138,10 @@ export default function HomePage() {
           <p className="platform-caption rv"><b>Professional trading technology.</b> Advanced charting, live watchlists, options chains, and order management in one workspace.</p>
           <h2 className="platform-title rv">Power Meets Precision</h2>
           <div className="feature-carousel rv">
-            <FeatureCard eyebrow="Advanced charting" title="Read the market with deeper context." position="48% 50%" />
-            <FeatureCard eyebrow="Options chains" title="Build and manage listed-options strategies." position="76% 22%" />
-            <FeatureCard eyebrow="Order management" title="Move from analysis to execution cleanly." position="24% 78%" />
-            <FeatureCard eyebrow="Watchlists" title="Keep the instruments that matter in view." position="8% 38%" />
+            <FeatureCard eyebrow="Advanced charting" title="Read the market with deeper context." image="/images/feature-advanced-charting.png" position="50% 50%" />
+            <FeatureCard eyebrow="Options chains" title="Build and manage listed-options strategies." image="/images/feature-options-chains.png" position="50% 50%" />
+            <FeatureCard eyebrow="Order management" title="Move from analysis to execution cleanly." image="/images/feature-order-management.png" position="50% 50%" />
+            <FeatureCard eyebrow="Watchlists" title="Keep the instruments that matter in view." image="/images/feature-watchlists.png" position="22% 50%" />
           </div>
         </div>
       </section>
@@ -190,8 +190,8 @@ export default function HomePage() {
   );
 }
 
-function FeatureCard({ eyebrow, title, position }) {
-  return <article className="feature-card"><span>{eyebrow}</span><h3>{title}</h3><img src="/images/trading-platform.png" alt="" aria-hidden="true" style={{ objectPosition: position }} /><Link to="/platforms" aria-label={`Learn more about ${eyebrow}`}>+</Link></article>;
+function FeatureCard({ eyebrow, title, image, position }) {
+  return <article className="feature-card"><span>{eyebrow}</span><h3>{title}</h3><img src={image} alt="" aria-hidden="true" style={{ objectPosition: position }} /><Link to="/platforms" aria-label={`Learn more about ${eyebrow}`}>+</Link></article>;
 }
 
 function OfferCard({ name, accent, description, items, to }) {
