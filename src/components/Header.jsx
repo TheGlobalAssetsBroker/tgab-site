@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { siteConfig } from "../config";
 
 const navigation = [
   { label: "Markets", to: "/markets" },
@@ -135,7 +134,7 @@ export function Header() {
               );
             })}
           </ul>
-          <div className="nav-actions"><a className="nav-login" href={siteConfig.loginUrl}>Log In</a><Link className="button button-orange" to="/register" onClick={closeNavigation}>Open Account</Link></div>
+          <div className="nav-actions"><Link className="nav-login" to="/login" onClick={closeNavigation}>Log In</Link><Link className="button button-orange" to="/register" onClick={closeNavigation}>Open Account</Link></div>
         </div>
       </nav>
     </header>

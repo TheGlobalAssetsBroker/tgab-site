@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import { usePageEffects } from "../hooks/usePageEffects";
-import { siteConfig } from "../config";
 
 export default function PlatformsPage() {
   usePageEffects("platforms", "Platforms — TGAB | Trading platform &amp; client portal", "TGAB clients trade through a licensed third-party trading platform, paired with a regulated client portal for onboarding, funding, and account management.");
@@ -55,7 +55,7 @@ export default function PlatformsPage() {
               </ul>
               <div className="hero-cta">
                 <a className="btn btn-amber" href="/register" data-cta="signup">Open account</a>
-                <a className="btn btn-ghost" href={siteConfig.loginUrl} data-cta="login">Client login</a>
+                <Link className="btn btn-ghost" to="/login" data-cta="login">Client login</Link>
               </div>
             </div>
             <div className="panel-art rv glow-edge">

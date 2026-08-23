@@ -44,22 +44,55 @@ export function usePageEffects(page, title, description) {
       cleanups.push(() => revealObserver.disconnect());
     }
 
-    document.querySelectorAll("[data-count]").forEach((node) => {
+    const countNodes = document.querySelectorAll("[data-count]");
+    const countFrames = new Set();
+    const animateCount = (node) => {
       const target = Number(node.dataset.count);
-      if (!Number.isFinite(target) || reducedMotion) {
-        node.textContent = String(target);
+      if (!Number.isFinite(target)) return;
+      const decimals = Number(node.dataset.countDecimals) || 0;
+      const duration = Number(node.dataset.countDuration) || 900;
+      const formatter = new Intl.NumberFormat("en-US", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      });
+      if (reducedMotion) {
+        node.textContent = formatter.format(target);
         return;
       }
+      node.textContent = formatter.format(0);
       const startedAt = performance.now();
       let frame;
       const tick = (now) => {
-        const progress = Math.min((now - startedAt) / 900, 1);
-        node.textContent = String(Math.round(target * (1 - Math.pow(1 - progress, 3))));
-        if (progress < 1) frame = requestAnimationFrame(tick);
+        const progress = Math.min((now - startedAt) / duration, 1);
+        node.textContent = formatter.format(target * (1 - Math.pow(1 - progress, 3)));
+        if (progress < 1) {
+          frame = requestAnimationFrame(tick);
+          countFrames.add(frame);
+        }
       };
       frame = requestAnimationFrame(tick);
-      cleanups.push(() => cancelAnimationFrame(frame));
-    });
+      countFrames.add(frame);
+    };
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      countNodes.forEach(animateCount);
+    } else {
+      countNodes.forEach((node) => {
+        const target = Number(node.dataset.count);
+        const decimals = Number(node.dataset.countDecimals) || 0;
+        if (Number.isFinite(target)) node.textContent = (0).toFixed(decimals);
+      });
+      const countObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.35 });
+      countNodes.forEach((node) => countObserver.observe(node));
+      cleanups.push(() => countObserver.disconnect());
+    }
+    cleanups.push(() => countFrames.forEach((frame) => cancelAnimationFrame(frame)));
 
     document.querySelectorAll(".faq-cats button").forEach((button) => {
       const handler = () => {

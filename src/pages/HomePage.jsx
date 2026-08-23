@@ -109,9 +109,9 @@ export default function HomePage() {
             <div className="button-row"><Link className="button button-orange" to="/markets">Explore Markets <span aria-hidden="true">↗</span></Link><Link className="button button-green" to="/register">Register Interest</Link></div>
           </div>
           <div className="orderbook-art rv" aria-label="Illustrative market depth graphic">
-            <div className="orderbook-side asks">{[78,64,88,52,74,41].map((width, index) => <span key={index} style={{ "--bar": `${width}%` }}><i />{(6956 - index * .25).toFixed(2)}</span>)}</div>
-            <div className="orderbook-mid">6,954.75</div>
-            <div className="orderbook-side bids">{[45,60,83,71,55,38].map((width, index) => <span key={index} style={{ "--bar": `${width}%` }}><i />{(6954.5 - index * .25).toFixed(2)}</span>)}</div>
+            <div className="orderbook-side asks">{[78,64,88,52,74,41].map((width, index) => <span key={index} style={{ "--bar": `${width}%`, "--delay": `${index * 70}ms` }}><i />{(6956 - index * .25).toFixed(2)}</span>)}</div>
+            <div className="orderbook-mid" data-count="6954.75" data-count-decimals="2" data-count-duration="1400">6,954.75</div>
+            <div className="orderbook-side bids">{[45,60,83,71,55,38].map((width, index) => <span key={index} style={{ "--bar": `${width}%`, "--delay": `${index * 70}ms` }}><i />{(6954.5 - index * .25).toFixed(2)}</span>)}</div>
           </div>
         </div>
       </section>
