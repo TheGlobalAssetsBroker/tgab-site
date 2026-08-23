@@ -241,8 +241,24 @@ h1, h2, h3 { text-wrap: balance; }
 .final-campaign p { max-width: 650px; margin: 0 0 42px; font-size: 19px; font-weight: 600; line-height: 1.35; }
 
 /* Interior pages */
-.page-hero { position: relative; min-height: 560px; padding: 112px 0 92px; overflow: hidden; display: flex; align-items: center; color: #fff; background: var(--deep-green); }
-.page-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 0 58%, rgba(38,233,134,.11) 58% 71%, transparent 71%), radial-gradient(circle at 82% 28%, rgba(38,233,134,.14), transparent 28%); }
+.page-hero {
+  --hero-image: none;
+  --hero-position: center;
+  --hero-art: radial-gradient(circle at 82% 28%, rgba(38,233,134,.09), transparent 30%);
+  position: relative;
+  min-height: 560px;
+  padding: 112px 0 92px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: var(--deep-green);
+  background-image: var(--hero-image);
+  background-position: var(--hero-position);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.page-hero::before { content: ""; position: absolute; inset: 0; background: var(--hero-art); }
 .page-hero .wrap { position: relative; z-index: 1; }
 .page-hero .eyebrow { color: #fff; }
 .page-hero h1 { max-width: 1080px; margin: 0 0 28px; font-family: "Artex", sans-serif; font-size: clamp(62px, 7vw, 98px); font-weight: 500; letter-spacing: -.055em; line-height: .93; }
@@ -250,6 +266,107 @@ h1, h2, h3 { text-wrap: balance; }
 .page-hero p { max-width: 850px; margin: 0; color: #fff; font-size: 19px; line-height: 1.42; }
 .page-hero p + p { margin-top: 18px; }
 .page-hero a { border-bottom: 2px solid var(--green); }
+
+/* Photo-led heroes: each image is route-specific and documentary rather than decorative. */
+body[data-page="markets"] .page-hero {
+  --hero-image: url("/images/hero-markets-v1.webp");
+  --hero-position: center 48%;
+}
+body[data-page="platforms"] .page-hero {
+  --hero-image: url("/images/hero-platforms-v1.webp");
+  --hero-position: center 54%;
+}
+body[data-page="security"] .page-hero {
+  --hero-image: url("/images/hero-security-v1.webp");
+  --hero-position: center 52%;
+}
+body[data-page="company"] .page-hero {
+  --hero-image: url("/images/hero-company-v1.webp");
+  --hero-position: center 50%;
+}
+body[data-page="careers"] .page-hero {
+  --hero-image: url("/images/hero-careers-v1.webp");
+  --hero-position: center 48%;
+}
+body[data-page="contact"] .page-hero {
+  --hero-image: url("/images/hero-contact-v1.webp");
+  --hero-position: center 48%;
+}
+body[data-page="register"] .page-hero {
+  --hero-image: url("/images/hero-register-v1.webp");
+  --hero-position: center 50%;
+}
+body:is(
+  [data-page="markets"],
+  [data-page="platforms"],
+  [data-page="security"],
+  [data-page="company"],
+  [data-page="careers"],
+  [data-page="contact"],
+  [data-page="register"]
+) .page-hero {
+  --hero-art: linear-gradient(90deg, rgba(8,18,16,.98) 0%, rgba(8,18,16,.92) 34%, rgba(8,18,16,.7) 52%, rgba(8,18,16,.22) 79%, rgba(8,18,16,.1) 100%);
+  background-color: var(--night);
+}
+body:is(
+  [data-page="markets"],
+  [data-page="platforms"],
+  [data-page="security"],
+  [data-page="company"],
+  [data-page="careers"],
+  [data-page="contact"],
+  [data-page="register"]
+) .page-hero h1 { max-width: 900px; font-size: clamp(60px, 6.35vw, 90px); }
+body:is(
+  [data-page="markets"],
+  [data-page="platforms"],
+  [data-page="security"],
+  [data-page="company"],
+  [data-page="careers"],
+  [data-page="contact"],
+  [data-page="register"]
+) .page-hero p { max-width: 730px; }
+
+/* A small set keeps the stripe language, but the construction changes by page. */
+body[data-page="pricing"] .page-hero {
+  --hero-art: linear-gradient(128deg, transparent 0 66%, rgba(38,233,134,.085) 66% 72%, transparent 72%), radial-gradient(circle at 79% 22%, rgba(38,233,134,.1), transparent 25%);
+}
+body[data-page="pricing-details"] .page-hero {
+  --hero-art: linear-gradient(128deg, transparent 0 56%, rgba(38,233,134,.045) 56% 61%, transparent 61% 68%, rgba(38,233,134,.095) 68% 73%, transparent 73%), radial-gradient(circle at 84% 78%, rgba(38,233,134,.08), transparent 26%);
+}
+body[data-page="insights"] .page-hero {
+  --hero-art: linear-gradient(168deg, transparent 0 68%, rgba(38,233,134,.07) 68% 74%, transparent 74%), radial-gradient(ellipse at 82% 6%, rgba(38,233,134,.12), transparent 32%);
+  background-color: var(--night);
+}
+body[data-page="faq"] .page-hero {
+  --hero-art: linear-gradient(42deg, transparent 0 72%, rgba(38,233,134,.075) 72% 79%, transparent 79%), radial-gradient(circle at 8% 90%, rgba(38,233,134,.08), transparent 24%);
+}
+body[data-page="support"] .page-hero {
+  --hero-art: linear-gradient(154deg, transparent 0 61%, rgba(38,233,134,.065) 61% 69%, transparent 69%), radial-gradient(ellipse at 88% 24%, rgba(38,233,134,.11), transparent 29%);
+}
+
+/* Utility routes intentionally drop the campaign motif and enter more quietly. */
+body:is(
+  [data-page="legal"],
+  [data-page="cookies"],
+  [data-page="accessibility"],
+  [data-page="sitemap"]
+) .page-hero {
+  --hero-art: radial-gradient(ellipse at 92% 18%, rgba(38,233,134,.065), transparent 28%);
+  min-height: 430px;
+  padding-block: 82px 70px;
+  background-color: var(--night);
+}
+body:is(
+  [data-page="legal"],
+  [data-page="cookies"],
+  [data-page="accessibility"],
+  [data-page="sitemap"]
+) .page-hero h1 { max-width: 960px; font-size: clamp(58px, 6vw, 82px); }
+body[data-page="not-found"] .page-hero {
+  --hero-art: radial-gradient(circle at 84% 48%, rgba(38,233,134,.07), transparent 22%);
+  background-color: var(--night);
+}
 .block { padding: 112px 0; color: var(--deep-green); background: #fff; border-bottom: 1px solid var(--line); }
 .block:nth-of-type(odd) { background: var(--pale); }
 .head-row { margin-bottom: 56px; display: flex; align-items: end; justify-content: space-between; gap: 36px; }
@@ -431,6 +548,15 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
   .nav-actions { justify-content: space-between; }
   .hero-reference { min-height: calc(100svh - 60px); background-position: 62% center; }
   .hero-reference::before { background: linear-gradient(90deg, rgba(8,18,16,.97), rgba(8,18,16,.68)); }
+  body:is(
+    [data-page="markets"],
+    [data-page="platforms"],
+    [data-page="security"],
+    [data-page="company"],
+    [data-page="careers"],
+    [data-page="contact"],
+    [data-page="register"]
+  ) .page-hero { --hero-position: 68% center; }
   .advantage-grid { grid-template-columns: repeat(2, 1fr); }
   .proof-grid { grid-template-columns: repeat(3, 1fr); }
   .roadmap-grid, .infrastructure-grid, .split, .register-grid { grid-template-columns: 1fr; }
@@ -497,6 +623,35 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
   .page-hero { min-height: 500px; padding: 82px 0 68px; }
   .page-hero h1 { font-size: clamp(52px, 15vw, 74px); }
   .page-hero p { font-size: 16px; }
+  body:is(
+    [data-page="markets"],
+    [data-page="platforms"],
+    [data-page="security"],
+    [data-page="company"],
+    [data-page="careers"],
+    [data-page="contact"],
+    [data-page="register"]
+  ) .page-hero {
+    --hero-position: 70% center;
+    --hero-art: linear-gradient(180deg, rgba(8,18,16,.24) 0%, rgba(8,18,16,.5) 38%, rgba(8,18,16,.92) 74%, rgba(8,18,16,.99) 100%);
+    min-height: 640px;
+    align-items: end;
+  }
+  body:is(
+    [data-page="markets"],
+    [data-page="platforms"],
+    [data-page="security"],
+    [data-page="company"],
+    [data-page="careers"],
+    [data-page="contact"],
+    [data-page="register"]
+  ) .page-hero h1 { max-width: none; font-size: clamp(48px, 13.5vw, 64px); }
+  body:is(
+    [data-page="legal"],
+    [data-page="cookies"],
+    [data-page="accessibility"],
+    [data-page="sitemap"]
+  ) .page-hero { min-height: 420px; padding-block: 70px 60px; }
   .cards, .cards-2, .cards-3 { grid-template-columns: 1fr; }
   .card { min-height: 280px; }
   .steps { grid-template-columns: 1fr; border-top: 0; }
