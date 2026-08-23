@@ -134,7 +134,7 @@ export default function HomePage() {
       <section className="platform-stage">
         <div className="page-container">
           <h2 className="platform-intro rv">Advanced trading at your fingertips.</h2>
-          <div className="platform-hero rv"><img src="/images/trading-platform.png" alt="Illustrative trading platform workspace" /></div>
+          <div className="platform-hero rv"><img src="/images/platform-laptop-mockup.png" alt="Professional trading platform displayed on a laptop" /></div>
           <p className="platform-caption rv"><b>Professional trading technology.</b> Advanced charting, live watchlists, options chains, and order management in one workspace.</p>
           <h2 className="platform-title rv">Power Meets Precision</h2>
           <div className="feature-carousel rv">
