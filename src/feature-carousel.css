@@ -81,6 +81,44 @@
   display: none;
 }
 
+.market-slide {
+  --market-card-bg: var(--night);
+  isolation: isolate;
+  background: var(--market-card-bg);
+}
+
+.market-slide:nth-child(3n+2) {
+  --market-card-bg: var(--pale);
+}
+
+.market-slide:nth-child(3n) {
+  --market-card-bg: var(--soft-blue);
+}
+
+.market-slide::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 24%, var(--market-card-bg) 62%);
+  pointer-events: none;
+}
+
+.market-card-image {
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.market-slide > .market-code,
+.market-slide > div {
+  position: relative;
+  z-index: 2;
+}
+
 .market-carousel-arrow {
   position: absolute;
   z-index: 5;

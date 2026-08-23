@@ -13,15 +13,15 @@ const advantages = [
 ];
 
 const markets = [
-  ["EQ", "US Equities", "At launch", "NYSE, Nasdaq and major US venues, cleared through regulated institutional infrastructure."],
-  ["OPT", "Listed Options", "At launch", "Single-leg and multi-leg strategies on US-listed underlyings."],
-  ["ETF", "ETFs", "At launch", "Index, sector, and thematic exposure through US-listed funds."],
-  ["FUT", "Futures", "Roadmap", "Index, rates, and commodity futures on major global exchanges."],
-  ["FX", "Foreign Exchange", "Roadmap", "Majors, minors, and EM crosses with institutional liquidity."],
-  ["MTL", "Metals & Commodities", "Roadmap", "Precious metals and key commodity markets."],
-  ["IDX", "Indices", "Roadmap", "Broad-market index exposure across global sessions."],
-  ["FI", "Fixed Income", "Roadmap", "Government and corporate debt for yield-focused portfolios."],
-  ["DA", "Digital Assets", "Roadmap", "Regulated digital-asset access, subject to applicable approvals."],
+  ["EQ", "US Equities", "At launch", "NYSE, Nasdaq and major US venues, cleared through regulated institutional infrastructure.", "/images/market-equities.png"],
+  ["OPT", "Listed Options", "At launch", "Single-leg and multi-leg strategies on US-listed underlyings.", "/images/market-options.png"],
+  ["ETF", "ETFs", "At launch", "Index, sector, and thematic exposure through US-listed funds.", "/images/market-etfs.png"],
+  ["FUT", "Futures", "Roadmap", "Index, rates, and commodity futures on major global exchanges.", "/images/market-futures.png"],
+  ["FX", "Foreign Exchange", "Roadmap", "Majors, minors, and EM crosses with institutional liquidity.", "/images/market-foreign-exchange.png"],
+  ["MTL", "Metals & Commodities", "Roadmap", "Precious metals and key commodity markets.", "/images/market-metals.png"],
+  ["IDX", "Indices", "Roadmap", "Broad-market index exposure across global sessions.", "/images/market-indices.png"],
+  ["FI", "Fixed Income", "Roadmap", "Government and corporate debt for yield-focused portfolios.", "/images/market-fixed-income.png"],
+  ["DA", "Digital Assets", "Roadmap", "Regulated digital-asset access, subject to applicable approvals.", "/images/market-digital-assets.png"],
 ];
 
 const infrastructure = [
@@ -204,7 +204,7 @@ export default function HomePage() {
           <div className="market-carousel-shell rv">
             <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}>←</button>
             <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
-              {markets.map(([code, name, status, text]) => <article className="market-slide" key={code}><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
+              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
             </div>
             <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}>→</button>
           </div>
