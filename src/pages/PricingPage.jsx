@@ -6,7 +6,6 @@ export default function PricingPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Pricing</span>
           <h1>One schedule. No <span className="it">surprises.</span></h1>
           <p>The figures below are TGAB's indicative pre-launch schedule. The final, binding fee schedule will be published before launch and provided to every client during onboarding.</p>
           <p><a href="/pricing-details">Compare Core vs Prime account tiers →</a></p>
@@ -16,7 +15,6 @@ export default function PricingPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">02 / Trading</span>
               <h2><span className="it">Commissions.</span></h2>
             </div>
             <span className="tag">Indicative — subject to change</span>
@@ -37,7 +35,6 @@ export default function PricingPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">03 / Account</span>
               <h2>Account &amp; service <span className="it">fees.</span></h2>
             </div>
           </div>

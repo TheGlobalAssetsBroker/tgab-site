@@ -6,7 +6,6 @@ export default function AccessibilityPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Accessibility</span>
           <h1>Built to be usable by <span className="it">everyone.</span></h1>
           <p>An honest statement of where we're aiming and what's actually implemented today.</p>
         </div>

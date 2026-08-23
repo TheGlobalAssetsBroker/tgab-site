@@ -6,7 +6,6 @@ export default function SitemapPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Sitemap</span>
           <h1>Every page, <span className="it">one</span> list.</h1>
           <p>The complete TGAB website, organised by section.</p>
         </div>

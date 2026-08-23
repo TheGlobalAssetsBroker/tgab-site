@@ -6,7 +6,6 @@ export default function SupportPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Help centre</span>
           <h1>Find your answer, <span className="it">fast.</span></h1>
           <p>Browse by topic below, or skip straight to the <a href="/faq">FAQ</a> or <a href="/contact">contact us</a> directly.</p>
         </div>
@@ -15,7 +14,6 @@ export default function SupportPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">02 / Topics</span>
               <h2>Help by <span className="it">category.</span></h2>
             </div>
           </div>
@@ -57,7 +55,6 @@ export default function SupportPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">03 / How it works</span>
               <h2>From registration to your <span className="it">first</span> trade.</h2>
             </div>
           </div>

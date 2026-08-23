@@ -39,7 +39,6 @@ export default function RegisterPage() {
     <main className="register-page">
       <section className="page-hero register-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Register interest</span>
           <h1>Be first through the <span className="it">door.</span></h1>
           <p>TGAB is in formation and not yet accepting clients or client money. Register now and we’ll keep you informed as we move toward launch.</p>
           <div className="register-steps"><span><b>01</b> Register interest</span><span><b>02</b> Receive launch updates</span><span><b>03</b> Priority onboarding</span></div>

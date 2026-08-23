@@ -6,7 +6,6 @@ export default function SecurityPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Security &amp; trust</span>
           <h1>Protection built in, <span className="it">not</span> bolted on.</h1>
           <p>TGAB does not accept a single client or a single dollar until the structure protecting them is in place. This page sets out how — segregation, screening, access control, and regulated infrastructure.</p>
         </div>
@@ -15,7 +14,6 @@ export default function SecurityPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">02 / The essentials</span>
               <h2>Four things we won't <span className="it">compromise</span> on.</h2>
             </div>
           </div>
@@ -43,7 +41,6 @@ export default function SecurityPage() {
         <div className="wrap">
           <div className="split">
             <div className="rv">
-              <span className="eyebrow">03 / Regulatory posture</span>
               <h2>Licensed operations <span className="it">first.</span></h2>
               <p className="sub">TGAB's licensed dealing entity has applied for an Investment Dealer licence and does not yet hold it. Until it does, TGAB does not offer services, accept clients, or hold client money — this is a compliance floor, not a marketing line.</p>
               <ul className="checks">
@@ -67,7 +64,6 @@ export default function SecurityPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">04 / Data &amp; platform</span>
               <h2>How your <span className="it">data</span> is handled.</h2>
             </div>
           </div>
@@ -82,7 +78,6 @@ export default function SecurityPage() {
       </section>
       <section className="cta-band">
         <div className="wrap rv">
-          <span className="eyebrow">05 / Questions</span>
           <h2>Ask us <span className="it">anything</span> about how this works.</h2>
           <p>Compliance and security questions go straight to the team building this structure.</p>
           <div className="hero-cta">

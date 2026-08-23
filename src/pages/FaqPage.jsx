@@ -6,7 +6,6 @@ export default function FaqPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / FAQ</span>
           <h1>Questions people <span className="it">actually</span> ask.</h1>
           <p>Straight answers about where TGAB stands today, what happens at launch, and how the account, platform, and pricing will work.</p>
         </div>

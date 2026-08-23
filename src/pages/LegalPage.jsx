@@ -6,7 +6,6 @@ export default function LegalPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Legal centre</span>
           <h1>The fine print, in <span className="it">plain</span> sight.</h1>
           <p>Everything a prospective client should read before engaging with TGAB. These documents will be updated when licensing completes and before any services are offered.</p>
         </div>

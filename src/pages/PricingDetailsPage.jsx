@@ -6,7 +6,6 @@ export default function PricingDetailsPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Pricing details</span>
           <h1>Core vs Prime, <span className="it">side by side.</span></h1>
           <p>Both tiers trade the same launch markets, under the same regulatory structure, on the same commission schedule. The difference is service priority. Here's exactly what that means.</p>
         </div>
@@ -15,7 +14,6 @@ export default function PricingDetailsPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">02 / Comparison</span>
               <h2>Which tier <span className="it">fits</span> you.</h2>
             </div>
             <a className="btn btn-ghost" href="/pricing">Full fee schedule →</a>
@@ -43,7 +41,6 @@ export default function PricingDetailsPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">03 / Choose your tier</span>
               <h2>Ready to <span className="it">register?</span></h2>
             </div>
           </div>
@@ -63,7 +60,6 @@ export default function PricingDetailsPage() {
       </section>
       <section className="cta-band">
         <div className="wrap rv">
-          <span className="eyebrow">04 / Get in early</span>
           <h2>Pick your tier, <span className="it grad-text">register</span> your interest.</h2>
           <p>Both tiers are open for early registration — final terms confirmed at launch.</p>
           <div className="hero-cta">

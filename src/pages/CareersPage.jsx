@@ -6,7 +6,6 @@ export default function CareersPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Careers</span>
           <h1>We're building the <span className="it">founding</span> team.</h1>
           <p>TGAB is in formation — there is no public job board yet, and we won't pretend otherwise. If you have relevant experience and want to be part of building a regulated brokerage from the ground up, we'd still like to hear from you.</p>
         </div>
@@ -23,7 +22,6 @@ export default function CareersPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">02 / What we look for</span>
               <h2>The kind of person who fits <span className="it">this</span> build.</h2>
             </div>
           </div>

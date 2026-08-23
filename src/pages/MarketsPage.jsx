@@ -6,7 +6,6 @@ export default function MarketsPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Markets</span>
           <h1>US markets first. The <span className="it">world</span> next.</h1>
           <p>TGAB launches with deep access to the world's most liquid market — US equities and listed options, cleared through regulated institutional infrastructure — and expands from there under a full-service dealer mandate.</p>
         </div>
@@ -15,7 +14,6 @@ export default function MarketsPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">02 / Live board</span>
               <h2>Today's <span className="it">tape.</span></h2>
             </div>
           </div>
@@ -33,7 +31,6 @@ export default function MarketsPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">03 / Coverage</span>
               <h2>Instrument <span className="it">coverage.</span></h2>
             </div>
           </div>
@@ -59,7 +56,6 @@ export default function MarketsPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">04 / Market hours</span>
               <h2>US session <span className="it">times.</span></h2>
             </div>
           </div>

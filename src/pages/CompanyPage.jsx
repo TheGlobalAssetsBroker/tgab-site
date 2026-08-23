@@ -6,7 +6,6 @@ export default function CompanyPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Company</span>
           <h1>Built like an institution. <span className="it">Run</span> like one.</h1>
           <p>The Global Assets Broker is being assembled the slow, correct way: regulated structure first, institutional counterparties second, clients third — and only once every approval is in hand.</p>
         </div>
@@ -15,7 +14,6 @@ export default function CompanyPage() {
         <div className="wrap">
           <div className="split">
             <div className="rv">
-              <span className="eyebrow">02 / Mission</span>
               <h2>Serious market access for <span className="it">serious</span> traders.</h2>
               <p className="sub">Most offshore brokers compete on leverage and marketing. TGAB competes on structure: real clearing relationships, real regulatory standing, and pricing you can read in one page. We are building the brokerage we would want to trade through ourselves.</p>
             </div>
@@ -33,7 +31,6 @@ export default function CompanyPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">03 / Principles</span>
               <h2>How we <span className="it">operate.</span></h2>
             </div>
           </div>

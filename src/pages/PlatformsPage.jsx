@@ -7,7 +7,6 @@ export default function PlatformsPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Platforms</span>
           <h1>One account. A <span className="it">proven</span> platform.</h1>
           <p>TGAB doesn't build proprietary trading software — we integrate a licensed, established third-party platform for execution, and pair it with a dedicated client portal for everything around the trade. Two specialists, not one compromise.</p>
         </div>
@@ -16,7 +15,6 @@ export default function PlatformsPage() {
         <div className="wrap">
           <div className="head-row rv">
             <div>
-              <span className="eyebrow">02 / Execution</span>
               <h2>Trade on <span className="it" data-platform-name>a proven platform</span>.</h2>
             </div>
             <span className="tag">Platform subject to final confirmation</span>
@@ -46,7 +44,6 @@ export default function PlatformsPage() {
         <div className="wrap">
           <div className="split">
             <div className="rv">
-              <span className="eyebrow">03 / Client portal</span>
               <h2>Everything around the trade, in <span className="it">one</span> portal.</h2>
               <p className="sub">Onboarding, funding, and account administration run through TGAB's client portal — institutional-grade account infrastructure, not custom-built software. That's a deliberate choice: proven infrastructure for the parts of the business that carry the most compliance weight.</p>
               <ul className="checks">

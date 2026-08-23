@@ -6,7 +6,6 @@ export default function InsightsPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Insights</span>
           <h1>Market commentary, <span className="it">coming</span> soon.</h1>
           <p>This is where TGAB will publish market commentary and research once we're closer to launch. Nothing is posted yet — we'd rather leave the page empty than fill it with placeholder articles.</p>
         </div>
@@ -14,7 +13,6 @@ export default function InsightsPage() {
       <section className="block">
         <div className="wrap">
           <div className="coming-soon rv">
-            <span className="eyebrow">02 / Status</span>
             <h2>Nothing published <span className="it">yet.</span></h2>
             <p className="sub">Register your interest to be notified when commentary starts publishing, or explore what's live today.</p>
             <div className="hero-cta">

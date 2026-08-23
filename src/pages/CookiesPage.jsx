@@ -6,7 +6,6 @@ export default function CookiesPage() {
     <main>
       <section className="page-hero">
         <div className="wrap rv">
-          <span className="eyebrow">01 / Cookie policy</span>
           <h1>What this site <span className="it">stores</span> on your device.</h1>
           <p>A short, honest answer: not much.</p>
         </div>
