@@ -390,9 +390,9 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
 
 /* Footer */
 .site-footer { padding: 100px 0 34px; color: var(--deep-green); background: #fff; }
-.footer-stage { position: relative; min-height: 500px; padding-top: 42px; }
-.footer-shell { min-height: 430px; margin-left: 24%; padding: 76px 54px 46px 29%; display: flex; flex-direction: column; justify-content: space-between; background: var(--pale); border-radius: 0 0 48px 0; }
-.footer-brand-card { position: absolute; z-index: 2; left: 128px; top: 0; width: 39%; max-width: 520px; min-height: 500px; padding: 48px; display: flex; flex-direction: column; color: #fff; background: var(--deep-green); border-radius: 38px 0 38px 0; }
+.footer-stage { position: relative; min-height: 0; padding-top: 42px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: stretch; }
+.footer-shell { grid-column: 4 / -1; grid-row: 1; min-height: 500px; margin-left: 0; padding: 76px 54px 46px 38%; display: flex; flex-direction: column; justify-content: space-between; background: var(--pale); border-radius: 0 0 48px 0; }
+.footer-brand-card { position: relative; z-index: 2; grid-column: 1 / span 5; grid-row: 1; left: auto; top: auto; width: 100%; max-width: 520px; min-height: 540px; margin-top: -42px; padding: 48px; display: flex; flex-direction: column; color: #fff; background: var(--deep-green); border-radius: 38px 0 38px 0; }
 .footer-mark { width: 88px; height: 88px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
 .footer-mark i { background: var(--green); }
 .footer-mark i:nth-child(2) { transform: translateY(14px); }
@@ -420,8 +420,8 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
 @media (max-width: 1200px) {
   .page-container, .wrap { padding-inline: 64px; }
   .locale-pill { display: none; }
-  .footer-brand-card { left: 64px; }
-  .footer-shell { padding-left: 27%; }
+  .footer-brand-card { left: auto; }
+  .footer-shell { padding-left: 38%; }
   .offers-grid { gap: 28px; }
   .advantage-grid { gap-inline: 36px; }
 }
@@ -464,8 +464,8 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
   .legal-layout { grid-template-columns: 200px 1fr; gap: 44px; }
   .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
   .register-aside { position: static; }
-  .footer-stage { padding-top: 0; }
-  .footer-brand-card { position: relative; left: auto; top: auto; width: 100%; max-width: none; min-height: 420px; }
+  .footer-stage { padding-top: 0; display: block; }
+  .footer-brand-card { position: relative; left: auto; top: auto; width: 100%; max-width: none; min-height: 420px; margin-top: 0; }
   .footer-shell { min-height: 0; margin: -26px 0 0 32px; padding: 78px 42px 44px; }
 }
 
