@@ -108,6 +108,8 @@ h1, h2, h3 { text-wrap: balance; }
 .hero-reference p { max-width: 690px; margin: 0; color: #fff; font-size: 20px; font-weight: 600; line-height: 1.2; }
 .hero-reference-actions { margin-top: 48px; display: flex; gap: 30px; }
 .hero-reference-actions .button { min-width: 172px; }
+.hero-reference-actions .button-green { border: 1px solid #fff; color: #fff; background: transparent; }
+.hero-reference-actions .button-green:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.12); }
 
 /* Home: advantage band */
 .advantage-section { padding: 112px 0; color: #fff; background: radial-gradient(circle at 78% 18%, rgba(47,117,255,.2), transparent 42%), linear-gradient(135deg, #070b1d 0%, #102553 48%, #080d22 100%); text-align: center; }
