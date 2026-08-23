@@ -151,16 +151,16 @@ export default function HomePage() {
           <p className="platform-caption rv"><b>Professional trading technology.</b> Advanced charting, live watchlists, options chains, and order management in one workspace.</p>
           <div className="platform-title-row rv">
             <h2 className="platform-title">Power Meets Precision</h2>
-            <div className="feature-carousel-controls" aria-label="Platform feature carousel controls">
-              <button className="carousel-arrow" type="button" aria-label="Show previous platform feature" onClick={() => scrollFeatureCarousel(-1)}>←</button>
-              <button className="carousel-arrow" type="button" aria-label="Show next platform feature" onClick={() => scrollFeatureCarousel(1)}>→</button>
-            </div>
           </div>
           <div className="feature-carousel rv" ref={featureCarouselRef} role="region" aria-label="Platform features" tabIndex={0}>
             <FeatureCard eyebrow="Advanced charting" title="Read the market with deeper context." image="/images/feature-advanced-charting.png" position="50% 50%" />
             <FeatureCard eyebrow="Options chains" title="Build and manage listed-options strategies." image="/images/feature-options-chains.png" position="50% 50%" />
             <FeatureCard eyebrow="Order management" title="Move from analysis to execution cleanly." image="/images/feature-order-management.png" position="50% 50%" />
             <FeatureCard eyebrow="Watchlists" title="Keep the instruments that matter in view." image="/images/feature-watchlists.png" position="22% 50%" />
+          </div>
+          <div className="feature-carousel-controls rv" aria-label="Platform feature carousel controls">
+            <button className="carousel-arrow" type="button" aria-label="Show previous platform feature" onClick={() => scrollFeatureCarousel(-1)}>←</button>
+            <button className="carousel-arrow" type="button" aria-label="Show next platform feature" onClick={() => scrollFeatureCarousel(1)}>→</button>
           </div>
         </div>
       </section>

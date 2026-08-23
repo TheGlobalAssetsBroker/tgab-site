@@ -1,9 +1,5 @@
 .platform-title-row {
   margin: 132px 0 58px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
 }
 
 .platform-title-row .platform-title {
@@ -12,8 +8,9 @@
 
 .feature-carousel-controls {
   display: flex;
-  flex: 0 0 auto;
+  justify-content: flex-end;
   gap: 12px;
+  margin-top: 24px;
 }
 
 .carousel-arrow {
@@ -75,7 +72,6 @@
   .platform-title-row {
     margin-top: 96px;
     margin-bottom: 40px;
-    align-items: center;
   }
 
   .carousel-arrow {
@@ -95,13 +91,9 @@
 }
 
 @media (max-width: 520px) {
-  .platform-title-row {
-    align-items: flex-end;
-    gap: 18px;
-  }
-
   .feature-carousel-controls {
     gap: 8px;
+    margin-top: 18px;
   }
 
   .carousel-arrow {
