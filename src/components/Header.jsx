@@ -135,7 +135,7 @@ export function Header() {
               );
             })}
           </ul>
-          <div className="nav-actions"><span className="locale-pill" aria-label="Global brokerage"><span aria-hidden="true">◎</span> Global</span><a className="nav-login" href={siteConfig.loginUrl}>Log In</a><Link className="button button-orange" to="/register" onClick={closeNavigation}>Open Account</Link></div>
+          <div className="nav-actions"><a className="nav-login" href={siteConfig.loginUrl}>Log In</a><Link className="button button-orange" to="/register" onClick={closeNavigation}>Open Account</Link></div>
         </div>
       </nav>
     </header>

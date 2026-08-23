@@ -77,7 +77,6 @@ h1, h2, h3 { text-wrap: balance; }
 .nav-dropdown a > span { color: var(--green); font-size: 13px; }
 .nav-dropdown a:hover, .nav-dropdown a.active { color: var(--deep-green); background: var(--pale); opacity: 1; }
 .nav-actions { gap: 10px; }
-.locale-pill { min-height: 40px; padding: 0 16px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #dfe5dc; border-radius: 999px; color: var(--deep-green); font-size: 13px; font-weight: 600; }
 .nav-login { min-height: 40px; padding: 0 20px; display: inline-flex; align-items: center; color: #fff; background: var(--deep-green); border-radius: 10px 0 10px 0; font-size: 14px; font-weight: 600; transition: opacity .3s ease; }
 .nav-login:hover { opacity: .78; }
 .menu-toggle { display: none; border: 0; color: var(--deep-green); background: transparent; font-size: 14px; font-weight: 600; }
@@ -406,7 +405,6 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
 
 @media (max-width: 1200px) {
   .page-container, .wrap { padding-inline: 64px; }
-  .locale-pill { display: none; }
   .footer-brand-card { left: auto; }
   .footer-shell { padding-left: 38%; }
   .offers-grid { gap: 28px; }
