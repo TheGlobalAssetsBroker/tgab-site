@@ -35,12 +35,22 @@ const infrastructure = [
 
 export default function HomePage() {
   const featureCarouselRef = useRef(null);
+  const marketCarouselRef = useRef(null);
 
   usePageEffects("home", "TGAB — The Global Assets Broker | Institutional access to global markets", "Institutional-grade access to US equities, options, ETFs, and global markets through regulated infrastructure and transparent pricing.");
 
   const scrollFeatureCarousel = (direction) => {
     const carousel = featureCarouselRef.current;
     const card = carousel?.querySelector(".feature-card");
+    if (!carousel || !card) return;
+
+    const gap = Number.parseFloat(window.getComputedStyle(carousel).columnGap) || 0;
+    carousel.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: "smooth" });
+  };
+
+  const scrollMarketCarousel = (direction) => {
+    const carousel = marketCarouselRef.current;
+    const card = carousel?.querySelector(".market-slide");
     if (!carousel || !card) return;
 
     const gap = Number.parseFloat(window.getComputedStyle(carousel).columnGap) || 0;
@@ -191,8 +201,12 @@ export default function HomePage() {
       <section className="markets-stage">
         <div className="page-container">
           <div className="markets-heading rv"><h2>Explore Our Markets</h2><Link className="button button-orange" to="/markets">All Markets <span aria-hidden="true">↗</span></Link></div>
-          <div className="market-carousel rv">
-            {markets.map(([code, name, status, text]) => <article className="market-slide" key={code}><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
+          <div className="market-carousel-shell rv">
+            <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}>←</button>
+            <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
+              {markets.map(([code, name, status, text]) => <article className="market-slide" key={code}><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
+            </div>
+            <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}>→</button>
           </div>
         </div>
       </section>

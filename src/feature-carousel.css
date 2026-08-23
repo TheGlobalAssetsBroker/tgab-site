@@ -68,6 +68,58 @@
   background: #08131d;
 }
 
+.market-carousel-shell {
+  position: relative;
+}
+
+.market-carousel-shell .market-carousel {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.market-carousel-shell .market-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.market-carousel-arrow {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--deep-green);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.market-carousel-arrow:hover {
+  color: #fff;
+  background: var(--orange);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.market-carousel-arrow:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.market-carousel-arrow-prev {
+  left: -28px;
+}
+
+.market-carousel-arrow-next {
+  right: -28px;
+}
+
 @media (max-width: 760px) {
   .platform-title-row {
     margin-top: 96px;
@@ -87,6 +139,19 @@
   .platform-stage .feature-card {
     min-height: 0;
     padding: 26px;
+  }
+
+  .market-carousel-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .market-carousel-arrow-prev {
+    left: 8px;
+  }
+
+  .market-carousel-arrow-next {
+    right: 8px;
   }
 }
 
@@ -108,5 +173,11 @@
 
   .platform-stage .feature-card h3 {
     font-size: 28px;
+  }
+
+  .market-carousel-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 21px;
   }
 }
