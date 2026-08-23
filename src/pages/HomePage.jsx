@@ -73,6 +73,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="proof-strip" aria-label="TGAB launch facts">
+        <div className="page-container proof-grid rv">
+          <div><strong>US Equities</strong><span>At launch</span></div>
+          <div><strong>$0.003</strong><span>From, per share</span></div>
+          <div><strong>$0.50</strong><span>From, per contract</span></div>
+          <div><strong>No minimum</strong><span>Account balance</span></div>
+          <div><strong>24/5</strong><span>Client coverage</span></div>
+        </div>
+      </section>
+
+      <section className="markets-stage">
+        <div className="page-container">
+          <div className="markets-heading rv"><h2>Explore Our Markets</h2><Link className="button button-orange" to="/markets">All Markets <span aria-hidden="true">↗</span></Link></div>
+          <div className="market-carousel-shell rv">
+            <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}>←</button>
+            <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
+              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
+            </div>
+            <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}>→</button>
+          </div>
+        </div>
+      </section>
+
+      <section className="infrastructure-feature">
+        <div className="page-container infrastructure-grid">
+          <div className="infrastructure-copy rv">
+            <span className="section-kicker muted">Regulated-first infrastructure</span>
+            <h2>Institutional plumbing.<br />No retail shortcuts.</h2>
+            <p>Every layer of the stack — clearing, custody, execution, onboarding — is chosen for durability and auditability.</p>
+            <ul className="plain-list"><li>Regulated institutional clearing partners</li><li>Licensed Investment Dealer application in progress</li><li>Bank-grade KYC / AML onboarding</li><li>Segregation of client assets</li></ul>
+            <Link className="button button-orange" to="/security">How We Protect You <span aria-hidden="true">↗</span></Link>
+          </div>
+          <div className="infrastructure-panel rv">
+            {infrastructure.map(([label, value]) => <div key={label}><span>{label}</span><b>{value}</b></div>)}
+          </div>
+        </div>
+      </section>
+
       <section className="advantage-section">
         <div className="page-container rv">
           <p className="section-kicker light">TGAB · In formation</p>
@@ -90,28 +128,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="proof-strip" aria-label="TGAB launch facts">
-        <div className="page-container proof-grid rv">
-          <div><strong>US Equities</strong><span>At launch</span></div>
-          <div><strong>$0.003</strong><span>From, per share</span></div>
-          <div><strong>$0.50</strong><span>From, per contract</span></div>
-          <div><strong>No minimum</strong><span>Account balance</span></div>
-          <div><strong>24/5</strong><span>Client coverage</span></div>
-        </div>
-      </section>
-
-      <section className="roadmap-feature">
-        <div className="page-container roadmap-grid">
-          <div className="roadmap-copy rv">
-            <span className="section-kicker light">Multi-asset roadmap</span>
-            <h2>US markets first.<br /><span>The world next.</span></h2>
-            <p>TGAB launches with US equities, listed options, and ETFs, then expands into futures, FX, metals, indices, fixed income, and digital assets as the roadmap opens.</p>
-            <div className="button-row"><Link className="button button-orange" to="/markets">Explore Markets <span aria-hidden="true">↗</span></Link><Link className="button button-green" to="/register">Register Interest</Link></div>
-          </div>
-          <div className="orderbook-art rv" aria-label="Illustrative market depth graphic">
-            <div className="orderbook-side asks">{[78,64,88,52,74,41].map((width, index) => <span key={index} style={{ "--bar": `${width}%`, "--delay": `${index * 70}ms` }}><i />{(6956 - index * .25).toFixed(2)}</span>)}</div>
-            <div className="orderbook-mid" data-count="6954.75" data-count-decimals="2" data-count-duration="1400">6,954.75</div>
-            <div className="orderbook-side bids">{[45,60,83,71,55,38].map((width, index) => <span key={index} style={{ "--bar": `${width}%`, "--delay": `${index * 70}ms` }}><i />{(6954.5 - index * .25).toFixed(2)}</span>)}</div>
+      <section className="offers-section">
+        <div className="page-container">
+          <h2 className="offers-title rv">Choose how you access the markets</h2>
+          <div className="offers-grid rv">
+            <OfferCard name="Core" accent="lime" description="Full market access, straightforward terms." items={["US equities, options & ETFs from $0.003/share, $0.50/contract", "Free account opening, no minimum balance", "Trade through a proven third-party platform", "Standard support, 1–2 business day response"]} to="/register?tier=core" />
+            <OfferCard name="Prime" accent="green" description="Priority service for active and professional traders." items={["Everything in Core, on the same transparent commission schedule", "Priority support routing over standard queues", "Priority access as new roadmap markets open", "Dedicated onboarding assistance"]} to="/register?tier=prime" />
+            <OfferCard name="Both tiers" accent="orange" description="The same launch markets under the same regulatory structure." items={["US equities, listed options, and ETFs at launch", "The same transparent commission schedule", "Institutional clearing relationships", "Full KYC / AML onboarding"]} to="/pricing-details" />
           </div>
         </div>
       </section>
@@ -139,21 +162,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="infrastructure-feature">
-        <div className="page-container infrastructure-grid">
-          <div className="infrastructure-copy rv">
-            <span className="section-kicker muted">Regulated-first infrastructure</span>
-            <h2>Institutional plumbing.<br />No retail shortcuts.</h2>
-            <p>Every layer of the stack — clearing, custody, execution, onboarding — is chosen for durability and auditability.</p>
-            <ul className="plain-list"><li>Regulated institutional clearing partners</li><li>Licensed Investment Dealer application in progress</li><li>Bank-grade KYC / AML onboarding</li><li>Segregation of client assets</li></ul>
-            <Link className="button button-orange" to="/security">How We Protect You <span aria-hidden="true">↗</span></Link>
-          </div>
-          <div className="infrastructure-panel rv">
-            {infrastructure.map(([label, value]) => <div key={label}><span>{label}</span><b>{value}</b></div>)}
-          </div>
-        </div>
-      </section>
-
       <section className="platform-stage">
         <div className="page-container">
           <h2 className="platform-intro rv">Advanced trading at your fingertips.</h2>
@@ -175,17 +183,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="offers-section">
-        <div className="page-container">
-          <h2 className="offers-title rv">Choose how you access the markets</h2>
-          <div className="offers-grid rv">
-            <OfferCard name="Core" accent="lime" description="Full market access, straightforward terms." items={["US equities, options & ETFs from $0.003/share, $0.50/contract", "Free account opening, no minimum balance", "Trade through a proven third-party platform", "Standard support, 1–2 business day response"]} to="/register?tier=core" />
-            <OfferCard name="Prime" accent="green" description="Priority service for active and professional traders." items={["Everything in Core, on the same transparent commission schedule", "Priority support routing over standard queues", "Priority access as new roadmap markets open", "Dedicated onboarding assistance"]} to="/register?tier=prime" />
-            <OfferCard name="Both tiers" accent="orange" description="The same launch markets under the same regulatory structure." items={["US equities, listed options, and ETFs at launch", "The same transparent commission schedule", "Institutional clearing relationships", "Full KYC / AML onboarding"]} to="/pricing-details" />
-          </div>
-        </div>
-      </section>
-
       <section className="process-section">
         <div className="page-container">
           <header className="editorial-heading rv"><h2>From Registration To Your First Trade</h2><p>Four clear steps from early interest to launch-market access.</p></header>
@@ -198,15 +195,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="markets-stage">
-        <div className="page-container">
-          <div className="markets-heading rv"><h2>Explore Our Markets</h2><Link className="button button-orange" to="/markets">All Markets <span aria-hidden="true">↗</span></Link></div>
-          <div className="market-carousel-shell rv">
-            <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}>←</button>
-            <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
-              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
-            </div>
-            <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}>→</button>
+      <section className="roadmap-feature">
+        <div className="page-container roadmap-grid">
+          <div className="roadmap-copy rv">
+            <span className="section-kicker light">Multi-asset roadmap</span>
+            <h2>US markets first.<br /><span>The world next.</span></h2>
+            <p>TGAB launches with US equities, listed options, and ETFs, then expands into futures, FX, metals, indices, fixed income, and digital assets as the roadmap opens.</p>
+            <div className="button-row"><Link className="button button-orange" to="/markets">Explore Markets <span aria-hidden="true">↗</span></Link><Link className="button button-green" to="/register">Register Interest</Link></div>
+          </div>
+          <div className="orderbook-art rv" aria-label="Illustrative market depth graphic">
+            <div className="orderbook-side asks">{[78,64,88,52,74,41].map((width, index) => <span key={index} style={{ "--bar": `${width}%`, "--delay": `${index * 70}ms` }}><i />{(6956 - index * .25).toFixed(2)}</span>)}</div>
+            <div className="orderbook-mid" data-count="6954.75" data-count-decimals="2" data-count-duration="1400">6,954.75</div>
+            <div className="orderbook-side bids">{[45,60,83,71,55,38].map((width, index) => <span key={index} style={{ "--bar": `${width}%`, "--delay": `${index * 70}ms` }}><i />{(6954.5 - index * .25).toFixed(2)}</span>)}</div>
           </div>
         </div>
       </section>

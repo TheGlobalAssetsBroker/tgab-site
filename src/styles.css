@@ -85,8 +85,8 @@ h1, h2, h3 { text-wrap: balance; }
 .button:hover, .btn:hover { opacity: .82; transform: translateY(-2px); }
 .button-orange, .btn-amber { color: #fff; background: var(--orange); }
 .button-orange:hover, .btn-amber:hover { opacity: 1; background: #1048ba; }
-.button-green { color: var(--deep-green); background: var(--green); }
-.button-green:hover { color: var(--green); background: var(--deep-green); opacity: 1; }
+.button-green { border: 1px solid #fff; color: #fff; background: transparent; }
+.button-green:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.12); opacity: 1; }
 .btn-ghost { border: 1px solid currentColor; color: var(--deep-green); background: transparent; }
 .btn-lg { min-height: 54px; padding-inline: 30px; }
 .button-row, .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; }
@@ -108,17 +108,15 @@ h1, h2, h3 { text-wrap: balance; }
 .hero-reference p { max-width: 690px; margin: 0; color: #fff; font-size: 20px; font-weight: 600; line-height: 1.2; }
 .hero-reference-actions { margin-top: 48px; display: flex; gap: 30px; }
 .hero-reference-actions .button { min-width: 172px; }
-.hero-reference-actions .button-green { border: 1px solid #fff; color: #fff; background: transparent; }
-.hero-reference-actions .button-green:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.12); }
 
 /* Home: advantage band */
-.advantage-section { padding: 112px 0; color: #fff; background: radial-gradient(circle at 78% 18%, rgba(47,117,255,.2), transparent 42%), linear-gradient(135deg, #070b1d 0%, #102553 48%, #080d22 100%); text-align: center; }
+.advantage-section { padding: 112px 0; color: #fff; background: radial-gradient(circle at 78% 18%, rgba(47,117,255,.2), transparent 42%), linear-gradient(135deg, #070b1d 0%, #102553 48%, #080d22 100%); text-align: left; }
 .advantage-section h2 { margin: 0; font-family: "Artex", sans-serif; font-size: clamp(60px, 7.2vw, 104px); font-weight: 500; letter-spacing: -.055em; line-height: .95; }
 .advantage-section h2 span { color: var(--green); }
 .advantage-lead { margin: 24px 0 0; font-size: 27px; font-weight: 600; }
 .advantage-grid { margin-top: 76px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 46px 62px; text-align: left; }
 .advantage-item { display: grid; grid-template-columns: 50px 1fr; gap: 20px; align-items: start; }
-.advantage-icon { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid var(--green); border-radius: 50%; color: var(--green); font-family: "Simplon Mono", monospace; font-size: 11px; }
+.advantage-icon { width: 38px; height: 38px; display: grid; place-items: center; border-left: 3px solid var(--green); color: var(--green); background: rgba(255,255,255,.05); font-family: "Simplon Mono", monospace; font-size: 11px; }
 .advantage-item h3 { margin: 1px 0 6px; font-size: 17px; font-weight: 600; }
 .advantage-item p { margin: 0; color: var(--accent-green); font-size: 13px; line-height: 1.35; }
 .advantage-cta { margin-top: 70px; }
@@ -171,7 +169,7 @@ h1, h2, h3 { text-wrap: balance; }
 .infrastructure-copy > p { max-width: 660px; margin: 0; font-size: 18px; line-height: 1.42; }
 .plain-list { margin: 34px 0 42px; padding: 0; list-style: none; }
 .plain-list li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.16); color: #fff; font-size: 15px; }
-.plain-list li::before { content: "+"; margin-right: 14px; color: var(--green); }
+.plain-list li::before { content: "—"; margin-right: 14px; color: var(--green); }
 .infrastructure-panel { border-top: 1px solid rgba(255,255,255,.22); }
 .infrastructure-panel > div { min-height: 78px; display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 24px; border-bottom: 1px solid rgba(255,255,255,.22); }
 .infrastructure-panel span { color: var(--accent-green); font-family: "Simplon Mono", monospace; font-size: 11px; }
@@ -206,7 +204,7 @@ h1, h2, h3 { text-wrap: balance; }
 .offer-card > p { min-height: 52px; margin: 0; color: #fff; font-size: 16px; line-height: 1.35; }
 .offer-card ul { margin: 26px 0 28px; padding: 0; list-style: none; }
 .offer-card li { position: relative; padding: 8px 0 8px 29px; font-size: 14px; line-height: 1.3; }
-.offer-card li::before { content: "✓"; position: absolute; left: 0; width: 19px; height: 19px; display: grid; place-items: center; border-radius: 50%; color: var(--deep-green); background: var(--green); font-size: 11px; font-weight: 700; }
+.offer-card li::before { content: "•"; position: absolute; left: 4px; top: 5px; color: var(--green); font-size: 20px; line-height: 1; }
 .offer-card .button { width: 100%; margin-top: auto; }
 
 /* Home: process */
@@ -215,7 +213,7 @@ h1, h2, h3 { text-wrap: balance; }
 .process-grid article { min-height: 310px; padding: 28px 34px 30px 0; border-right: 1px solid var(--line); }
 .process-grid article:not(:first-child) { padding-left: 34px; }
 .process-grid article:last-child { border-right: 0; }
-.process-grid article > span { color: var(--accent-green); font-family: "Simplon Mono", monospace; font-size: 12px; }
+.process-grid article > span { padding-bottom: 6px; display: inline-block; border-bottom: 2px solid var(--accent-green); color: var(--accent-green); font-family: "Simplon Mono", monospace; font-size: 12px; }
 .process-grid h3 { margin: 76px 0 14px; font-family: "Artex", sans-serif; font-size: 34px; font-weight: 500; letter-spacing: -.04em; line-height: .98; }
 .process-grid p { margin: 0; color: #66748c; font-size: 15px; line-height: 1.5; }
 
@@ -517,7 +515,8 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
 .cta-band h2 { max-width: 1040px; margin: 0 0 26px; font-family: "Artex", sans-serif; font-size: clamp(58px, 6vw, 88px); font-weight: 500; letter-spacing: -.055em; line-height: .94; }
 .cta-band p { max-width: 720px; margin: 0; font-size: 18px; line-height: 1.45; }
 .cta-band .hero-cta { margin-top: 38px; }
-.cta-band .btn-ghost { color: #fff; }
+.cta-band .btn-ghost, .page-hero .btn-ghost { border-color: #fff; color: #fff; background: transparent; }
+.cta-band .btn-ghost:hover, .page-hero .btn-ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.12); opacity: 1; }
 
 /* Footer */
 .site-footer { padding: 100px 0 34px; color: var(--deep-green); background: #fff; }
