@@ -44,8 +44,8 @@
 }
 
 .platform-stage .feature-carousel {
-  grid-auto-columns: clamp(420px, 34vw, 520px);
-  gap: 40px;
+  grid-auto-columns: clamp(336px, 27vw, 416px);
+  gap: 32px;
   overscroll-behavior-inline: contain;
   scrollbar-width: none;
 }
@@ -55,17 +55,20 @@
 }
 
 .platform-stage .feature-card {
-  min-height: 690px;
-  padding: 32px;
+  min-height: 552px;
+  padding: 26px;
 }
 
 .platform-stage .feature-card h3 {
-  font-size: clamp(34px, 3vw, 48px);
+  font-size: clamp(30px, 2.4vw, 39px);
 }
 
 .platform-stage .feature-card img {
-  inset: 42% 0 0;
-  height: 58%;
+  inset: auto 0 0;
+  height: 52%;
+  object-fit: contain;
+  object-position: center bottom !important;
+  background: #08131d;
 }
 
 @media (max-width: 760px) {
@@ -81,7 +84,7 @@
   }
 
   .platform-stage .feature-carousel {
-    grid-auto-columns: min(84vw, 420px);
+    grid-auto-columns: min(80vw, 360px);
     gap: 20px;
   }
 
@@ -112,6 +115,6 @@
   }
 
   .platform-stage .feature-card h3 {
-    font-size: 30px;
+    font-size: 28px;
   }
 }
