@@ -92,7 +92,7 @@ export function Header() {
     <header className="site-header">
       <nav className="site-nav wrap" aria-label="Main navigation" ref={navRef}>
         <Link className="brand" to="/" aria-label="TGAB home" onClick={closeNavigation}>
-          <img className="brand-symbol" src="/images/tgab-nav-wordmark.png" alt="TGAB — The Global Assets Broker" />
+          <img className="brand-symbol" src="/images/tgab-new-logo.png" alt="TGAB — The Global Assets Broker" />
         </Link>
         <Link className="mobile-nav-login" to="/login" onClick={closeNavigation}>Log In</Link>
         <button ref={menuButtonRef} className="menu-toggle" type="button" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="primary-links" onClick={toggleDrawer}>
