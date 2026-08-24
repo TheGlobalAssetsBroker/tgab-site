@@ -100,7 +100,7 @@ export default function HomePage() {
         <div className="page-container infrastructure-grid">
           <div className="infrastructure-copy rv">
             <span className="section-kicker muted">Regulated-first infrastructure</span>
-            <h2>Institutional plumbing.<br />No retail shortcuts.</h2>
+            <h2 className="phrase-heading"><span>Institutional plumbing.</span><span>No retail shortcuts.</span></h2>
             <p>Every layer of the stack — clearing, custody, execution, onboarding — is chosen for durability and auditability.</p>
             <ul className="plain-list"><li>Regulated institutional clearing partners</li><li>Licensed Investment Dealer application in progress</li><li>Bank-grade KYC / AML onboarding</li><li>Segregation of client assets</li></ul>
             <Link className="button button-orange" to="/security">How We Protect You <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
@@ -185,7 +185,7 @@ export default function HomePage() {
 
       <section className="process-section">
         <div className="page-container">
-          <header className="editorial-heading rv"><h2>From Registration To Your First Trade</h2><p>Four clear steps from early interest to launch-market access.</p></header>
+          <header className="editorial-heading rv"><h2 className="phrase-heading"><span>From Registration</span><span>To Your First Trade</span></h2><p>Four clear steps from early interest to launch-market access.</p></header>
           <div className="process-grid rv">
             <Process number="01" title="Register interest">Use “Open account” now to be prioritised for onboarding once TGAB is licensed and live.</Process>
             <Process number="02" title="Verify & open">Complete digital KYC/AML in the TGAB client portal.</Process>
