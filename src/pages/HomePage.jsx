@@ -147,7 +147,7 @@ export default function HomePage() {
           </header>
           <div className="editorial-grid">
             <article className="editorial-card rv">
-              <div className="editorial-media platform-crop"><img src="/images/trading-platform.png" alt="Professional multi-panel trading platform interface" /></div>
+              <div className="editorial-media platform-crop"><img src="/images/trading-platform-v2.png" alt="Professional multi-panel trading platform interface" /></div>
               <h3>One Account. A Proven Platform.</h3>
               <p>Access advanced charts, watchlists, options chains, and order management through proven third-party trading technology.</p>
               <Link to="/platforms">Learn More</Link>
