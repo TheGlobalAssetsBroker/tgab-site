@@ -722,6 +722,58 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
   .footer-legal > div a:first-of-type { margin-left: 0; }
 }
 
+/* Site-wide type system: one clean sans-serif family with restrained weights. */
+html body,
+html body *,
+html body *::before,
+html body *::after {
+  font-family: "Inter", Arial, sans-serif !important;
+}
+
+html body,
+html body p,
+html body li,
+html body td,
+html body input,
+html body select,
+html body textarea {
+  font-weight: 400 !important;
+}
+
+html body h1,
+html body h2,
+html body h3 {
+  font-weight: 500;
+}
+
+html body button,
+html body .button,
+html body .btn,
+html body .nav-direct,
+html body .nav-group-toggle,
+html body .nav-dropdown a,
+html body .eyebrow,
+html body .section-kicker,
+html body label,
+html body strong,
+html body b {
+  font-weight: 600;
+}
+
+html body .mono,
+html body .market-code,
+html body .market-status,
+html body .tag,
+html body .tag-count,
+html body .glyph,
+html body .orderbook-art {
+  font-weight: 500;
+}
+
+html body .tbl td:first-child {
+  font-weight: 500 !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
