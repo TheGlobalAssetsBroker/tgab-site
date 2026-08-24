@@ -25,19 +25,19 @@
 }
 
 :root {
-  /* The interface is built from the exact cherry red sampled from the TGAB icon. */
-  --deep-green: #32030c;
-  --green: #e1243d;
-  --accent-green: #ff5a70;
-  --pale: #fff0f2;
-  --orange: #e1243d;
-  --night: #0f0104;
-  --ink: #210208;
-  --navy: #2b030a;
-  --lime: #ff91a0;
-  --soft-blue: #ffd6dc;
-  --muted: #8f7479;
-  --line: rgba(225, 36, 61, .2);
+  /* True red leads the interface, supported by crisp scarlet and near-black. */
+  --deep-green: #280005;
+  --green: #d71920;
+  --accent-green: #ff3030;
+  --pale: #fff6f6;
+  --orange: #d71920;
+  --night: #0b0001;
+  --ink: #1b0003;
+  --navy: #240004;
+  --lime: #b90e1c;
+  --soft-blue: #f7e8e9;
+  --muted: #857477;
+  --line: rgba(215, 25, 32, .22);
 }
 
 * { box-sizing: border-box; }
@@ -91,7 +91,7 @@ h1, h2, h3 { text-wrap: balance; }
 .button, .btn { min-height: 40px; padding: 0 24px; border: 0; border-radius: 12px 0 12px 0; display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-family: "Artex", sans-serif; font-size: 18px; font-weight: 500; letter-spacing: -.04em; cursor: pointer; transition: color .3s ease, background-color .3s ease, opacity .3s ease, transform .3s cubic-bezier(0,0,.5,1); }
 .button:hover, .btn:hover { opacity: .82; transform: translateY(-2px); }
 .button-orange, .btn-amber { color: #fff; background: var(--orange); }
-.button-orange:hover, .btn-amber:hover { opacity: 1; background: #bd1630; }
+.button-orange:hover, .btn-amber:hover { opacity: 1; background: #aa1117; }
 .button-green { border: 1px solid #fff; color: #fff; background: transparent; }
 .button-green:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,.12); opacity: 1; }
 .btn-ghost { border: 1px solid currentColor; color: var(--deep-green); background: transparent; }
@@ -106,7 +106,7 @@ h1, h2, h3 { text-wrap: balance; }
 
 /* Home: full-bleed campaign hero */
 .hero-reference { position: relative; min-height: calc(100svh - 64px); padding: 0; overflow: hidden; display: flex; align-items: center; color: #fff; background: var(--night) url("/images/tgab-hero.png") center / cover no-repeat; }
-.hero-reference::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,1,4,.98) 0%, rgba(50,3,12,.9) 38%, rgba(225,36,61,.42) 72%, rgba(15,1,4,.16) 100%); }
+.hero-reference::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.78) 42%, rgba(0,0,0,.28) 76%, rgba(0,0,0,.12) 100%); }
 .hero-reference-inner { position: relative; z-index: 2; }
 .hero-reference-copy { max-width: 780px; }
 .hero-reference-kicker { display: block; margin-bottom: 26px; font-size: 15px; font-weight: 600; }
@@ -117,7 +117,7 @@ h1, h2, h3 { text-wrap: balance; }
 .hero-reference-actions .button { min-width: 172px; }
 
 /* Home: advantage band */
-.advantage-section { padding: 112px 0; color: #fff; background: radial-gradient(circle at 78% 18%, rgba(225,36,61,.28), transparent 42%), linear-gradient(135deg, #0f0104 0%, #400511 48%, #170106 100%); text-align: left; }
+.advantage-section { padding: 112px 0; color: #fff; background: radial-gradient(circle at 78% 18%, rgba(215,25,32,.24), transparent 42%), linear-gradient(135deg, #0b0001 0%, #3b0005 48%, #150002 100%); text-align: left; }
 .advantage-section h2 { margin: 0; font-family: "Artex", sans-serif; font-size: clamp(60px, 7.2vw, 104px); font-weight: 500; letter-spacing: -.055em; line-height: .95; }
 .advantage-section h2 span { color: var(--green); }
 .advantage-lead { margin: 24px 0 0; font-size: 27px; font-weight: 600; }
@@ -246,7 +246,7 @@ h1, h2, h3 { text-wrap: balance; }
 
 /* Home: final media campaign */
 .final-campaign { position: relative; min-height: 760px; padding: 110px 0; display: flex; align-items: center; color: #fff; background: var(--night) url("/images/hero-register-v1.webp") center / cover no-repeat; }
-.final-campaign::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,1,4,.98), rgba(50,3,12,.86) 45%, rgba(225,36,61,.32)); }
+.final-campaign::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,0,1,.98), rgba(40,0,5,.86) 45%, rgba(215,25,32,.3)); }
 .final-campaign-inner { position: relative; z-index: 1; }
 .final-campaign h2 { margin: 0 0 30px; font-family: "Artex", sans-serif; font-size: clamp(70px, 5.84vw, 84px); font-weight: 500; letter-spacing: -.06em; line-height: .95; }
 .final-campaign h2 span { color: var(--green); }
@@ -256,7 +256,7 @@ h1, h2, h3 { text-wrap: balance; }
 .page-hero {
   --hero-image: none;
   --hero-position: center;
-  --hero-art: radial-gradient(circle at 82% 28%, rgba(225,36,61,.17), transparent 30%);
+  --hero-art: radial-gradient(circle at 82% 28%, rgba(215,25,32,.17), transparent 30%);
   position: relative;
   min-height: 560px;
   padding: 112px 0 92px;
@@ -317,7 +317,7 @@ body:is(
   [data-page="contact"],
   [data-page="register"]
 ) .page-hero {
-  --hero-art: linear-gradient(90deg, rgba(15,1,4,.98) 0%, rgba(50,3,12,.94) 34%, rgba(104,8,23,.74) 52%, rgba(225,36,61,.3) 79%, rgba(15,1,4,.1) 100%);
+  --hero-art: linear-gradient(90deg, rgba(11,0,1,.98) 0%, rgba(40,0,5,.94) 34%, rgba(96,4,10,.74) 52%, rgba(215,25,32,.3) 79%, rgba(11,0,1,.1) 100%);
   background-color: var(--night);
 }
 body:is(
@@ -341,20 +341,20 @@ body:is(
 
 /* A small set keeps the stripe language, but the construction changes by page. */
 body[data-page="pricing"] .page-hero {
-  --hero-art: linear-gradient(128deg, transparent 0 66%, rgba(225,36,61,.13) 66% 72%, transparent 72%), radial-gradient(circle at 79% 22%, rgba(225,36,61,.16), transparent 25%);
+  --hero-art: linear-gradient(128deg, transparent 0 66%, rgba(215,25,32,.13) 66% 72%, transparent 72%), radial-gradient(circle at 79% 22%, rgba(215,25,32,.16), transparent 25%);
 }
 body[data-page="pricing-details"] .page-hero {
-  --hero-art: linear-gradient(128deg, transparent 0 56%, rgba(225,36,61,.08) 56% 61%, transparent 61% 68%, rgba(225,36,61,.14) 68% 73%, transparent 73%), radial-gradient(circle at 84% 78%, rgba(225,36,61,.13), transparent 26%);
+  --hero-art: linear-gradient(128deg, transparent 0 56%, rgba(215,25,32,.08) 56% 61%, transparent 61% 68%, rgba(215,25,32,.14) 68% 73%, transparent 73%), radial-gradient(circle at 84% 78%, rgba(215,25,32,.13), transparent 26%);
 }
 body[data-page="insights"] .page-hero {
-  --hero-art: linear-gradient(168deg, transparent 0 68%, rgba(225,36,61,.11) 68% 74%, transparent 74%), radial-gradient(ellipse at 82% 6%, rgba(225,36,61,.18), transparent 32%);
+  --hero-art: linear-gradient(168deg, transparent 0 68%, rgba(215,25,32,.11) 68% 74%, transparent 74%), radial-gradient(ellipse at 82% 6%, rgba(215,25,32,.18), transparent 32%);
   background-color: var(--night);
 }
 body[data-page="faq"] .page-hero {
-  --hero-art: linear-gradient(42deg, transparent 0 72%, rgba(225,36,61,.12) 72% 79%, transparent 79%), radial-gradient(circle at 8% 90%, rgba(225,36,61,.13), transparent 24%);
+  --hero-art: linear-gradient(42deg, transparent 0 72%, rgba(215,25,32,.12) 72% 79%, transparent 79%), radial-gradient(circle at 8% 90%, rgba(215,25,32,.13), transparent 24%);
 }
 body[data-page="support"] .page-hero {
-  --hero-art: linear-gradient(154deg, transparent 0 61%, rgba(225,36,61,.11) 61% 69%, transparent 69%), radial-gradient(ellipse at 88% 24%, rgba(225,36,61,.17), transparent 29%);
+  --hero-art: linear-gradient(154deg, transparent 0 61%, rgba(215,25,32,.11) 61% 69%, transparent 69%), radial-gradient(ellipse at 88% 24%, rgba(215,25,32,.17), transparent 29%);
 }
 
 /* Utility routes intentionally drop the campaign motif and enter more quietly. */
@@ -364,7 +364,7 @@ body:is(
   [data-page="accessibility"],
   [data-page="sitemap"]
 ) .page-hero {
-  --hero-art: radial-gradient(ellipse at 92% 18%, rgba(225,36,61,.12), transparent 28%);
+  --hero-art: radial-gradient(ellipse at 92% 18%, rgba(215,25,32,.12), transparent 28%);
   min-height: 430px;
   padding-block: 82px 70px;
   background-color: var(--night);
@@ -376,7 +376,7 @@ body:is(
   [data-page="sitemap"]
 ) .page-hero h1 { max-width: 960px; font-size: clamp(58px, 6vw, 82px); }
 body[data-page="not-found"] .page-hero {
-  --hero-art: radial-gradient(circle at 84% 48%, rgba(225,36,61,.12), transparent 22%);
+  --hero-art: radial-gradient(circle at 84% 48%, rgba(215,25,32,.12), transparent 22%);
   background-color: var(--night);
 }
 .block { padding: 112px 0; color: var(--deep-green); background: #fff; border-bottom: 1px solid var(--line); }
@@ -488,7 +488,7 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
 .form-field label { color: var(--deep-green); font-size: 13px; font-weight: 600; }
 .form-field label span { color: var(--orange); }
 .form-field input, .form-field select { width: 100%; height: 54px; padding: 0 15px; border: 1px solid var(--line); border-radius: 10px 0 10px 0; color: var(--deep-green); background: var(--pale); outline: 0; }
-.form-field input:focus, .form-field select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(225,36,61,.22); }
+.form-field input:focus, .form-field select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(215,25,32,.22); }
 .form-disclaimer { margin: 26px 0; padding-top: 20px; border-top: 1px solid var(--line); color: #806d71; font-size: 12px; line-height: 1.55; }
 .submit-button { width: 100%; justify-content: space-between; }
 .form-error { padding: 12px; color: #a20f28; background: #ffe6ea; }
@@ -583,7 +583,7 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
   .nav-dropdown a { min-height: 42px; padding: 0 10px; border: 0; font-size: 16px; }
   .nav-actions { justify-content: space-between; }
   .hero-reference { min-height: calc(100svh - 60px); background-position: 62% center; }
-  .hero-reference::before { background: linear-gradient(90deg, rgba(15,1,4,.97), rgba(98,7,22,.72)); }
+  .hero-reference::before { background: linear-gradient(90deg, rgba(0,0,0,.94), rgba(0,0,0,.58)); }
   body:is(
     [data-page="markets"],
     [data-page="platforms"],
@@ -627,7 +627,7 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
   .brand-symbol { width: 150px; height: 50px; flex-basis: 150px; }
   .nav-actions .button { flex: 1; }
   .hero-reference { min-height: 700px; padding: 68px 0; align-items: end; background-position: 67% center; }
-  .hero-reference::before { background: linear-gradient(180deg, rgba(15,1,4,.14), rgba(98,7,22,.76) 46%, rgba(15,1,4,.98)); }
+  .hero-reference::before { background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.58) 46%, rgba(0,0,0,.96)); }
   .hero-reference h1 { font-size: clamp(50px, 15vw, 70px); }
   .hero-reference p { font-size: 16px; }
   .hero-reference-actions, .button-row, .hero-cta { align-items: stretch; flex-direction: column; gap: 14px; }
