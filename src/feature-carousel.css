@@ -18,9 +18,9 @@
   height: 56px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, .32);
+  border: 1px solid rgba(16, 42, 86, .32);
   border-radius: 50%;
-  color: #fff;
+  color: var(--deep-green);
   background: transparent;
   font-size: 25px;
   line-height: 1;
@@ -30,7 +30,7 @@
 
 .carousel-arrow:hover {
   border-color: var(--orange);
-  color: var(--deep-green);
+  color: #fff;
   background: var(--orange);
   transform: translateY(-2px);
 }
