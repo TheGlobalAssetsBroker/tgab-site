@@ -126,6 +126,10 @@
   color: #fff;
 }
 
+.market-slide:nth-child(9) > .market-code {
+  transform: translateX(-6px);
+}
+
 .market-carousel-arrow {
   position: absolute;
   z-index: 5;
