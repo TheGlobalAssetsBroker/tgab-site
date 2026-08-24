@@ -779,13 +779,13 @@ html body .tbl td:first-child {
   font-weight: 500 !important;
 }
 
-/* Keep action arrows typographic on iOS instead of rendering emoji artwork. */
-html body .button > span[aria-hidden="true"],
-html body .btn > span[aria-hidden="true"],
-html body .nav-dropdown a > span[aria-hidden="true"] {
-  font-family: Arial, sans-serif !important;
-  font-variant-emoji: text;
-  font-style: normal;
+/* Supplied action-arrow artwork, converted from black to white with CSS. */
+html body .upper-right-arrow {
+  width: clamp(18px, 1.35vw, 22px);
+  height: clamp(18px, 1.35vw, 22px);
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
