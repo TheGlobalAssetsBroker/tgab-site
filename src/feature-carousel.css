@@ -63,8 +63,8 @@
 .platform-stage .feature-card img {
   inset: auto 0 0;
   height: 52%;
-  object-fit: contain;
-  object-position: center bottom !important;
+  object-fit: cover;
+  object-position: center center !important;
   background: #08131d;
 }
 
