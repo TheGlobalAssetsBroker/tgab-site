@@ -646,6 +646,7 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
   .editorial-heading p { font-size: 17px; }
   .editorial-card p { font-size: 16px; }
   .infrastructure-grid { gap: 50px; }
+  .infrastructure-copy h2 { line-height: 1.02; }
   .infrastructure-panel > div { grid-template-columns: 1fr; gap: 7px; padding: 16px 0; }
   .infrastructure-panel b { text-align: left; }
   .platform-hero { padding: 8px; border-radius: 18px; }
@@ -653,6 +654,7 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
   .feature-carousel, .market-carousel { grid-auto-columns: 84%; gap: 20px; }
   .offers-title { text-align: left; }
   .offer-card { min-height: 500px; }
+  .process-section .editorial-heading h2 { line-height: 1.05; }
   .process-grid { grid-template-columns: 1fr; border-top: 0; }
   .process-grid article, .process-grid article:not(:first-child) { min-height: 0; padding: 28px 0 34px; border-top: 1px solid rgba(255,255,255,.28); border-right: 0; }
   .process-grid h3 { margin-top: 46px; }
@@ -746,9 +748,6 @@ html body h3 {
   font-weight: 500;
 }
 
-html body button,
-html body .button,
-html body .btn,
 html body .nav-direct,
 html body .nav-group-toggle,
 html body .nav-dropdown a,
@@ -758,6 +757,12 @@ html body label,
 html body strong,
 html body b {
   font-weight: 600;
+}
+
+html body button,
+html body .button,
+html body .btn {
+  font-weight: 400 !important;
 }
 
 html body .mono,
@@ -772,6 +777,15 @@ html body .orderbook-art {
 
 html body .tbl td:first-child {
   font-weight: 500 !important;
+}
+
+/* Keep action arrows typographic on iOS instead of rendering emoji artwork. */
+html body .button > span[aria-hidden="true"],
+html body .btn > span[aria-hidden="true"],
+html body .nav-dropdown a > span[aria-hidden="true"] {
+  font-family: Arial, sans-serif !important;
+  font-variant-emoji: text;
+  font-style: normal;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -68,7 +68,7 @@ export default function RegisterPage() {
                   <div className="form-field"><label htmlFor="heard">How did you hear about TGAB? (optional)</label><select id="heard" name="heard" defaultValue=""><option value="">Prefer not to say</option><option value="search">Search</option><option value="social">Social media</option><option value="referral">Referral</option><option value="other">Other</option></select></div>
                 </div>
                 <p className="form-disclaimer">We’ll be in touch by email once TGAB is licensed and live. We never ask for payments, deposits, or credentials by email.</p>
-                <button className="btn btn-amber btn-lg submit-button" type="submit" disabled={status.loading}>{status.loading ? "Submitting…" : "Register interest"}<span aria-hidden="true">↗</span></button>
+                <button className="btn btn-amber btn-lg submit-button" type="submit" disabled={status.loading}>{status.loading ? "Submitting…" : "Register interest"}<span aria-hidden="true">{"↗\uFE0E"}</span></button>
                 {status.error && <p className="form-error" role="alert">{status.error}</p>}
               </form>
             )}

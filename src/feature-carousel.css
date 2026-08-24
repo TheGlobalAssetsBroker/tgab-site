@@ -120,6 +120,12 @@
   z-index: 2;
 }
 
+/* These two light-body cards use dark photography behind their ticker codes. */
+.market-slide:nth-child(6) > .market-code,
+.market-slide:nth-child(9) > .market-code {
+  color: #fff;
+}
+
 .market-carousel-arrow {
   position: absolute;
   z-index: 5;

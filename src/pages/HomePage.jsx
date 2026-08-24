@@ -66,7 +66,7 @@ export default function HomePage() {
             <h1>Global markets.<br /><span>Institutional access.</span></h1>
             <p>A multi-asset brokerage built on regulated infrastructure, transparent pricing, and institutional-grade execution.</p>
             <div className="hero-reference-actions">
-              <Link className="button button-orange" to="/register">Open Account <span aria-hidden="true">↗</span></Link>
+              <Link className="button button-orange" to="/register">Open Account <span aria-hidden="true">{"↗\uFE0E"}</span></Link>
               <Link className="button button-green" to="/markets">Explore Markets</Link>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function HomePage() {
 
       <section className="markets-stage">
         <div className="page-container">
-          <div className="markets-heading rv"><h2>Explore Our Markets</h2><Link className="button button-orange" to="/markets">All Markets <span aria-hidden="true">↗</span></Link></div>
+          <div className="markets-heading rv"><h2>Explore Our Markets</h2><Link className="button button-orange" to="/markets">All Markets <span aria-hidden="true">{"↗\uFE0E"}</span></Link></div>
           <div className="market-carousel-shell rv">
             <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}>←</button>
             <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
@@ -103,7 +103,7 @@ export default function HomePage() {
             <h2>Institutional plumbing.<br />No retail shortcuts.</h2>
             <p>Every layer of the stack — clearing, custody, execution, onboarding — is chosen for durability and auditability.</p>
             <ul className="plain-list"><li>Regulated institutional clearing partners</li><li>Licensed Investment Dealer application in progress</li><li>Bank-grade KYC / AML onboarding</li><li>Segregation of client assets</li></ul>
-            <Link className="button button-orange" to="/security">How We Protect You <span aria-hidden="true">↗</span></Link>
+            <Link className="button button-orange" to="/security">How We Protect You <span aria-hidden="true">{"↗\uFE0E"}</span></Link>
           </div>
           <div className="infrastructure-panel rv">
             {infrastructure.map(([label, value]) => <div key={label}><span>{label}</span><b>{value}</b></div>)}
@@ -124,7 +124,7 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <Link className="button button-orange advantage-cta" to="/register">Get Started <span aria-hidden="true">↗</span></Link>
+          <Link className="button button-orange advantage-cta" to="/register">Get Started <span aria-hidden="true">{"↗\uFE0E"}</span></Link>
         </div>
       </section>
 
@@ -201,7 +201,7 @@ export default function HomePage() {
             <span className="section-kicker light">Multi-asset roadmap</span>
             <h2>US markets first.<br /><span>The world next.</span></h2>
             <p>TGAB launches with US equities, listed options, and ETFs, then expands into futures, FX, metals, indices, fixed income, and digital assets as the roadmap opens.</p>
-            <div className="button-row"><Link className="button button-orange" to="/markets">Explore Markets <span aria-hidden="true">↗</span></Link><Link className="button button-green" to="/register">Register Interest</Link></div>
+            <div className="button-row"><Link className="button button-orange" to="/markets">Explore Markets <span aria-hidden="true">{"↗\uFE0E"}</span></Link><Link className="button button-green" to="/register">Register Interest</Link></div>
           </div>
           <div className="orderbook-art rv" aria-label="Illustrative market depth graphic">
             <div className="orderbook-side asks">{[78,64,88,52,74,41].map((width, index) => <span key={index} style={{ "--bar": `${width}%`, "--delay": `${index * 70}ms` }}><i />{(6956 - index * .25).toFixed(2)}</span>)}</div>
@@ -216,7 +216,7 @@ export default function HomePage() {
           <span className="section-kicker light">Get in early</span>
           <h2>Be first through<br /><span>the door.</span></h2>
           <p>Register your interest now and get priority onboarding when TGAB goes live.</p>
-          <div className="button-row"><Link className="button button-orange" to="/register">Open Account <span aria-hidden="true">↗</span></Link><Link className="button button-green" to="/contact">Talk To Us</Link></div>
+          <div className="button-row"><Link className="button button-orange" to="/register">Open Account <span aria-hidden="true">{"↗\uFE0E"}</span></Link><Link className="button button-green" to="/contact">Talk To Us</Link></div>
         </div>
       </section>
     </main>
@@ -228,7 +228,7 @@ function FeatureCard({ eyebrow, title, image, position }) {
 }
 
 function OfferCard({ name, accent, description, items, to }) {
-  return <article className={`offer-card ${accent}`}><span className="offer-label">Account tier</span><h3>{name}</h3><p>{description}</p><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul><Link className="button button-orange" to={to}>{name === "Both tiers" ? "Compare Tiers" : `Choose ${name}`} <span aria-hidden="true">↗</span></Link></article>;
+  return <article className={`offer-card ${accent}`}><span className="offer-label">Account tier</span><h3>{name}</h3><p>{description}</p><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul><Link className="button button-orange" to={to}>{name === "Both tiers" ? "Compare Tiers" : `Choose ${name}`} <span aria-hidden="true">{"↗\uFE0E"}</span></Link></article>;
 }
 
 function Process({ number, title, children }) {

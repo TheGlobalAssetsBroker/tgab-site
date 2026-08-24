@@ -16,7 +16,7 @@ export function Footer() {
           <img className="footer-mark" src="/images/tgab-footer-wordmark.png" alt="TGAB — The Global Assets Broker" />
           <h2>Built for the next market move.</h2>
           <p>Institutional-grade market access, transparent pricing, and a regulated-first approach.</p>
-          <Link className="button button-orange" to="/register">Register Interest <span aria-hidden="true">↗</span></Link>
+          <Link className="button button-orange" to="/register">Register Interest <span aria-hidden="true">{"↗\uFE0E"}</span></Link>
         </div>
         <div className="footer-shell">
           <div className="footer-links">

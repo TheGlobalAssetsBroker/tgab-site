@@ -129,7 +129,7 @@ export function Header() {
                   </button>
                   <ul className="nav-dropdown" id={`nav-${item.id}`} aria-label={`${item.label} pages`} aria-hidden={!expanded}>
                     {item.children.map((child) => (
-                      <li key={child.to}><NavLink to={child.to} tabIndex={expanded ? 0 : -1} onClick={closeNavigation}>{child.label}<span aria-hidden="true">↗</span></NavLink></li>
+                      <li key={child.to}><NavLink to={child.to} tabIndex={expanded ? 0 : -1} onClick={closeNavigation}>{child.label}<span aria-hidden="true">{"↗\uFE0E"}</span></NavLink></li>
                     ))}
                   </ul>
                 </li>
