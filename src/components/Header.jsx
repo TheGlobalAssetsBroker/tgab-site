@@ -94,7 +94,10 @@ export function Header() {
         <Link className="brand" to="/" aria-label="TGAB home" onClick={closeNavigation}>
           <img className="brand-symbol" src="/images/tgab-nav-wordmark.png" alt="TGAB — The Global Assets Broker" />
         </Link>
-        <button ref={menuButtonRef} className="menu-toggle" type="button" aria-expanded={open} aria-controls="primary-links" onClick={toggleDrawer}>{open ? "Close" : "Menu"}</button>
+        <Link className="mobile-nav-login" to="/login" onClick={closeNavigation}>Log In</Link>
+        <button ref={menuButtonRef} className="menu-toggle" type="button" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="primary-links" onClick={toggleDrawer}>
+          <span className="menu-toggle-icon" aria-hidden="true"><span /><span /><span /></span>
+        </button>
         <div className={`nav-drawer${open ? " open" : ""}`} id="primary-links">
           <ul className="nav-links">
             {navigation.map((item) => {
