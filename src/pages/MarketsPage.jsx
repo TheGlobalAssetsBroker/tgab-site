@@ -1,5 +1,15 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
+const marketQuotes = [
+  { symbol: "SPY", name: "S&P 500 ETF", price: "634.12", change: "+0.42%", direction: "up" },
+  { symbol: "QQQ", name: "Nasdaq 100 ETF", price: "562.88", change: "0.00%", direction: "flat" },
+  { symbol: "AAPL", name: "Apple", price: "228.40", change: "−0.32%", direction: "down" },
+  { symbol: "MSFT", name: "Microsoft", price: "512.70", change: "−0.28%", direction: "down" },
+  { symbol: "NVDA", name: "NVIDIA", price: "171.35", change: "+1.24%", direction: "up" },
+];
+
+const trendIcons = { up: "↗", down: "↘", flat: "→" };
+
 export default function MarketsPage() {
   usePageEffects("markets", "Markets — TGAB | US equities, options &amp; multi-asset access", "Trade US equities, listed options, and ETFs at launch, with futures, FX, metals, and more on the TGAB roadmap. Market hours and instrument coverage.");
   return (
@@ -10,21 +20,35 @@ export default function MarketsPage() {
           <p>TGAB launches with deep access to the world's most liquid market — US equities and listed options, cleared through regulated institutional infrastructure — and expands from there under a full-service dealer mandate.</p>
         </div>
       </section>
-      <section className="block">
+      <section className="block market-tape-section">
         <div className="wrap">
-          <div className="head-row rv">
+          <div className="head-row market-tape-heading rv">
             <div>
+              <span className="section-kicker muted">Market snapshot</span>
               <h2>Today's <span className="it">tape.</span></h2>
             </div>
+            <span className="market-tape-status"><i aria-hidden="true" /> Indicative pricing · USD</span>
           </div>
-          <ul aria-label="Indicative market quotes">
-            <li>SPY: 634.12, up 0.42%</li>
-            <li>QQQ: 562.88, up 0.61%</li>
-            <li>AAPL: 228.40, down 0.32%</li>
-            <li>MSFT: 512.70, up 0.28%</li>
-            <li>NVDA: 171.35, up 1.24%</li>
-          </ul>
-          <p>Quotes may be delayed or indicative. Not for trading decisions.</p>
+          <div className="market-tape-board rv">
+            <div className="market-tape-board-header" aria-hidden="true">
+              <span>Instrument</span><span>Last price / Change</span>
+            </div>
+            <ul className="market-quote-grid" aria-label="Indicative market quotes">
+              {marketQuotes.map((quote) => (
+                <li className={`market-quote market-quote-${quote.direction}`} key={quote.symbol}>
+                  <div className="market-quote-label">
+                    <strong>{quote.symbol}</strong>
+                    <span>{quote.name}</span>
+                  </div>
+                  <div className="market-quote-value">
+                    <span className="market-quote-price">{quote.price}</span>
+                    <span className="market-quote-change"><i aria-hidden="true">{trendIcons[quote.direction]}</i>{quote.change}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="market-tape-disclaimer"><span aria-hidden="true">i</span> Quotes may be delayed or indicative and are provided for general information only. Not for trading decisions.</p>
         </div>
       </section>
       <section className="block">
