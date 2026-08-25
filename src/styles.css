@@ -560,6 +560,12 @@ body[data-page="markets"] ul[aria-label="Indicative market quotes"] + p { margin
 .rv { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1); }
 .rv.in-view { opacity: 1; transform: translateY(0); }
 
+@media (min-width: 1001px) {
+  .hero-reference-kicker { font-size: 16px; }
+  .hero-reference h1 { font-size: clamp(68px, 6.1vw, 90px); }
+  .hero-reference p { font-size: 22px; }
+}
+
 @media (max-width: 1200px) {
   .page-container, .wrap { padding-inline: 64px; }
   .footer-brand-card { left: auto; }
