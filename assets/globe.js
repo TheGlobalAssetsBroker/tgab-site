@@ -13,7 +13,9 @@
 
   let W, H, R;
   function size() {
-    const s = Math.min(760, Math.max(420, window.innerWidth * 0.52));
+    /* dialled back from the original 760/0.52 so the globe reads as a
+       supporting accent — the headline and phone lead the hero */
+    const s = Math.min(600, Math.max(360, window.innerWidth * 0.40));
     W = s; H = s; R = s * 0.36;
     cv.width = W * DPR; cv.height = H * DPR;
     cv.style.width = W + "px"; cv.style.height = H + "px";

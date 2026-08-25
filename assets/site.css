@@ -6,7 +6,7 @@
    ============================================================ */
 
 :root{
-  /* ---- official brand palette (assets/brand/BRAND-COLORS.md) ---- */
+  /* ---- official brand palette (assets/brand/BRAND-GUIDE.md) ---- */
   --graphite:#1B2129;      /* primary background */
   --steel:#6E9BC7;         /* primary brand accent */
   --ice:#A8C8E8;           /* highlights, hover states, secondary accent */
@@ -17,6 +17,18 @@
                               (6.2:1 on Graphite, 7.1:1 on Midnight — WCAG AA) */
   --signal-green:#2EEB7A;  /* gains, positive, key CTAs, brand energy */
   --signal-red:#E05C5C;    /* losses/alerts ONLY, never decorative */
+
+  /* ---- supporting tones (extend the official set, same family) ---- */
+  --deep:#24405C;          /* deeper accent blue — depth in gradients + borders */
+  --abyss:#070B11;         /* below Midnight — deepest elevation floor */
+  --warm:#C6BCB0;          /* warm neutral — breaks the cool cast, used sparingly */
+  --warm-dim:rgba(198,188,176,.09);
+
+  /* ---- elevation scale ---- */
+  --sh-1:0 1px 2px rgba(0,0,0,.26),0 3px 10px rgba(0,0,0,.16);
+  --sh-2:0 2px 4px rgba(0,0,0,.28),0 12px 30px rgba(0,0,0,.26);
+  --sh-3:0 6px 14px rgba(0,0,0,.32),0 28px 64px rgba(0,0,0,.38);
+  --inset-hi:inset 0 1px 0 rgba(255,255,255,.05);
 
   /* ---- semantic tokens mapped onto the palette ---- */
   --bg:var(--graphite);
@@ -40,6 +52,7 @@
   --nav-h:68px;
   --tape-h:36px;
   --ease:cubic-bezier(.22,.9,.24,1);
+  --ease-soft:cubic-bezier(.33,.7,.28,1);  /* longer settle for hover states */
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -87,7 +100,11 @@ body::after{
 }
 .nav{height:var(--nav-h);display:flex;align-items:center;gap:22px;max-width:var(--max);margin:0 auto;padding:0 28px}
 .brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+/* Brand guide: the mark keeps its cardinal letters only at 48px+. The header
+   sits exactly at that floor on desktop and swaps to the letters-dropped
+   variant below it, so the letters are never rendered illegibly small. */
 .brand-mark{width:48px;height:48px;flex-shrink:0;display:block}
+.brand-mark-small{display:none}
 .brand-text{display:flex;flex-direction:column;justify-content:center;line-height:1.2}
 .brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.18rem;letter-spacing:.09em}
 .brand .sub{font-family:"Inter",system-ui,sans-serif;font-size:.5rem;letter-spacing:.27em;text-transform:uppercase;color:var(--slate)}
@@ -177,7 +194,7 @@ body::after{
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line-soft)}
-.hero-inner{position:relative;z-index:3;padding:132px 28px 110px;max-width:var(--max);margin:0 auto}
+.hero-inner{position:relative;z-index:3;padding:130px 28px 116px;max-width:var(--max);margin:0 auto}
 .hero h1{
   font-size:clamp(2.4rem,5.5vw,4.6rem);
   max-width:15ch;text-wrap:balance;font-weight:500;
@@ -192,9 +209,16 @@ body::after{
     -webkit-text-fill-color:transparent;color:var(--ice);
   }
 }
-.hero p.lead{margin-top:30px;max-width:54ch;color:var(--mut);font-size:1.1rem;font-weight:300}
-.hero-cta{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-#globe{position:absolute;right:-6%;top:48%;transform:translateY(-50%);z-index:1;opacity:.85;pointer-events:none}
+.hero p.lead{margin-top:26px;max-width:52ch;color:var(--mut);font-size:1.1rem;font-weight:300}
+.hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+/* The canvas sizes itself in globe.js; this only places and tones it.
+   Held at a supporting opacity so the headline and phone lead. */
+#globe{
+  position:absolute;right:2%;top:50%;transform:translateY(-50%);
+  max-width:none;
+  z-index:1;pointer-events:none;
+  opacity:.72;
+}
 
 /* stat strip with counters */
 .stats{position:relative;z-index:3;border-top:1px solid var(--line-soft);background:rgba(255,255,255,.012)}
@@ -337,7 +361,7 @@ main > section.block:nth-of-type(even){
 .foot-grid a{display:block;font-size:.86rem;color:var(--mut);padding:5px 0;transition:color .2s}
 .foot-grid a:hover{color:var(--gold-hi)}
 .foot-brand .lockup{display:flex;align-items:center;gap:16px}
-.foot-brand .lockup svg{width:64px;height:64px;flex-shrink:0}
+.foot-brand .lockup svg{width:76px;height:76px;flex-shrink:0}
 .foot-brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.25rem;letter-spacing:.09em;line-height:1.25}
 .foot-brand .lockup .sub{display:block;font-family:"Inter",system-ui,sans-serif;font-size:.52rem;letter-spacing:.27em;text-transform:uppercase;color:var(--slate)}
 .foot-brand p{margin-top:16px;font-size:.84rem;color:var(--mut-2);max-width:40ch;font-weight:300}
@@ -393,7 +417,11 @@ main > section.block:nth-of-type(even){
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(2){border-right:none}
   .stat{border-bottom:1px solid var(--line-soft)}
-  #globe{opacity:.28}
+  /* no phone at this width — the globe becomes a centred ambient backdrop
+     behind the copy, dimmed further so text stays legible */
+  #globe{
+    opacity:.26;right:auto;left:50%;transform:translate(-50%,-50%);
+  }
   .foot-grid{grid-template-columns:1fr 1fr 1fr}
 }
 @media (max-width:860px){
@@ -434,6 +462,8 @@ main > section.block:nth-of-type(even){
   .nav{padding:0 14px;gap:8px}
   .brand{gap:8px}
   .brand-mark{width:38px;height:38px}
+  .brand-mark-full{display:none}
+  .brand-mark-small{display:block}
   .brand .mark{font-size:1.02rem}
   .nav-cta{gap:6px}
   .nav-cta .login{font-size:.64rem;padding:7px 11px}
@@ -495,29 +525,58 @@ main > section.block:nth-of-type(even){
 
 /* ---------- hero device mockup (phone) ---------- */
 .hero-device{
-  display:none;position:absolute;z-index:3;right:14%;top:9%;
-  width:356px;height:544px;pointer-events:none;
+  display:none;position:absolute;z-index:3;right:20%;top:8%;
+  width:356px;height:496px;pointer-events:none;
 }
 @media (min-width:1100px){.hero-device{display:block}}
 
+/* Falloff is baked into the gradient — filter:blur() on a scale-animated
+   layer forces a full gaussian re-raster every frame (see aurora note). */
 .device-glow{
   position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
-  width:307px;height:307px;border-radius:50%;
-  background:radial-gradient(circle,var(--gold-dim),transparent 70%);
-  filter:blur(30px);animation:device-pulse 6s ease-in-out infinite;
+  width:470px;height:470px;border-radius:50%;
+  /* Two stacked layers: a dark scrim (listed first, so painted on top)
+     knocks the globe's dots back directly behind the phone, and a blue
+     halo underneath separates the device from the sphere. Together they
+     give the phone depth instead of letting it collide with the globe. */
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(6,10,16,.78) 0%,
+      rgba(6,10,16,.60) 26%,
+      rgba(6,10,16,.30) 46%,
+      rgba(6,10,16,.08) 64%,
+      transparent 80%),
+    radial-gradient(circle at 50% 50%,
+      rgba(110,155,199,.26) 0%,
+      rgba(110,155,199,.15) 28%,
+      rgba(110,155,199,.06) 52%,
+      rgba(110,155,199,.02) 72%,
+      transparent 100%);
+  animation:device-pulse 7s ease-in-out infinite;
 }
 @keyframes device-pulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
 
-.phone-float{width:186px;margin:100px auto 0;animation:device-float 7s var(--ease) infinite}
+.phone-float{position:relative;width:186px;margin:74px auto 0;animation:device-float 7s var(--ease) infinite}
 @keyframes device-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 .phone{
   position:relative;z-index:2;width:186px;height:340px;
-  border-radius:36px;border:1px solid var(--gold-line);
-  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(0,0,0,.35));
-  backdrop-filter:blur(9px);
-  box-shadow:0 0 0 1px rgba(255,255,255,.04) inset,0 30px 70px rgba(0,0,0,.55),0 0 40px rgba(110,155,199,.08);
+  border-radius:36px;border:1px solid rgba(168,200,232,.20);
+  /* denser fill than before so the glass still reads against the globe */
+  background:linear-gradient(155deg,rgba(255,255,255,.085),rgba(14,22,32,.52) 46%,rgba(8,12,18,.60));
+  backdrop-filter:blur(11px) saturate(1.08);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.05) inset,
+    0 1px 0 rgba(255,255,255,.11) inset,      /* catch-light on the top edge */
+    0 26px 62px rgba(0,0,0,.60),
+    0 8px 20px rgba(0,0,0,.38),
+    0 0 44px rgba(110,155,199,.12);
   padding:18px 16px 16px;
+}
+/* soft specular sweep across the upper-left corner */
+.phone::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(150deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.02) 22%,transparent 46%);
 }
 .phone::before{
   content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);
@@ -526,7 +585,7 @@ main > section.block:nth-of-type(even){
 .phone-screen{margin-top:20px;display:flex;flex-direction:column;height:calc(100% - 24px)}
 
 .phone-brand{display:flex;align-items:center;gap:6px;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--line-soft)}
-.phone-brand svg{width:19px;height:19px;flex-shrink:0}
+.phone-brand svg{width:20px;height:20px;flex-shrink:0;border-radius:5px}
 .phone-brand .mark{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:.76rem;letter-spacing:.07em;color:var(--text)}
 
 .phone-equity{margin-bottom:10px}
@@ -564,7 +623,7 @@ main > section.block:nth-of-type(even){
 }
 .device-badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold)}
 .badge-a{top:0;left:-6%}
-.badge-b{bottom:6%;right:-8%}
+.badge-b{bottom:2%;right:-8%}
 
 @media (prefers-reduced-motion:reduce){
   .device-glow{animation:none}
@@ -738,3 +797,153 @@ main > section.block:nth-of-type(even){
 .form-success p{color:var(--mut);max-width:44ch;margin:0 auto}
 .btn.is-loading{opacity:.65;pointer-events:none}
 #registerForm .btn{width:100%;text-align:center}
+
+/* ============================================================
+   v4 — premium refinement layer
+   Additive polish only: depth, micro-interactions, rhythm, card
+   treatments. No layout or identity changes. Appended last so it
+   overrides earlier rules at equal specificity.
+   ============================================================ */
+
+/* ---------- section depth + rhythm ---------- */
+/* Midnight bands now carry a deep-blue core and hairline edges so the
+   transition between sections reads as elevation, not a flat colour swap. */
+main > section.block:nth-of-type(even){
+  background:
+    linear-gradient(180deg,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--midnight) 88%, var(--deep)) 16%,
+      var(--midnight) 50%,
+      color-mix(in srgb, var(--midnight) 92%, var(--deep)) 84%,
+      var(--bg) 100%);
+}
+/* hairline catch-light where two sections meet */
+main > section.block::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(168,200,232,.13) 22%,var(--warm-dim) 55%,rgba(110,155,199,.10) 78%,transparent);
+}
+section.block{padding:112px 0}
+.head-row{margin-bottom:52px}
+.block .sub{margin-top:16px}
+
+/* ---------- cards: gradient hairline + layered elevation ---------- */
+.card{
+  background:linear-gradient(168deg,rgba(255,255,255,.030),rgba(255,255,255,.008) 62%);
+  box-shadow:var(--sh-1),var(--inset-hi);
+  transition:transform .45s var(--ease-soft),border-color .45s var(--ease-soft),
+             background .45s var(--ease-soft),box-shadow .45s var(--ease-soft);
+}
+/* masked gradient border — cool at the head, a touch of warm in the tail */
+.card::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  pointer-events:none;z-index:2;
+  background:linear-gradient(150deg,rgba(168,200,232,.34),rgba(110,155,199,.07) 40%,transparent 64%,var(--warm-dim));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+          mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.45;transition:opacity .45s var(--ease-soft);
+}
+.card:hover::before{opacity:1}
+.card:hover{
+  transform:translateY(-5px);
+  border-color:transparent;
+  /* must restate the gradient — the earlier flat :hover background would
+     otherwise snap the card from gradient to solid mid-transition */
+  background:linear-gradient(168deg,rgba(255,255,255,.055),rgba(255,255,255,.014) 62%);
+  box-shadow:var(--sh-2),var(--inset-hi),0 0 34px rgba(110,155,199,.10);
+}
+.card .glyph{transition:color .45s var(--ease-soft)}
+.card:hover .glyph{color:var(--ice)}
+
+/* ---------- market-access bento cells ---------- */
+.mcell{
+  background:linear-gradient(168deg,color-mix(in srgb, var(--bg-2) 94%, var(--deep)),var(--bg-2) 70%);
+  transition:background .45s var(--ease-soft),box-shadow .45s var(--ease-soft);
+}
+.mcell:hover{
+  background:linear-gradient(168deg,color-mix(in srgb, var(--bg-2) 84%, var(--deep)),var(--bg-2) 74%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045);
+}
+.mcell h3{transition:color .4s var(--ease-soft)}
+.mcell:hover h3{color:var(--ice)}
+
+/* ---------- account tiers ---------- */
+.tier-card{
+  background:linear-gradient(166deg,rgba(255,255,255,.032),rgba(255,255,255,.007) 66%);
+  box-shadow:var(--sh-1),var(--inset-hi);
+  transition:transform .5s var(--ease-soft),border-color .5s var(--ease-soft),
+             background .5s var(--ease-soft),box-shadow .5s var(--ease-soft);
+}
+.tier-card:not(.featured)::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  pointer-events:none;z-index:-1;
+  background:linear-gradient(150deg,rgba(168,200,232,.26),transparent 46%,transparent 60%,var(--warm-dim));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+          mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.5;transition:opacity .5s var(--ease-soft);
+}
+.tier-card:not(.featured):hover::before{opacity:1}
+.tier-card:not(.featured):hover{
+  transform:translateY(-6px);border-color:transparent;
+  background:linear-gradient(166deg,rgba(255,255,255,.055),rgba(255,255,255,.012) 66%);
+  box-shadow:var(--sh-2),var(--inset-hi),0 0 40px rgba(110,155,199,.10);
+}
+.tier-card.featured{
+  background:linear-gradient(160deg,rgba(110,155,199,.13),rgba(36,64,92,.10) 46%,rgba(255,255,255,.012) 100%);
+  box-shadow:0 0 0 1px rgba(110,155,199,.12) inset,var(--sh-2),0 30px 90px rgba(110,155,199,.10);
+}
+.tier-card.featured:hover{
+  box-shadow:0 0 0 1px rgba(110,155,199,.20) inset,var(--sh-3),0 40px 110px rgba(110,155,199,.16);
+}
+.tier-why{color:color-mix(in srgb, var(--mut) 84%, var(--warm))}
+
+/* ---------- stats strip: sits on the elevation floor ---------- */
+.stats{
+  background:linear-gradient(180deg,rgba(7,11,17,.55),rgba(255,255,255,.010));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+.stat{transition:background .4s var(--ease-soft)}
+.stat:hover{background:rgba(255,255,255,.014)}
+
+/* ---------- nav: animated indicator ---------- */
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;
+  background:linear-gradient(90deg,var(--steel),var(--ice));
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .42s var(--ease-soft);
+}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+
+/* ---------- buttons: smoother settle ---------- */
+.btn{transition:transform .32s var(--ease-soft),border-color .32s var(--ease-soft),
+                background .32s var(--ease-soft),color .32s var(--ease-soft),
+                box-shadow .32s var(--ease-soft)}
+.btn-ghost{box-shadow:var(--inset-hi)}
+.btn-ghost:hover{box-shadow:var(--inset-hi),0 6px 20px rgba(0,0,0,.28),0 0 22px rgba(110,155,199,.12)}
+
+/* ---------- tables + quotes: refined depth ---------- */
+.tbl{box-shadow:var(--sh-1)}
+.tbl tbody tr{transition:background .3s var(--ease-soft)}
+.quotes{box-shadow:var(--sh-1)}
+.q{transition:background .35s var(--ease-soft)}
+.data-note{color:color-mix(in srgb, var(--mut-2) 82%, var(--warm))}
+
+/* ---------- panels ---------- */
+.panel-art{box-shadow:var(--sh-3),var(--inset-hi)}
+.form-card{box-shadow:var(--sh-2),var(--inset-hi)}
+
+/* ---------- footer sits on the deepest layer ---------- */
+.site-footer{
+  background:linear-gradient(180deg,var(--midnight) 0%,var(--abyss) 100%);
+  box-shadow:inset 0 1px 0 rgba(168,200,232,.06);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .card,.tier-card,.mcell,.btn,.nav-links a::after,.card::before,.tier-card::before{transition:none}
+}
+
+/* keep the refinement layer from re-introducing desktop spacing on mobile */
+@media (max-width:600px){
+  section.block{padding:84px 0}
+}

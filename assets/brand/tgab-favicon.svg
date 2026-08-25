@@ -1,9 +1,16 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- TGAB favicon — simplified for tiny sizes -->
-  <rect width="64" height="64" rx="14" fill="#1B2129"/>
-  <g transform="translate(32 32) scale(1.42) translate(-32 -32)">
-    <circle cx="32" cy="32" r="17" stroke="#6E9BC7" stroke-width="2.4"/>
-    <path d="M18 39 Q31 29 46 25.5" stroke="#2EEB7A" stroke-width="2.6" stroke-linecap="round"/>
-    <circle cx="46" cy="25.5" r="3.2" fill="#2EEB7A"/>
-  </g>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TGAB">
+  <defs>
+    <linearGradient id="fvN" x1="0.3" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#7FA8CC"/></linearGradient>
+    <linearGradient id="fvE" x1="1" y1="0.3" x2="0" y2="0.7"><stop offset="0" stop-color="#8FB4D9"/><stop offset="1" stop-color="#3E628C"/></linearGradient>
+    <linearGradient id="fvS" x1="0.3" y1="1" x2="0.7" y2="0"><stop offset="0" stop-color="#5687B5"/><stop offset="1" stop-color="#22354C"/></linearGradient>
+    <linearGradient id="fvW" x1="0" y1="0.3" x2="1" y2="0.7"><stop offset="0" stop-color="#A8C8E8"/><stop offset="1" stop-color="#456C99"/></linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="13" fill="#1B2129"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#EDEFF2" stroke-width="1.4"/>
+  <path d="M32 10 L36.4 28.6 L32 31.8 L27.6 28.6 Z" fill="url(#fvN)"/>
+  <path d="M54 32 L35.4 36.4 L32.2 32 L35.4 27.6 Z" fill="url(#fvE)"/>
+  <path d="M32 54 L27.6 35.4 L32 32.2 L36.4 35.4 Z" fill="url(#fvS)"/>
+  <path d="M10 32 L28.6 27.6 L31.8 32 L28.6 36.4 Z" fill="url(#fvW)"/>
+  <path d="M32 10 L32 31.8 L27.6 28.6 Z" fill="#FFFFFF" opacity="0.22"/>
+  <circle cx="32" cy="32" r="3.4" fill="#2EEB7A"/>
 </svg>

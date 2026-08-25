@@ -5,23 +5,62 @@
   const C = window.TGAB_CONFIG || {};
   const page = document.body.dataset.page || "";
 
-  /* official TGAB mark (assets/brand/tgab-logo-mark.svg), inlined so the
-     header/footer need no extra request and it inherits crisp SVG scaling */
-  const MARK_SVG = `
-    <svg class="brand-mark" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g transform="translate(44 44) scale(1.27) translate(-44 -44)">
-        <circle cx="44" cy="44" r="26" stroke="#46566E" stroke-width="1.5"/>
-        <ellipse cx="44" cy="44" rx="26" ry="10.2" stroke="#46566E" stroke-width="1" opacity="0.7"/>
-        <ellipse cx="44" cy="44" rx="10.8" ry="26" stroke="#46566E" stroke-width="1" opacity="0.7"/>
-        <circle cx="44" cy="18" r="2.2" fill="#6E9BC7"/>
-        <circle cx="66.5" cy="34" r="2.2" fill="#6E9BC7"/>
-        <circle cx="21.5" cy="54" r="2.2" fill="#6E9BC7"/>
-        <circle cx="27" cy="30" r="2" fill="#A8C8E8"/>
-        <circle cx="56" cy="59" r="2" fill="#A8C8E8"/>
-        <path d="M21.5 54 Q42 39 66.5 34" stroke="#2EEB7A" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="66.5" cy="34" r="2.9" fill="#2EEB7A"/>
-      </g>
+  /* Official TGAB compass mark (assets/brand/tgab-mark-dark.svg), inlined so
+     its gradients render and the header/footer cost no extra request.
+     Gradient ids are namespaced per instance — inlining the same svg twice
+     with shared ids would collide in one document. */
+  function compassMark(ns, cls) {
+    return `
+    <svg class="${cls}" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="${ns}N" x1="0.3" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#7FA8CC"/></linearGradient>
+        <linearGradient id="${ns}E" x1="1" y1="0.3" x2="0" y2="0.7"><stop offset="0" stop-color="#8FB4D9"/><stop offset="1" stop-color="#3E628C"/></linearGradient>
+        <linearGradient id="${ns}S" x1="0.3" y1="1" x2="0.7" y2="0"><stop offset="0" stop-color="#5687B5"/><stop offset="1" stop-color="#22354C"/></linearGradient>
+        <linearGradient id="${ns}W" x1="0" y1="0.3" x2="1" y2="0.7"><stop offset="0" stop-color="#A8C8E8"/><stop offset="1" stop-color="#456C99"/></linearGradient>
+      </defs>
+      <circle cx="80" cy="80" r="66" fill="none" stroke="#EDEFF2" stroke-width="1.1"/>
+      <circle cx="80" cy="80" r="52" fill="none" stroke="#2E3A48" stroke-width="0.8"/>
+      <path d="M80 30 L89 73 L80 79 L71 73 Z" fill="url(#${ns}N)"/>
+      <path d="M122 80 L87 89 L81 80 L87 71 Z" fill="url(#${ns}E)"/>
+      <path d="M80 122 L71 87 L80 81 L89 87 Z" fill="url(#${ns}S)"/>
+      <path d="M38 80 L73 71 L79 80 L73 89 Z" fill="url(#${ns}W)"/>
+      <path d="M80 30 L80 79 L71 73 Z" fill="#FFFFFF" opacity="0.22"/>
+      <circle cx="80" cy="80" r="5.5" fill="#2EEB7A"/>
+      <circle cx="80" cy="80" r="9" fill="none" stroke="#2EEB7A" stroke-width="0.7" opacity="0.45"/>
+      <text x="80" y="25" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#EDEFF2" text-anchor="middle" letter-spacing="1">T</text>
+      <text x="139" y="85" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#EDEFF2" text-anchor="middle" letter-spacing="1">G</text>
+      <text x="80" y="144" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#EDEFF2" text-anchor="middle" letter-spacing="1">A</text>
+      <text x="21" y="85" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#EDEFF2" text-anchor="middle" letter-spacing="1">B</text>
     </svg>`;
+  }
+
+  /* Letters-dropped variant. Brand guide: below 48px the cardinal letters are
+     illegible, so small placements use this instead. */
+  function compassSmall(ns, cls, plate) {
+    return `
+    <svg class="${cls}" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="${ns}N" x1="0.3" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#7FA8CC"/></linearGradient>
+        <linearGradient id="${ns}E" x1="1" y1="0.3" x2="0" y2="0.7"><stop offset="0" stop-color="#8FB4D9"/><stop offset="1" stop-color="#3E628C"/></linearGradient>
+        <linearGradient id="${ns}S" x1="0.3" y1="1" x2="0.7" y2="0"><stop offset="0" stop-color="#5687B5"/><stop offset="1" stop-color="#22354C"/></linearGradient>
+        <linearGradient id="${ns}W" x1="0" y1="0.3" x2="1" y2="0.7"><stop offset="0" stop-color="#A8C8E8"/><stop offset="1" stop-color="#456C99"/></linearGradient>
+      </defs>
+      ${plate ? '<rect width="64" height="64" rx="13" fill="#1B2129"/>' : ''}
+      <circle cx="32" cy="32" r="25" fill="none" stroke="#EDEFF2" stroke-width="1.4"/>
+      <path d="M32 10 L36.4 28.6 L32 31.8 L27.6 28.6 Z" fill="url(#${ns}N)"/>
+      <path d="M54 32 L35.4 36.4 L32.2 32 L35.4 27.6 Z" fill="url(#${ns}E)"/>
+      <path d="M32 54 L27.6 35.4 L32 32.2 L36.4 35.4 Z" fill="url(#${ns}S)"/>
+      <path d="M10 32 L28.6 27.6 L31.8 32 L28.6 36.4 Z" fill="url(#${ns}W)"/>
+      <path d="M32 10 L32 31.8 L27.6 28.6 Z" fill="#FFFFFF" opacity="0.22"/>
+      <circle cx="32" cy="32" r="3.4" fill="#2EEB7A"/>
+    </svg>`;
+  }
+
+  /* Header renders both and CSS picks one: the full mark sits at its 48px
+     minimum on desktop, the letters-dropped variant takes over on narrow
+     viewports where the mark has to shrink below that. */
+  const MARK_SVG = compassMark("hm", "brand-mark brand-mark-full") +
+                   compassSmall("hs", "brand-mark brand-mark-small", false);
 
   /* ---------- scroll progress ---------- */
   const progress = document.createElement("div");
@@ -81,7 +120,7 @@
       <div class="foot-grid">
         <div class="foot-brand">
           <div class="lockup">
-            ${MARK_SVG}
+            ${compassMark("fm", "brand-mark")}
             <div>
               <div class="mark">TGAB<span class="mark-sq"></span></div>
               <span class="sub">The Global Assets Broker</span>
