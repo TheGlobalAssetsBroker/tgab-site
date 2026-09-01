@@ -11,7 +11,7 @@ const marketQuotes = [
 const trendIcons = { up: "↗", down: "↘", flat: "→" };
 
 export default function MarketsPage() {
-  usePageEffects("markets", "Markets — TGAB | US equities, options &amp; multi-asset access", "Trade US equities, listed options, and ETFs at launch, with futures, FX, metals, and more on the TGAB roadmap. Market hours and instrument coverage.");
+  usePageEffects("markets", "Markets — TGAB | US equities, options & multi-asset access", "Trade US equities, listed options, and ETFs at launch, with futures, FX, metals, and more on the TGAB roadmap. Market hours and instrument coverage.");
   return (
     <main>
       <section className="page-hero">

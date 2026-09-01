@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function LegalPage() {
-  usePageEffects("legal", "Legal — TGAB | Regulatory status, risk disclosure, terms &amp; privacy", "TGAB legal centre: regulatory status, risk disclosure, terms of use, and privacy policy.");
+  usePageEffects("legal", "Legal — TGAB | Regulatory status, risk disclosure, terms & privacy", "TGAB legal centre: regulatory status, risk disclosure, terms of use, and privacy policy.");
   return (
     <main>
       <section className="page-hero">

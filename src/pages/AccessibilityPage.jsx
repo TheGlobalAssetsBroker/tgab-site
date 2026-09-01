@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function AccessibilityPage() {
-  usePageEffects("accessibility", "Accessibility Statement — TGAB", "TGAB&#39;s accessibility commitment and how to report an accessibility issue on this website.");
+  usePageEffects("accessibility", "Accessibility Statement — TGAB", "TGAB's accessibility commitment and how to report an accessibility issue on this website.");
   return (
     <main>
       <section className="page-hero">

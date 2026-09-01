@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function PlatformsPage() {
-  usePageEffects("platforms", "Platforms — TGAB | Trading platform &amp; client portal", "TGAB clients trade through a licensed third-party trading platform, paired with a regulated client portal for onboarding, funding, and account management.");
+  usePageEffects("platforms", "Platforms — TGAB | Trading platform & client portal", "TGAB clients trade through a licensed third-party trading platform, paired with a regulated client portal for onboarding, funding, and account management.");
   return (
     <main>
       <section className="page-hero">

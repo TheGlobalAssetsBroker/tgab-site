@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function CareersPage() {
-  usePageEffects("careers", "Careers — TGAB | Building the founding team", "TGAB is in formation and building its founding team. No public job listings yet — write to us if you&#39;d be a fit for a regulated brokerage build.");
+  usePageEffects("careers", "Careers — TGAB | Building the founding team", "TGAB is in formation and building its founding team. No public job listings yet — write to us if you'd be a fit for a regulated brokerage build.");
   return (
     <main>
       <section className="page-hero">

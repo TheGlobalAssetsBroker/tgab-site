@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function InsightsPage() {
-  usePageEffects("insights", "Insights — TGAB | Market commentary, coming soon", "TGAB&#39;s market commentary and research will publish here as we approach launch. Nothing is posted yet.");
+  usePageEffects("insights", "Insights — TGAB | Market commentary, coming soon", "TGAB's market commentary and research will publish here as we approach launch. Nothing is posted yet.");
   return (
     <main>
       <section className="page-hero">

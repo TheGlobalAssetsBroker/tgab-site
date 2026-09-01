@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function PricingDetailsPage() {
-  usePageEffects("pricing-details", "Pricing Details — TGAB | Core vs Prime account comparison", "A side-by-side comparison of TGAB&#39;s Core and Prime account tiers — commissions, account minimums, platform access, support, and roadmap-market priority.");
+  usePageEffects("pricing-details", "Pricing Details — TGAB | Core vs Prime account comparison", "A side-by-side comparison of TGAB's Core and Prime account tiers — commissions, account minimums, platform access, support, and roadmap-market priority.");
   return (
     <main>
       <section className="page-hero">

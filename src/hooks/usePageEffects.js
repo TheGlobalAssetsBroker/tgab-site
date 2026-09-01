@@ -1,18 +1,12 @@
 import { useEffect } from "react";
 import { siteConfig } from "../config";
 
-const decode = (value) => {
-  const node = document.createElement("textarea");
-  node.innerHTML = value;
-  return node.value;
-};
-
 export function usePageEffects(page, title, description) {
   useEffect(() => {
     document.body.dataset.page = page;
-    document.title = decode(title);
+    document.title = title;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.content = decode(description);
+    if (meta) meta.content = description;
     const hash = window.location.hash;
     if (hash) {
       requestAnimationFrame(() => document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView({ block: "start" }));

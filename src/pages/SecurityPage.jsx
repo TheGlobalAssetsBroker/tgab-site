@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function SecurityPage() {
-  usePageEffects("security", "Security &amp; Trust — TGAB | Client asset protection &amp; infrastructure", "How TGAB is built to protect client assets and data: segregation, KYC/AML, two-factor authentication, and regulated clearing infrastructure.");
+  usePageEffects("security", "Security & Trust — TGAB | Client asset protection & infrastructure", "How TGAB is built to protect client assets and data: segregation, KYC/AML, two-factor authentication, and regulated clearing infrastructure.");
   return (
     <main>
       <section className="page-hero">

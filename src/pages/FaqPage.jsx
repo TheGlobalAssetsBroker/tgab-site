@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function FaqPage() {
-  usePageEffects("faq", "FAQ — TGAB | Common questions about launch, accounts &amp; fees", "Answers to common questions about TGAB&#39;s regulatory status, launch timeline, account opening, trading platform, fees, and security.");
+  usePageEffects("faq", "FAQ — TGAB | Common questions about launch, accounts & fees", "Answers to common questions about TGAB's regulatory status, launch timeline, account opening, trading platform, fees, and security.");
   return (
     <main>
       <section className="page-hero">

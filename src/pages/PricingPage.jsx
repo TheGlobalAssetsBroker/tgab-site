@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function PricingPage() {
-  usePageEffects("pricing", "Pricing — TGAB | Transparent commissions &amp; fees", "TGAB&#39;s indicative pre-launch fee schedule for US equities, options, and account services. Transparent pricing with no hidden spreads.");
+  usePageEffects("pricing", "Pricing — TGAB | Transparent commissions & fees", "TGAB's indicative pre-launch fee schedule for US equities, options, and account services. Transparent pricing with no hidden spreads.");
   return (
     <main>
       <section className="page-hero">

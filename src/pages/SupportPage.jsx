@@ -1,7 +1,7 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function SupportPage() {
-  usePageEffects("support", "Help Centre — TGAB | Support topics &amp; how it works", "Self-serve help topics for TGAB: account &amp; KYC, funding, trading platform, fees, and security — plus how the onboarding flow will work at launch.");
+  usePageEffects("support", "Help Centre — TGAB | Support topics & how it works", "Self-serve help topics for TGAB: account & KYC, funding, trading platform, fees, and security — plus how the onboarding flow will work at launch.");
   return (
     <main>
       <section className="page-hero">
