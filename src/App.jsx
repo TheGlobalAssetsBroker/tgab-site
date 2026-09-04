@@ -1,28 +1,30 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import AccessibilityPage from "./pages/AccessibilityPage";
-import CareersPage from "./pages/CareersPage";
-import CompanyPage from "./pages/CompanyPage";
-import ContactPage from "./pages/ContactPage";
-import CookiesPage from "./pages/CookiesPage";
-import FaqPage from "./pages/FaqPage";
-import InsightsPage from "./pages/InsightsPage";
-import LegalPage from "./pages/LegalPage";
-import MarketsPage from "./pages/MarketsPage";
-import PlatformsPage from "./pages/PlatformsPage";
-import PricingDetailsPage from "./pages/PricingDetailsPage";
-import PricingPage from "./pages/PricingPage";
-import SecurityPage from "./pages/SecurityPage";
-import SitemapPage from "./pages/SitemapPage";
-import SupportPage from "./pages/SupportPage";
+
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const AccessibilityPage = lazy(() => import("./pages/AccessibilityPage"));
+const CareersPage = lazy(() => import("./pages/CareersPage"));
+const CompanyPage = lazy(() => import("./pages/CompanyPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const CookiesPage = lazy(() => import("./pages/CookiesPage"));
+const FaqPage = lazy(() => import("./pages/FaqPage"));
+const InsightsPage = lazy(() => import("./pages/InsightsPage"));
+const LegalPage = lazy(() => import("./pages/LegalPage"));
+const MarketsPage = lazy(() => import("./pages/MarketsPage"));
+const PlatformsPage = lazy(() => import("./pages/PlatformsPage"));
+const PricingDetailsPage = lazy(() => import("./pages/PricingDetailsPage"));
+const PricingPage = lazy(() => import("./pages/PricingPage"));
+const SecurityPage = lazy(() => import("./pages/SecurityPage"));
+const SitemapPage = lazy(() => import("./pages/SitemapPage"));
+const SupportPage = lazy(() => import("./pages/SupportPage"));
 
 export default function App() {
   return (
-    <Routes>
+    <Suspense fallback={<main className="route-loading" aria-label="Loading page" />}><Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="markets" element={<MarketsPage />} />
@@ -44,6 +46,6 @@ export default function App() {
         <Route path="sitemap" element={<SitemapPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-    </Routes>
+    </Routes></Suspense>
   );
 }

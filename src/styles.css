@@ -81,7 +81,7 @@ h1, h2, h3 { text-wrap: balance; }
 .mono { }
 
 /* Home: full-bleed campaign hero */
-.hero-reference { position: relative; min-height: calc(100svh - 64px); padding: 0; overflow: hidden; display: flex; align-items: center; color: #fff; background: var(--night) url("/images/tgab-hero.png") center / cover no-repeat; }
+.hero-reference { position: relative; min-height: calc(100svh - 64px); padding: 0; overflow: hidden; display: flex; align-items: center; color: #fff; background: var(--night) url("/images/tgab-hero.webp") center / cover no-repeat; }
 .hero-reference::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.78) 42%, rgba(0,0,0,.28) 76%, rgba(0,0,0,.12) 100%); }
 .hero-reference-inner { position: relative; z-index: 2; }
 .hero-reference-copy { max-width: 780px; }

@@ -13,15 +13,15 @@ const advantages = [
 ];
 
 const markets = [
-  ["EQ", "US Equities", "At launch", "NYSE, Nasdaq and major US venues, cleared through regulated institutional infrastructure.", "/images/market-equities.png"],
-  ["OPT", "Listed Options", "At launch", "Single-leg and multi-leg strategies on US-listed underlyings.", "/images/market-options.png"],
-  ["ETF", "ETFs", "At launch", "Index, sector, and thematic exposure through US-listed funds.", "/images/market-etfs.png"],
-  ["FUT", "Futures", "Roadmap", "Index, rates, and commodity futures on major global exchanges.", "/images/market-futures.png"],
-  ["FX", "Foreign Exchange", "Roadmap", "Majors, minors, and EM crosses with institutional liquidity.", "/images/market-foreign-exchange.png"],
-  ["MTL", "Metals & Commodities", "Roadmap", "Precious metals and key commodity markets.", "/images/market-metals.png"],
-  ["IDX", "Indices", "Roadmap", "Broad-market index exposure across global sessions.", "/images/market-indices.png"],
-  ["FI", "Fixed Income", "Roadmap", "Government and corporate debt for yield-focused portfolios.", "/images/market-fixed-income.png"],
-  ["DA", "Digital Assets", "Roadmap", "Regulated digital-asset access, subject to applicable approvals.", "/images/market-digital-assets.png"],
+  ["EQ", "US Equities", "At launch", "NYSE, Nasdaq and major US venues, cleared through regulated institutional infrastructure.", "/images/market-equities.webp"],
+  ["OPT", "Listed Options", "At launch", "Single-leg and multi-leg strategies on US-listed underlyings.", "/images/market-options.webp"],
+  ["ETF", "ETFs", "At launch", "Index, sector, and thematic exposure through US-listed funds.", "/images/market-etfs.webp"],
+  ["FUT", "Futures", "Roadmap", "Index, rates, and commodity futures on major global exchanges.", "/images/market-futures.webp"],
+  ["FX", "Foreign Exchange", "Roadmap", "Majors, minors, and EM crosses with institutional liquidity.", "/images/market-foreign-exchange.webp"],
+  ["MTL", "Metals & Commodities", "Roadmap", "Precious metals and key commodity markets.", "/images/market-metals.webp"],
+  ["IDX", "Indices", "Roadmap", "Broad-market index exposure across global sessions.", "/images/market-indices.webp"],
+  ["FI", "Fixed Income", "Roadmap", "Government and corporate debt for yield-focused portfolios.", "/images/market-fixed-income.webp"],
+  ["DA", "Digital Assets", "Roadmap", "Regulated digital-asset access, subject to applicable approvals.", "/images/market-digital-assets.webp"],
 ];
 
 const infrastructure = [
@@ -89,7 +89,7 @@ export default function HomePage() {
           <div className="market-carousel-shell rv">
             <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}>←</button>
             <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
-              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
+              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" loading="lazy" decoding="async" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
             </div>
             <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}>→</button>
           </div>
@@ -147,13 +147,13 @@ export default function HomePage() {
           </header>
           <div className="editorial-grid">
             <article className="editorial-card rv">
-              <div className="editorial-media platform-crop"><img src="/images/trading-platform-v2.png" alt="Professional multi-panel trading platform interface" /></div>
+              <div className="editorial-media platform-crop"><img src="/images/trading-platform-v2.webp" alt="Professional multi-panel trading platform interface" loading="lazy" decoding="async" /></div>
               <h3>One Account. A Proven Platform.</h3>
               <p>Access advanced charts, watchlists, options chains, and order management through proven third-party trading technology.</p>
               <Link to="/platforms">Learn More</Link>
             </article>
             <article className="editorial-card rv">
-              <div className="editorial-media"><img src="/images/tgab-editorial.png" alt="Professional trader using an institutional trading workstation" /></div>
+              <div className="editorial-media"><img src="/images/tgab-editorial.webp" alt="Professional trader using an institutional trading workstation" loading="lazy" decoding="async" /></div>
               <h3>Two Ways To Access The Markets.</h3>
               <p>Choose Core for straightforward market access or Prime for priority service, dedicated onboarding, and early roadmap access.</p>
               <Link to="/pricing-details">Compare Tiers</Link>
@@ -165,16 +165,16 @@ export default function HomePage() {
       <section className="platform-stage">
         <div className="page-container">
           <h2 className="platform-intro rv">Advanced trading at your fingertips.</h2>
-          <div className="platform-hero rv"><img src="/images/platform-laptop-mockup.png" alt="Professional trading platform displayed on a laptop" /></div>
+          <div className="platform-hero rv"><img src="/images/platform-laptop-mockup.webp" alt="Professional trading platform displayed on a laptop" loading="lazy" decoding="async" /></div>
           <p className="platform-caption rv"><b>Professional trading technology.</b> Advanced charting, live watchlists, options chains, and order management in one workspace.</p>
           <div className="platform-title-row rv">
             <h2 className="platform-title">Power Meets Precision</h2>
           </div>
           <div className="feature-carousel rv" ref={featureCarouselRef} role="region" aria-label="Platform features" tabIndex={0}>
-            <FeatureCard eyebrow="Advanced charting" title="Read the market with deeper context." image="/images/feature-advanced-charting.png" position="50% 50%" />
-            <FeatureCard eyebrow="Options chains" title="Build and manage listed-options strategies." image="/images/feature-options-chains.png" position="50% 50%" />
-            <FeatureCard eyebrow="Order management" title="Move from analysis to execution cleanly." image="/images/feature-order-management.png" position="50% 50%" />
-            <FeatureCard eyebrow="Watchlists" title="Keep the instruments that matter in view." image="/images/feature-watchlists.png" position="22% 50%" />
+            <FeatureCard eyebrow="Advanced charting" title="Read the market with deeper context." image="/images/feature-advanced-charting.webp" position="50% 50%" />
+            <FeatureCard eyebrow="Options chains" title="Build and manage listed-options strategies." image="/images/feature-options-chains.webp" position="50% 50%" />
+            <FeatureCard eyebrow="Order management" title="Move from analysis to execution cleanly." image="/images/feature-order-management.webp" position="50% 50%" />
+            <FeatureCard eyebrow="Watchlists" title="Keep the instruments that matter in view." image="/images/feature-watchlists.webp" position="22% 50%" />
           </div>
           <div className="feature-carousel-controls rv" aria-label="Platform feature carousel controls">
             <button className="carousel-arrow" type="button" aria-label="Show previous platform feature" onClick={() => scrollFeatureCarousel(-1)}>←</button>
@@ -224,7 +224,7 @@ export default function HomePage() {
 }
 
 function FeatureCard({ eyebrow, title, image, position }) {
-  return <article className="feature-card"><span>{eyebrow}</span><h3>{title}</h3><img src={image} alt="" aria-hidden="true" style={{ objectPosition: position }} /><Link to="/platforms" aria-label={`Learn more about ${eyebrow}`}>+</Link></article>;
+  return <article className="feature-card"><span>{eyebrow}</span><h3>{title}</h3><img src={image} alt="" aria-hidden="true" style={{ objectPosition: position }} loading="lazy" decoding="async" /><Link to="/platforms" aria-label={`Learn more about ${eyebrow}`}>+</Link></article>;
 }
 
 function OfferCard({ name, accent, description, items, to }) {
