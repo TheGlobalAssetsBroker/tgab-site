@@ -7,7 +7,7 @@ export default function LegalPage() {
       <section className="page-hero">
         <div className="wrap rv">
           <h1>The fine print, in <span className="it">plain</span> sight.</h1>
-          <p>Everything a prospective client should read before engaging with TGAB. These documents will be updated when licensing completes and before any services are offered.</p>
+          <p>Everything a prospective client should read before engaging with TGAB, including its current regulatory status, risk disclosures, and website terms.</p>
         </div>
       </section>
       <section className="block">
@@ -24,9 +24,14 @@ export default function LegalPage() {
             </nav>
             <div className="legal-body rv">
               <h2 id="regulatory">Regulatory status</h2>
-              <p>The Global Assets Broker ("TGAB", "we") is a brand of a group of companies currently in formation. The group's intended operating structure comprises a holding company, a Mauritius-incorporated broking entity, and an introducing entity.</p>
-              <p>An application for an Investment Dealer (Full Service Dealer, excluding Underwriting) licence has been made to the Financial Services Commission, Mauritius, in respect of the Mauritius broking entity. As at the date of this website, that licence has not yet been granted. The licence number will be published here once granted; none is quoted before then. Details of any applicable investor-compensation or protection scheme will likewise be published once confirmed by the regulator — none is named here to avoid implying coverage that is not yet confirmed.</p>
-              <p>Accordingly: TGAB does not currently offer, provide, or solicit any investment services, does not accept clients or client money, and does not execute transactions. Content on this website is provided for general information about the group's intended business only and does not constitute an offer, solicitation, invitation, or recommendation of any kind in any jurisdiction.</p>
+              <p>The Global Assets Broker ("TGAB", "we") is licensed by the Financial Services Commission, Mauritius.</p>
+              <ul>
+                <li><b>Licence No.</b> GB26206568</li>
+                <li><b>Licence type.</b> Investment Dealer (Full Service Dealer, excluding Underwriting)</li>
+                <li><b>Issued under.</b> Section 29 of the Securities Act 2005, Rule 4 of the Securities (Licensing) Rules 2007, and the Financial Services (Consolidated Licensing and Fees) Rules 2008</li>
+              </ul>
+              <p>Visitors can verify TGAB's regulatory status directly in the <a href="https://opr.fscmauritius.org/ords/opr/r/fsc-opr/fsc-online-public-register-opr" target="_blank" rel="noopener noreferrer">FSC public Register of Licensees</a>.</p>
+              <p>TGAB's Investment Dealer (Full Service Dealer, excluding Underwriting) licence does not authorise TGAB to underwrite securities. Content on this website is provided for general information only and does not constitute an offer, solicitation, invitation, or recommendation of any kind in any jurisdiction.</p>
               <p>Services, when launched, will be offered only in jurisdictions where TGAB is lawfully permitted to offer them and only to clients who satisfy our onboarding, suitability, and KYC/AML requirements. TGAB will not offer services to residents of jurisdictions where such services would be unlawful, including, without limitation, jurisdictions subject to applicable sanctions.</p>
               <h2 id="risk">Risk disclosure</h2>
               <p>Trading financial instruments carries a high level of risk and is not suitable for everyone. Before deciding to trade you should carefully consider your objectives, financial situation, experience, and risk appetite, and seek independent advice where appropriate.</p>

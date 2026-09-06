@@ -40,7 +40,7 @@ export default function RegisterPage() {
       <section className="page-hero register-hero">
         <div className="wrap rv">
           <h1>Be first through the <span className="it">door.</span></h1>
-          <p>TGAB is in formation and not yet accepting clients or client money. Register now and we’ll keep you informed as we move toward launch.</p>
+          <p>TGAB is licensed and is currently accepting registrations of interest, not client money. Register now and we’ll keep you informed as we move toward launch.</p>
           <div className="register-steps"><span><b>01</b> Register interest</span><span><b>02</b> Receive launch updates</span><span><b>03</b> Priority onboarding</span></div>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default function RegisterPage() {
                   <div className="form-field"><label htmlFor="tier">Which account are you interested in?</label><select key={requestedTier} id="tier" name="tier" defaultValue={requestedTier}><option value="core">Core</option><option value="prime">Prime</option><option value="unsure">Not sure yet</option></select></div>
                   <div className="form-field"><label htmlFor="heard">How did you hear about TGAB? (optional)</label><select id="heard" name="heard" defaultValue=""><option value="">Prefer not to say</option><option value="search">Search</option><option value="social">Social media</option><option value="referral">Referral</option><option value="other">Other</option></select></div>
                 </div>
-                <p className="form-disclaimer">We’ll be in touch by email once TGAB is licensed and live. We never ask for payments, deposits, or credentials by email.</p>
+                <p className="form-disclaimer">We’ll be in touch by email when TGAB goes live. We never ask for payments, deposits, or credentials by email.</p>
                 <button className="btn btn-amber btn-lg submit-button" type="submit" disabled={status.loading}>{status.loading ? "Submitting…" : "Register interest"}<img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></button>
                 {status.error && <p className="form-error" role="alert">{status.error}</p>}
               </form>

@@ -67,7 +67,7 @@ export default function PlatformsPage() {
               <div className="row"><span>2FA</span><b>Enabled</b></div>
             </div>
           </div>
-          <p className="sub rv">Sample cabinet figures shown for illustration only — no real accounts exist while TGAB remains in formation.</p>
+          <p className="sub rv">Sample cabinet figures are shown for illustration only and do not represent a real client account.</p>
         </div>
       </section>
       <section className="cta-band">

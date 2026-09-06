@@ -547,7 +547,7 @@ body[data-page="not-found"] .page-hero {
 .footer-contact { padding-top: 30px; display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); font-size: 13px; }
 .footer-contact a { border-bottom: 1px solid var(--green); }
 .footer-legal { padding-top: 46px; }
-.footer-legal > p { max-width: 1250px; color: #76666a; font-size: 11px; line-height: 1.55; }
+.footer-legal > p { max-width: 1250px; color: #76666a; font-size: 14px; line-height: 1.55; }
 .footer-legal > div { margin-top: 28px; padding-top: 22px; display: flex; gap: 26px; border-top: 1px solid var(--line); color: #76666a; font-size: 11px; }
 .footer-legal > div a:first-of-type { margin-left: auto; }
 

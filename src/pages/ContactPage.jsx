@@ -23,7 +23,7 @@ export default function ContactPage() {
             </div>
             <div className="rv">
               <ul className="checks">
-                <li>TGAB is in formation and not yet accepting clients or client money</li>
+                <li>TGAB is licensed and is currently accepting registrations of interest, not client money</li>
                 <li>To be first in line at launch, use “Open account” to register interest</li>
                 <li>Vendors and partners: include your firm, product, and regulatory standing</li>
                 <li>We never ask for payments, deposits, or credentials by email</li>
@@ -39,7 +39,7 @@ export default function ContactPage() {
         <div className="wrap">
           <div className="form-card rv">
             <h2>Ready to get <span className="it">started?</span></h2>
-            <p className="sub">Skip the email — register your interest directly with your name, email, and a few quick details, and we'll be in touch once TGAB is licensed and live.</p>
+            <p className="sub">Skip the email — register your interest directly with your name, email, and a few quick details, and we'll be in touch when TGAB goes live.</p>
             <div className="hero-cta">
               <a className="btn btn-amber btn-lg" href="/register" data-magnetic>Register interest →</a>
             </div>

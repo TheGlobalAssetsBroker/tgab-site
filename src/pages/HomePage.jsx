@@ -5,7 +5,7 @@ import "../feature-carousel.css";
 
 const advantages = [
   ["01", "Transparent pricing", "A published fee schedule with no hidden spreads or surprise charges."],
-  ["02", "Regulated structure", "Licensed operations first. We launch when approvals are in place — not before."],
+  ["02", "Regulated structure", "Licensed as an Investment Dealer (Full Service Dealer, excluding Underwriting)."],
   ["03", "Serious execution", "Institutional clearing and market access built for active traders."],
   ["04", "Global by design", "A group built to serve eligible clients across multiple jurisdictions."],
   ["05", "Segregated assets", "Client assets held apart from TGAB operating capital under the applicable rules."],
@@ -26,7 +26,7 @@ const markets = [
 
 const infrastructure = [
   ["CLEARING & CUSTODY", "Institutional clearing partners"],
-  ["LICENCE", "Investment Dealer"],
+  ["LICENCE", "Investment Dealer (Full Service Dealer, excluding Underwriting)"],
   ["EXECUTION", "Third-party institutional platform"],
   ["ONBOARDING", "Full KYC / AML"],
   ["CLIENT PORTAL", "Regulated client portal"],
@@ -102,7 +102,7 @@ export default function HomePage() {
             <span className="section-kicker muted">Regulated-first infrastructure</span>
             <h2 className="phrase-heading"><span>Institutional plumbing.</span><span>No retail shortcuts.</span></h2>
             <p>Every layer of the stack — clearing, custody, execution, onboarding — is chosen for durability and auditability.</p>
-            <ul className="plain-list"><li>Regulated institutional clearing partners</li><li>Licensed Investment Dealer application in progress</li><li>Bank-grade KYC / AML onboarding</li><li>Segregation of client assets</li></ul>
+            <ul className="plain-list"><li>Regulated institutional clearing partners</li><li>Investment Dealer (Full Service Dealer, excluding Underwriting), Licence No. GB26206568</li><li>Bank-grade KYC / AML onboarding</li><li>Segregation of client assets</li></ul>
             <Link className="button button-orange" to="/security">How We Protect You <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
           </div>
           <div className="infrastructure-panel rv">
@@ -113,7 +113,7 @@ export default function HomePage() {
 
       <section className="advantage-section">
         <div className="page-container rv">
-          <p className="section-kicker light">TGAB · In formation</p>
+          <p className="section-kicker light">TGAB · Investment Dealer (Full Service Dealer, excluding Underwriting)</p>
           <h2>Trade globally, <span>access more</span></h2>
           <p className="advantage-lead">Institutional-grade structure from day one.</p>
           <div className="advantage-grid">
@@ -187,7 +187,7 @@ export default function HomePage() {
         <div className="page-container">
           <header className="editorial-heading rv"><h2 className="phrase-heading"><span>From Registration</span><span>To Your First Trade</span></h2><p>Four clear steps from early interest to launch-market access.</p></header>
           <div className="process-grid rv">
-            <Process number="01" title="Register interest">Use “Open account” now to be prioritised for onboarding once TGAB is licensed and live.</Process>
+            <Process number="01" title="Register interest">Use “Open account” now to be prioritised for onboarding when TGAB goes live.</Process>
             <Process number="02" title="Verify & open">Complete digital KYC/AML in the TGAB client portal.</Process>
             <Process number="03" title="Fund your account">Deposit through the client portal, held per TGAB’s segregation policy.</Process>
             <Process number="04" title="Trade launch markets">Access US equities, options, and ETFs, with more asset classes as the roadmap opens.</Process>

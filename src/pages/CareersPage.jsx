@@ -1,20 +1,20 @@
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function CareersPage() {
-  usePageEffects("careers", "Careers — TGAB | Building the founding team", "TGAB is in formation and building its founding team. No public job listings yet — write to us if you'd be a fit for a regulated brokerage build.");
+  usePageEffects("careers", "Careers — TGAB | Building the founding team", "TGAB is building its founding team. No public job listings yet — write to us if you'd be a fit for a regulated brokerage build.");
   return (
     <main>
       <section className="page-hero">
         <div className="wrap rv">
           <h1>We're building the <span className="it">founding</span> team.</h1>
-          <p>TGAB is in formation — there is no public job board yet, and we won't pretend otherwise. If you have relevant experience and want to be part of building a regulated brokerage from the ground up, we'd still like to hear from you.</p>
+          <p>TGAB is building its founding team — there is no public job board yet. If you have relevant experience and want to be part of a licensed brokerage, we'd still like to hear from you.</p>
         </div>
       </section>
       <section className="block">
         <div className="wrap">
           <div className="role-note rv">
             <p><b>No open roles are formally listed today.</b></p>
-            <p>We're not going to invent job postings to look bigger than we are. What's true: TGAB is actively assembling the people needed to operate a licensed multi-asset brokerage — compliance, dealing, operations, and technology, among others — as our regulatory licensing process progresses. If that's the kind of build you want in on, send your background to <a href="mailto:accounts@tgab.net?subject=Careers">accounts@tgab.net</a> with "Careers" in the subject line and we'll keep it on file.</p>
+            <p>TGAB is actively assembling the people needed to operate a licensed multi-asset brokerage — compliance, dealing, operations, and technology, among others. If that's the kind of build you want in on, send your background to <a href="mailto:accounts@tgab.net?subject=Careers">accounts@tgab.net</a> with "Careers" in the subject line and we'll keep it on file.</p>
           </div>
         </div>
       </section>

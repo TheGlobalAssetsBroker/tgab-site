@@ -42,7 +42,7 @@ export default function SecurityPage() {
           <div className="split">
             <div className="rv">
               <h2>Licensed operations <span className="it">first.</span></h2>
-              <p className="sub">TGAB's licensed dealing entity has applied for an Investment Dealer licence and does not yet hold it. Until it does, TGAB does not offer services, accept clients, or hold client money — this is a compliance floor, not a marketing line.</p>
+              <p className="sub">TGAB is licensed by the Financial Services Commission, Mauritius, as an Investment Dealer (Full Service Dealer, excluding Underwriting), Licence No. GB26206568.</p>
               <ul className="checks">
                 <li>Dealing overseen by qualified dealers meeting the regulator's fit-and-proper standards</li>
                 <li>Compliance sign-off precedes commercial launch, not the other way round</li>
@@ -51,9 +51,9 @@ export default function SecurityPage() {
               </ul>
             </div>
             <div className="panel-art rv">
-              <div className="row"><span>REGULATOR (APPLIED)</span><b>Licence application in progress</b></div>
-              <div className="row"><span>LICENCE STATUS</span><b>Application in progress</b></div>
-              <div className="row"><span>LICENCE NUMBER</span><b>To be confirmed on approval</b></div>
+              <div className="row"><span>REGULATOR</span><b>Financial Services Commission, Mauritius</b></div>
+              <div className="row"><span>LICENCE TYPE</span><b>Investment Dealer (Full Service Dealer, excluding Underwriting)</b></div>
+              <div className="row"><span>LICENCE NUMBER</span><b>GB26206568</b></div>
               <div className="row"><span>CLEARING &amp; CUSTODY</span><b>Institutional clearing partners</b></div>
               <div className="row"><span>INVESTOR PROTECTION SCHEME</span><b>To be confirmed by regulator</b></div>
             </div>

@@ -26,7 +26,7 @@ export function Footer() {
         </div>
       </div>
       <div className="page-container footer-legal">
-        <p><strong>Company in formation.</strong> TGAB does not offer investment services or accept clients until all required licences and approvals have been granted.</p>
+        <p>The Global Assets Broker is licensed by the Financial Services Commission, Mauritius, as an Investment Dealer (Full Service Dealer, excluding Underwriting), Licence No. GB26206568, issued under Section 29 of the Securities Act 2005.</p>
         <p><strong>Risk warning.</strong> Trading in financial instruments involves significant risk and can result in the loss of invested capital.</p>
         <div><span>© {new Date().getFullYear()} The Global Assets Broker</span><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><Link to="/sitemap">Sitemap</Link></div>
       </div>

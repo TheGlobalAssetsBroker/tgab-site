@@ -23,15 +23,15 @@ export default function FaqPage() {
           <div className="faq-list rv">
             <div className="faq-item" data-cat="general">
               <button className="faq-q" id="q1" aria-expanded="false" aria-controls="a1"><span>Is TGAB licensed today?</span></button>
-              <div className="faq-a" id="a1"><p>No. TGAB's licensed dealing entity has applied for an Investment Dealer licence and that application is still in progress. TGAB does not offer services, accept clients, or hold client money until it's granted — full detail in our <a href="/legal#regulatory">regulatory status</a> section.</p></div>
+              <div className="faq-a" id="a1"><p>Yes. TGAB is licensed by the Financial Services Commission, Mauritius, as an Investment Dealer (Full Service Dealer, excluding Underwriting), Licence No. GB26206568. See our <a href="/legal#regulatory">regulatory status</a> section for full details and the FSC register link.</p></div>
             </div>
             <div className="faq-item" data-cat="general">
               <button className="faq-q" id="q2" aria-expanded="false" aria-controls="a2"><span>Can I open an account right now?</span></button>
-              <div className="faq-a" id="a2"><p>Not yet. You can register your interest via "Open account" to be prioritised for onboarding once TGAB is licensed and live — no funds or documents are collected at this stage.</p></div>
+              <div className="faq-a" id="a2"><p>Not yet. You can register your interest via "Open account" to be prioritised for onboarding when TGAB goes live — no funds or documents are collected at this stage.</p></div>
             </div>
             <div className="faq-item" data-cat="general">
               <button className="faq-q" id="q3" aria-expanded="false" aria-controls="a3"><span>When will TGAB launch?</span></button>
-              <div className="faq-a" id="a3"><p>Launch depends on our regulatory licensing outcome, so we're not publishing a fixed date. Registered contacts get priority updates as milestones are reached.</p></div>
+              <div className="faq-a" id="a3"><p>We're not publishing a fixed launch date yet. Registered contacts get priority updates as operational milestones are reached.</p></div>
             </div>
             <div className="faq-item" data-cat="general">
               <button className="faq-q" id="q4" aria-expanded="false" aria-controls="a4"><span>Which markets does TGAB start with?</span></button>
@@ -71,7 +71,7 @@ export default function FaqPage() {
             </div>
             <div className="faq-item" data-cat="security">
               <button className="faq-q" id="q13" aria-expanded="false" aria-controls="a13"><span>Is my money safe before launch?</span></button>
-              <div className="faq-a" id="a13"><p>TGAB does not accept client money before licensing is complete — there is nothing to safeguard yet because nothing is deposited. Once live, client assets are intended to be segregated from TGAB's own operating capital. See <a href="/security">Security &amp; trust</a>.</p></div>
+              <div className="faq-a" id="a13"><p>TGAB does not accept client money through this pre-launch registration form, so nothing is deposited at this stage. Once live, client assets are intended to be segregated from TGAB's own operating capital. See <a href="/security">Security &amp; trust</a>.</p></div>
             </div>
             <div className="faq-item" data-cat="security">
               <button className="faq-q" id="q14" aria-expanded="false" aria-controls="a14"><span>How is my personal data protected?</span></button>

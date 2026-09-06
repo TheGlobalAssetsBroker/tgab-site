@@ -59,7 +59,7 @@ export default function SupportPage() {
             </div>
           </div>
           <div className="steps rv">
-            <div className="step"><h3>Register interest</h3><p>Use "Open account" now to be prioritised for onboarding once TGAB is licensed and live.</p></div>
+            <div className="step"><h3>Register interest</h3><p>Use "Open account" now to be prioritised for onboarding when TGAB goes live.</p></div>
             <div className="step"><h3>Verify &amp; open</h3><p>Complete digital KYC/AML in the TGAB client portal — identity, address, and suitability checks.</p></div>
             <div className="step"><h3>Fund your account</h3><p>Deposit through the client portal; funds are cleared and held per TGAB's segregation policy.</p></div>
             <div className="step"><h3>Trade launch markets</h3><p>Access US equities, listed options, and ETFs via <span data-platform-name>the trading platform</span>, with more asset classes as the roadmap opens.</p></div>

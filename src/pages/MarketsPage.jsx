@@ -17,7 +17,7 @@ export default function MarketsPage() {
       <section className="page-hero">
         <div className="wrap rv">
           <h1>US markets first. The <span className="it">world</span> next.</h1>
-          <p>TGAB launches with deep access to the world's most liquid market — US equities and listed options, cleared through regulated institutional infrastructure — and expands from there under a full-service dealer mandate.</p>
+          <p>TGAB launches with deep access to the world's most liquid market — US equities and listed options, cleared through regulated institutional infrastructure — and expands from there under its Investment Dealer (Full Service Dealer, excluding Underwriting) licence.</p>
         </div>
       </section>
       <section className="block market-tape-section">
