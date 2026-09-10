@@ -8,7 +8,21 @@ const marketQuotes = [
   { symbol: "NVDA", name: "NVIDIA", price: "171.35", change: "+1.24%", direction: "up" },
 ];
 
-const trendIcons = { up: "↗", down: "↘", flat: "→" };
+function TrendIcon({ direction }) {
+  if (direction === "flat") {
+    return (
+      <svg viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+        <path d="M2 7h9M8 4l3 3-3 3" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+      <path d={direction === "up" ? "M3 11 11 3M6 3h5v5" : "M3 3l8 8M11 6v5H6"} />
+    </svg>
+  );
+}
 
 export default function MarketsPage() {
   usePageEffects("markets", "Markets — TGAB | US equities, options & multi-asset access", "Trade US equities, listed options, and ETFs at launch, with futures, FX, metals, and more on the TGAB roadmap. Market hours and instrument coverage.");
@@ -42,7 +56,7 @@ export default function MarketsPage() {
                   </div>
                   <div className="market-quote-value">
                     <span className="market-quote-price">{quote.price}</span>
-                    <span className="market-quote-change"><i aria-hidden="true">{trendIcons[quote.direction]}</i>{quote.change}</span>
+                    <span className="market-quote-change"><TrendIcon direction={quote.direction} />{quote.change}</span>
                   </div>
                 </li>
               ))}
