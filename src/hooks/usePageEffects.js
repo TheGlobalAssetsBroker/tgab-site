@@ -5,8 +5,53 @@ export function usePageEffects(page, title, description) {
   useEffect(() => {
     document.body.dataset.page = page;
     document.title = title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.content = description;
+    const upsertMeta = (selector, attribute, value, content) => {
+      let node = document.head.querySelector(selector);
+      if (!node) {
+        node = document.createElement("meta");
+        node.setAttribute(attribute, value);
+        document.head.appendChild(node);
+      }
+      node.content = content;
+    };
+    const upsertLink = (rel, href) => {
+      let node = document.head.querySelector(`link[rel="${rel}"]`);
+      if (!node) {
+        node = document.createElement("link");
+        node.rel = rel;
+        document.head.appendChild(node);
+      }
+      node.href = href;
+    };
+
+    const path = window.location.pathname === "/" ? "/" : window.location.pathname.replace(/\/+$/, "");
+    const canonicalUrl = `${siteConfig.siteUrl}${path}`;
+    const noindex = page === "login" || page === "not-found";
+
+    upsertMeta('meta[name="description"]', "name", "description", description);
+    upsertMeta('meta[name="robots"]', "name", "robots", noindex ? "noindex, follow" : "index, follow, max-image-preview:large");
+    upsertMeta('meta[property="og:title"]', "property", "og:title", title);
+    upsertMeta('meta[property="og:description"]', "property", "og:description", description);
+    upsertMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
+    upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
+    upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
+    upsertLink("canonical", canonicalUrl);
+
+    document.getElementById("page-breadcrumb-schema")?.remove();
+    if (path !== "/") {
+      const breadcrumb = document.createElement("script");
+      breadcrumb.id = "page-breadcrumb-schema";
+      breadcrumb.type = "application/ld+json";
+      breadcrumb.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteConfig.siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: title.split("—")[0].trim(), item: canonicalUrl },
+        ],
+      });
+      document.head.appendChild(breadcrumb);
+    }
     const hash = window.location.hash;
     if (hash) {
       requestAnimationFrame(() => document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView({ block: "start" }));

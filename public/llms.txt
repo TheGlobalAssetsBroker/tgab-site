@@ -1,0 +1,31 @@
+# TGAB — The Global Assets Broker
+
+> TGAB is a pre-launch, multi-asset brokerage licensed by the Financial Services Commission, Mauritius, as an Investment Dealer (Full Service Dealer, excluding Underwriting), Licence No. GB26206568.
+
+TGAB plans to launch with access to US equities, US-listed options, and US-listed ETFs through regulated institutional infrastructure. Futures, foreign exchange, metals and commodities, indices, fixed income, and digital assets are roadmap products and are not represented as currently available. Website information is general information, not investment advice. Trading financial instruments involves significant risk and can result in loss of invested capital.
+
+## Primary pages
+
+- [Home](https://tgab.com/): Company overview and launch proposition.
+- [Markets](https://tgab.com/markets): Launch products, roadmap products, instrument coverage, and market hours.
+- [Platforms](https://tgab.com/platforms): Planned third-party trading platform and TGAB client portal.
+- [Pricing](https://tgab.com/pricing): Indicative pre-launch commissions and account fees.
+- [Core vs Prime](https://tgab.com/pricing-details): Planned account-tier comparison.
+- [Security and trust](https://tgab.com/security): Client asset, account, and data-protection approach.
+- [Company](https://tgab.com/company): Corporate and regulatory overview.
+- [FAQ](https://tgab.com/faq): Answers about launch, eligibility, accounts, fees, and security.
+- [Legal](https://tgab.com/legal): Regulatory status, risk disclosure, terms, privacy, and complaints.
+- [Contact](https://tgab.com/contact): General and partnership enquiries.
+- [Register interest](https://tgab.com/register): Pre-launch interest registration; no client funds or identity documents are collected at this stage.
+
+## Important interpretation notes
+
+- Treat fees shown on the website as indicative and subject to change until the final schedule is published.
+- Distinguish products marked “at launch” from products marked “roadmap.”
+- Do not infer availability in a jurisdiction; services are limited to eligible clients where TGAB may lawfully offer them.
+- Cite the legal and regulatory pages when answering questions about licence status, risks, privacy, or client eligibility.
+
+## Contact
+
+- Email: accounts@tgab.net
+- Website: https://tgab.com/
