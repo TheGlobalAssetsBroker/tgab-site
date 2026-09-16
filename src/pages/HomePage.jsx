@@ -89,7 +89,7 @@ export default function HomePage() {
           <div className="market-carousel-shell rv">
             <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}>←</button>
             <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
-              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" decoding="async" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
+              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" loading="lazy" decoding="async" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
             </div>
             <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}>→</button>
           </div>
@@ -147,13 +147,13 @@ export default function HomePage() {
           </header>
           <div className="editorial-grid">
             <article className="editorial-card rv">
-              <div className="editorial-media platform-crop"><img src="/images/trading-platform-v2.webp" alt="Professional multi-panel trading platform interface" decoding="async" /></div>
+              <div className="editorial-media platform-crop"><img src="/images/trading-platform-v2.webp" alt="Professional multi-panel trading platform interface" loading="lazy" decoding="async" /></div>
               <h3>One Account. A Proven Platform.</h3>
               <p>Access advanced charts, watchlists, options chains, and order management through proven third-party trading technology.</p>
               <Link to="/platforms">Learn More</Link>
             </article>
             <article className="editorial-card rv">
-              <div className="editorial-media"><img src="/images/tgab-editorial.webp" alt="Professional trader using an institutional trading workstation" decoding="async" /></div>
+              <div className="editorial-media"><img src="/images/tgab-editorial.webp" alt="Professional trader using an institutional trading workstation" loading="lazy" decoding="async" /></div>
               <h3>Two Ways To Access The Markets.</h3>
               <p>Choose Core for straightforward market access or Prime for priority service, dedicated onboarding, and early roadmap access.</p>
               <Link to="/pricing-details">Compare Tiers</Link>
@@ -165,7 +165,7 @@ export default function HomePage() {
       <section className="platform-stage">
         <div className="page-container">
           <h2 className="platform-intro rv">Advanced trading at your fingertips.</h2>
-          <div className="platform-hero rv"><img src="/images/platform-laptop-mockup.webp" alt="Professional trading platform displayed on a laptop" decoding="async" /></div>
+          <div className="platform-hero rv"><img src="/images/platform-laptop-mockup.webp" alt="Professional trading platform displayed on a laptop" loading="lazy" decoding="async" /></div>
           <p className="platform-caption rv"><b>Professional trading technology.</b> Advanced charting, live watchlists, options chains, and order management in one workspace.</p>
           <div className="platform-title-row rv">
             <h2 className="platform-title">Power Meets Precision</h2>
@@ -224,7 +224,7 @@ export default function HomePage() {
 }
 
 function FeatureCard({ eyebrow, title, image, position }) {
-  return <article className="feature-card"><span>{eyebrow}</span><h3>{title}</h3><img src={image} alt="" aria-hidden="true" style={{ objectPosition: position }} decoding="async" /><Link to="/platforms" aria-label={`Learn more about ${eyebrow}`}>+</Link></article>;
+  return <article className="feature-card"><span>{eyebrow}</span><h3>{title}</h3><img src={image} alt="" aria-hidden="true" style={{ objectPosition: position }} loading="lazy" decoding="async" /><Link to="/platforms" aria-label={`Learn more about ${eyebrow}`}>+</Link></article>;
 }
 
 function OfferCard({ name, accent, description, items, to }) {

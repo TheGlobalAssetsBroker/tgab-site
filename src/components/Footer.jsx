@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="page-container footer-stage">
         <div className="footer-brand-card">
-          <img className="footer-mark" src="/images/tgab-new-logo.webp" alt="TGAB — The Global Assets Broker" width="410" height="154" decoding="async" />
+          <img className="footer-mark" src="/images/tgab-new-logo.webp" alt="TGAB — The Global Assets Broker" width="410" height="154" loading="lazy" decoding="async" />
           <h2>Built for the next market move.</h2>
           <p>Institutional-grade market access, transparent pricing, and a regulated-first approach.</p>
           <Link className="button button-orange" to="/register">Register Interest <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
