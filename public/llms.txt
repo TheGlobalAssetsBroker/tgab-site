@@ -1,0 +1,22 @@
+# TGAB — The Global Assets Broker
+
+> TGAB is a pre-launch, multi-asset brokerage licensed by the Financial Services Commission, Mauritius, as an Investment Dealer (Full Service Dealer, excluding Underwriting), Licence No. GB26206568.
+
+TGAB plans to launch with access to US equities, US-listed options, and US-listed ETFs through regulated institutional infrastructure. Futures, foreign exchange, metals and commodities, indices, fixed income, and digital assets are roadmap products. Website information is general information, not investment advice.
+
+## Primary pages
+
+- [Home](https://tgab.com/): Company overview and launch proposition.
+- [Markets](https://tgab.com/markets): Launch products, roadmap products, and market hours.
+- [Platforms](https://tgab.com/platforms): Planned trading platform and client portal.
+- [Pricing](https://tgab.com/pricing): Indicative pre-launch commissions and fees.
+- [Security and trust](https://tgab.com/security): Client asset, account, and data protection.
+- [Company](https://tgab.com/company): Corporate and regulatory overview.
+- [FAQ](https://tgab.com/faq): Answers about launch, eligibility, accounts, fees, and security.
+- [Legal](https://tgab.com/legal): Regulatory status, risk disclosure, terms, privacy, and complaints.
+- [Contact](https://tgab.com/contact): General and partnership enquiries.
+
+## Contact
+
+- Email: accounts@tgab.net
+- Website: https://tgab.com/

@@ -7,6 +7,16 @@
 /favicon-logo.png
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
 
+/favicon-*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/site.webmanifest
+  Content-Type: application/manifest+json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
