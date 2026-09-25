@@ -111,6 +111,16 @@ export default function MarketsPage() {
           <p className="sub rv">London and Dubai columns reflect standard offsets during US daylight saving time; times shift by one hour outside DST. US markets are closed on US public holidays and close early on certain days around holidays.</p>
         </div>
       </section>
+      <section className="block">
+        <div className="wrap rv">
+          <div className="head-row"><div><span className="section-kicker">Before the first trade</span><h2>Understand the <span className="it">instruments.</span></h2></div><a className="btn btn-ghost" href="/insights">All trading guides →</a></div>
+          <div className="cards cards-3">
+            <div className="card"><span className="glyph">Stocks &amp; ETFs</span><h3><a href="/insights/stocks-vs-etfs">Stocks vs ETFs</a></h3><p>Compare ownership, diversification, costs and the research behind each investment.</p></div>
+            <div className="card"><span className="glyph">Trading essentials</span><h3><a href="/insights/market-vs-limit-orders">Market vs limit orders</a></h3><p>See how order types affect execution, price control and unfilled trades.</p></div>
+            <div className="card"><span className="glyph">Listed options</span><h3><a href="/insights/options-trading-basics">Options trading basics</a></h3><p>Understand calls, puts, premiums and the obligations around expiration.</p></div>
+          </div>
+        </div>
+      </section>
       <section className="cta-band">
         <div className="wrap rv">
           <h2>Ready when the <span className="it grad-text">bell</span> rings.</h2>

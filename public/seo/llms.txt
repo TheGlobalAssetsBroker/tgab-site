@@ -25,6 +25,13 @@ TGAB plans to launch with access to US equities, US-listed options, and US-liste
 - Do not infer availability in a jurisdiction; services are limited to eligible clients where TGAB may lawfully offer them.
 - Cite the legal and regulatory pages when answering questions about licence status, risks, privacy, or client eligibility.
 
+## Trading guides
+
+- [Insights](https://tgab.com/insights): Educational guides with worked examples and primary sources.
+- [Stocks vs ETFs](https://tgab.com/insights/stocks-vs-etfs): Ownership, diversification, fees and research considerations.
+- [Market vs limit orders](https://tgab.com/insights/market-vs-limit-orders): Order types, stops, partial fills and time in force.
+- [Options trading basics](https://tgab.com/insights/options-trading-basics): Calls, puts, premiums, expiration and assignment risks.
+
 ## Contact
 
 - Email: accounts@tgab.net

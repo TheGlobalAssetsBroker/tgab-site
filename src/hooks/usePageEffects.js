@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { siteConfig } from "../config";
+import { getPageSeo } from "../seo";
 
-export function usePageEffects(page, title, description) {
+export function usePageEffects(page, title, description, article) {
   useEffect(() => {
     document.body.dataset.page = page;
     document.title = title;
@@ -24,67 +25,25 @@ export function usePageEffects(page, title, description) {
       node.href = href;
     };
 
-    const path = window.location.pathname === "/" ? "/" : window.location.pathname.replace(/\/+$/, "");
-    const canonicalUrl = `${siteConfig.siteUrl}${path}`;
-    const noindex = page === "login" || page === "not-found";
-    const socialImage = `${siteConfig.siteUrl}/images/og-tgab.png`;
-
-    upsertMeta('meta[name="description"]', "name", "description", description);
-    upsertMeta('meta[name="robots"]', "name", "robots", noindex ? "noindex, follow" : "index, follow, max-image-preview:large");
-    upsertMeta('meta[property="og:title"]', "property", "og:title", title);
-    upsertMeta('meta[property="og:description"]', "property", "og:description", description);
-    upsertMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
-    upsertMeta('meta[property="og:type"]', "property", "og:type", "website");
-    upsertMeta('meta[property="og:image"]', "property", "og:image", socialImage);
-    upsertMeta('meta[property="og:image:alt"]', "property", "og:image:alt", title);
-    upsertMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
-    upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
-    upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
-    upsertMeta('meta[name="twitter:image"]', "name", "twitter:image", socialImage);
-    upsertMeta('meta[name="twitter:image:alt"]', "name", "twitter:image:alt", title);
-    upsertLink("canonical", canonicalUrl);
-
+    const faqItems = page === "faq" ? [...document.querySelectorAll(".faq-item")].map((item) => ({
+      "@type": "Question",
+      name: item.querySelector(".faq-q")?.textContent.trim(),
+      acceptedAnswer: { "@type": "Answer", text: item.querySelector(".faq-a")?.textContent.trim() },
+    })).filter((item) => item.name && item.acceptedAnswer.text) : [];
+    const seo = getPageSeo(page, title, description, window.location.pathname, article, faqItems);
+    document.querySelectorAll('meta[property^="article:"], meta[name="author"]').forEach((node) => node.remove());
+    seo.meta.forEach(([attribute, value, content]) => upsertMeta(`meta[${attribute}="${value}"]`, attribute, value, content));
+    upsertLink("canonical", seo.canonical);
     document.getElementById("page-breadcrumb-schema")?.remove();
     document.getElementById("page-schema")?.remove();
-    const pageSchema = document.createElement("script");
-    pageSchema.id = "page-schema";
-    pageSchema.type = "application/ld+json";
-    pageSchema.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": page === "faq" ? "FAQPage" : "WebPage",
-      "@id": `${canonicalUrl}#webpage`,
-      url: canonicalUrl,
-      name: title,
-      description,
-      isPartOf: { "@id": `${siteConfig.siteUrl}/#website` },
-      about: { "@id": `${siteConfig.siteUrl}/#organization` },
-      inLanguage: "en",
-      ...(page === "faq" ? {
-        mainEntity: [...document.querySelectorAll(".faq-item")].map((item) => ({
-          "@type": "Question",
-          name: item.querySelector(".faq-q")?.textContent.trim(),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.querySelector(".faq-a")?.textContent.trim(),
-          },
-        })).filter((item) => item.name && item.acceptedAnswer.text),
-      } : {}),
+    const schemaNodes = Object.entries(seo.schemas).map(([id, schema]) => {
+      const node = document.createElement("script");
+      node.id = id;
+      node.type = "application/ld+json";
+      node.textContent = JSON.stringify(schema);
+      document.head.appendChild(node);
+      return node;
     });
-    document.head.appendChild(pageSchema);
-    if (path !== "/") {
-      const breadcrumb = document.createElement("script");
-      breadcrumb.id = "page-breadcrumb-schema";
-      breadcrumb.type = "application/ld+json";
-      breadcrumb.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${siteConfig.siteUrl}/` },
-          { "@type": "ListItem", position: 2, name: title.split("—")[0].trim(), item: canonicalUrl },
-        ],
-      });
-      document.head.appendChild(breadcrumb);
-    }
     const hash = window.location.hash;
     if (hash) {
       requestAnimationFrame(() => document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView({ block: "start" }));
@@ -193,7 +152,8 @@ export function usePageEffects(page, title, description) {
 
     return () => {
       cleanups.forEach((cleanup) => cleanup());
-      pageSchema.remove();
+      schemaNodes.forEach((node) => node.remove());
+      document.querySelectorAll('meta[property^="article:"], meta[name="author"]').forEach((node) => node.remove());
     };
-  }, [page, title, description]);
+  }, [page, title, description, article]);
 }

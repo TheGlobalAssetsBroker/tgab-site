@@ -106,7 +106,7 @@ export function Header() {
               }
 
               const expanded = openGroup === item.id;
-              const current = item.children.some((child) => pathname === child.to);
+              const current = item.children.some((child) => pathname === child.to || pathname.startsWith(`${child.to}/`));
               return (
                 <li
                   className={`nav-item nav-group${expanded ? " open" : ""}${current ? " current" : ""}`}

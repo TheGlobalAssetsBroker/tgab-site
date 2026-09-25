@@ -1,4 +1,5 @@
 import { usePageEffects } from "../hooks/usePageEffects";
+import { articles, articleHeading, articlePath } from "../content/insights";
 
 export default function SitemapPage() {
   usePageEffects("sitemap", "Sitemap — TGAB", "Full list of pages on the TGAB website.");
@@ -32,6 +33,8 @@ export default function SitemapPage() {
               <a href="/careers">Careers</a>
               <a href="/insights">Insights</a>
               <a href="/support">Help centre</a>
+              <h4>Trading guides</h4>
+              {articles.map((article) => <a key={article.slug} href={articlePath(article)}>{articleHeading(article)}</a>)}
             </div>
             <div>
               <h4>Legal</h4>
