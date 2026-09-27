@@ -59,6 +59,27 @@ test("new guides have sitemap coverage and static rewrites ahead of the SPA fall
   }
 });
 
+test("every sitemap URL has useful initial HTML and a route-specific canonical", async () => {
+  const [sitemap, redirects] = await Promise.all([read("dist/sitemap.xml"), read("dist/_redirects")]);
+  const paths = [...sitemap.matchAll(/<loc>https:\/\/tgab\.com(\/[^<]*)<\/loc>/g)].map(([, path]) => path);
+  for (const path of paths) {
+    const html = await read(path === "/" ? "dist/index.html" : `dist${path}/index.html`);
+    const head = html.split("</head>")[0];
+    const body = html.split("<body")[1];
+    assert.equal((head.match(/<title>/g) || []).length, 1, path);
+    assert.equal((head.match(/rel="canonical"/g) || []).length, 1, path);
+    assert.ok(head.includes(`rel="canonical" href="https://tgab.com${path}"`), path);
+    assert.equal(readMeta(head, "name", "robots")[0], "index, follow, max-image-preview:large", path);
+    assert.ok(body.includes("<main"), path);
+    assert.ok(body.includes("<h1"), path);
+    assert.ok(strip(body).length > 500, path);
+    if (path !== "/") {
+      assert.ok(redirects.includes(`${path} ${path}/index.html 200`), path);
+      assert.ok(redirects.includes(`${path}/ ${path}/index.html 200`), path);
+    }
+  }
+});
+
 test("every local page link in static guides resolves to a declared site URL", async () => {
   const sitemap = await read("dist/sitemap.xml");
   const paths = new Set([...sitemap.matchAll(/<loc>https:\/\/tgab.com([^<]*)<\/loc>/g)].map((match) => match[1]));
