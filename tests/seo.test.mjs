@@ -59,6 +59,25 @@ test("new guides have sitemap coverage and static rewrites ahead of the SPA fall
   }
 });
 
+test("online and stock investing guides expose their target topics in searchable HTML", async () => {
+  const targets = [
+    ["how-to-start-investing-online", "how to start investing online"],
+    ["how-to-research-stocks", "how to research stocks"],
+  ];
+  const [hub, markets] = await Promise.all([read("dist/insights/index.html"), read("dist/markets/index.html")]);
+  for (const [slug, phrase] of targets) {
+    const path = `/insights/${slug}`;
+    const html = await read(`dist${path}/index.html`);
+    const head = html.split("</head>")[0];
+    const h1 = strip(html.match(/<h1\b[^>]*>[\s\S]*?<\/h1>/)[0]).toLowerCase();
+    assert.ok(strip(head.match(/<title>[\s\S]*?<\/title>/)[0]).toLowerCase().includes(phrase));
+    assert.ok(h1.includes(phrase));
+    assert.ok(readMeta(head, "name", "description")[0].toLowerCase().includes(phrase));
+    assert.ok(hub.includes(`href="${path}"`));
+    assert.ok(markets.includes(`href="${path}"`));
+  }
+});
+
 test("every sitemap URL has useful initial HTML and a route-specific canonical", async () => {
   const [sitemap, redirects] = await Promise.all([read("dist/sitemap.xml"), read("dist/_redirects")]);
   const paths = [...sitemap.matchAll(/<loc>https:\/\/tgab\.com(\/[^<]*)<\/loc>/g)].map(([, path]) => path);

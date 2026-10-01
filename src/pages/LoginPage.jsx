@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ActionArrow } from "../components/ActionArrow";
 import { usePageEffects } from "../hooks/usePageEffects";
 
 export default function LoginPage() {
@@ -21,7 +22,7 @@ export default function LoginPage() {
       <section className="login-section">
         <div className="wrap login-grid">
           <div className="login-intro rv">
-            <Link className="login-back" to="/">← Back to TGAB</Link>
+            <Link className="login-back" to="/"><ActionArrow direction="left" /> Back to TGAB</Link>
             <span className="eyebrow">Client portal</span>
             <h1>Welcome <span className="it">back.</span></h1>
             <p>Secure access for TGAB clients to manage onboarding, funding, documents, and account settings.</p>
@@ -59,12 +60,12 @@ export default function LoginPage() {
                 </div>
               </div>
               <label className="remember-field"><input type="checkbox" name="remember" /> <span>Keep me signed in on this device</span></label>
-              <button className="btn btn-amber btn-lg submit-button" type="submit">Continue <span aria-hidden="true">→</span></button>
+              <button className="btn btn-amber btn-lg submit-button" type="submit">Continue <ActionArrow /></button>
               {notice && <p className="login-notice" role="status">{notice}</p>}
             </form>
             <div className="login-register">
               <span>Not a client yet?</span>
-              <Link to="/register">Register your interest →</Link>
+              <Link to="/register">Register your interest <ActionArrow /></Link>
             </div>
           </div>
         </div>

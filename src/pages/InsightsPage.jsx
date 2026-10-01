@@ -10,13 +10,13 @@ export default function InsightsPage() {
       <section className="page-hero">
         <div className="wrap">
           <span className="eyebrow">TGAB Insights</span>
-          <h1>Know the market. <span className="it">Understand</span> the trade.</h1>
-          <p>Practical guides to US stocks, ETFs and listed options. Understand what you own, how orders work and where the risks sit before you make a decision.</p>
+          <h1>Investing and trading guides. <span className="it">Clearer</span> decisions.</h1>
+          <p>Learn how to start investing online and research stocks. Then compare ETFs, understand order types and explore listed options before you make a decision.</p>
         </div>
       </section>
       <section className="block" aria-labelledby="guides-title">
         <div className="wrap">
-          <div className="head-row"><div><span className="section-kicker">The foundations</span><h2 id="guides-title">Three guides. <span className="it">Clearer decisions.</span></h2><p className="sub">Start with the investment, move to the order, then explore the mechanics of listed options. Each guide includes worked examples and links to primary investor education sources.</p></div></div>
+          <div className="head-row"><div><span className="section-kicker">The foundations</span><h2 id="guides-title">Five guides. <span className="it">Clearer decisions.</span></h2><p className="sub">Explore account basics, stock research, investment choices, order types and listed options. Each guide includes practical examples and links to primary investor education sources.</p></div></div>
           <InsightCards articles={articles} />
           <p className="sub">General education from TGAB. Examples are hypothetical and are not investment recommendations. Product availability remains subject to eligibility and final launch terms.</p>
         </div>

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { ActionArrow } from "../components/ActionArrow";
 import { usePageEffects } from "../hooks/usePageEffects";
 import "../feature-carousel.css";
 
@@ -87,11 +88,11 @@ export default function HomePage() {
         <div className="page-container">
           <div className="markets-heading rv"><h2>Explore Our Markets</h2><Link className="button button-orange" to="/markets">All Markets <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link></div>
           <div className="market-carousel-shell rv">
-            <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}>←</button>
+            <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}><ActionArrow direction="left" /></button>
             <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
               {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" loading="lazy" decoding="async" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
             </div>
-            <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}>→</button>
+            <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}><ActionArrow direction="right" /></button>
           </div>
         </div>
       </section>
@@ -177,8 +178,8 @@ export default function HomePage() {
             <FeatureCard eyebrow="Watchlists" title="Keep the instruments that matter in view." image="/images/feature-watchlists.webp" position="22% 50%" />
           </div>
           <div className="feature-carousel-controls rv" aria-label="Platform feature carousel controls">
-            <button className="carousel-arrow" type="button" aria-label="Show previous platform feature" onClick={() => scrollFeatureCarousel(-1)}>←</button>
-            <button className="carousel-arrow" type="button" aria-label="Show next platform feature" onClick={() => scrollFeatureCarousel(1)}>→</button>
+            <button className="carousel-arrow" type="button" aria-label="Show previous platform feature" onClick={() => scrollFeatureCarousel(-1)}><ActionArrow direction="left" /></button>
+            <button className="carousel-arrow" type="button" aria-label="Show next platform feature" onClick={() => scrollFeatureCarousel(1)}><ActionArrow direction="right" /></button>
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { usePageEffects } from "../hooks/usePageEffects";
+import { ActionArrow } from "../components/ActionArrow";
 
 export default function PricingPage() {
   usePageEffects("pricing", "Pricing — TGAB | Transparent commissions & fees", "TGAB's indicative pre-launch fee schedule for US equities, options, and account services. Transparent pricing with no hidden spreads.");
@@ -8,7 +9,7 @@ export default function PricingPage() {
         <div className="wrap rv">
           <h1>One schedule. No <span className="it">surprises.</span></h1>
           <p>The figures below are TGAB's indicative pre-launch schedule. The final, binding fee schedule will be published before launch and provided to every client during onboarding.</p>
-          <p><a href="/pricing-details">Compare Core vs Prime account tiers →</a></p>
+          <p><a href="/pricing-details">Compare Core vs Prime account tiers <ActionArrow /></a></p>
         </div>
       </section>
       <section className="block">

@@ -1,7 +1,7 @@
 // Topic-specific copy and metadata are shared by the pages and the static HTML build.
 export const insightsMeta = {
-  title: "Trading Guides: Stocks, ETFs & Options — TGAB Insights",
-  description: "Understand US stocks, ETFs, order types and listed options with practical TGAB trading guides, worked examples and links to investor education sources.",
+  title: "Investing & Trading Guides: Stocks, ETFs & Options — TGAB",
+  description: "Explore online investing, stock research, US stocks, ETFs, order types and listed options with practical TGAB guides and primary investor education sources.",
 };
 
 export const articles = [
@@ -294,6 +294,181 @@ export const articles = [
       { label: "OIC: Options Pricing", url: "https://www.optionseducation.org/optionsoverview/options-pricing" },
       { label: "OIC: Options Assignment", url: "https://www.optionseducation.org/referencelibrary/faq/options-assignment" },
       { label: "OCC: Characteristics and Risks of Standardized Options", url: "https://www.theocc.com/company-information/documents-and-archives/options-disclosure-document" },
+    ],
+  },
+  {
+    slug: "how-to-start-investing-online",
+    title: "How to Start Investing Online: Accounts, Costs & Safety — TGAB",
+    heading: "How to start investing online:",
+    accent: "accounts to first orders.",
+    description: "How to start investing online: compare brokerage accounts and costs, protect your login, research stocks or ETFs, and check your first order.",
+    category: "Online investing",
+    keywords: ["how to start investing online", "online investments", "online brokerage account", "buy stocks online"],
+    summary: "Learn how to start investing online, from choosing a brokerage account to checking your first order and statement.",
+    date: "2026-10-01",
+    takeaway: "An investing app is a way to access an account, not an investment plan. Decide what you are buying, verify the firm and total costs, secure the account, and review each order before submitting it.",
+    sections: [
+      {
+        id: "plan",
+        title: "Start with the money and the goal",
+        paragraphs: [
+          "Before opening an online investment account, define when you may need the money and how much loss you could bear. Online investments still carry market risk: a short-term expense and a long-term goal may call for different levels of risk. Shares and equity funds can fall in value, including over periods when you need cash.",
+          "Decide whether you want to choose investments yourself or need a service that makes recommendations. A brokerage account typically lets you place trades; an investment advisory relationship offers different services and fees. A simple app screen does not change those underlying distinctions.",
+        ],
+        sources: [0, 1],
+      },
+      {
+        id: "choose-broker",
+        title: "Compare online brokers beyond the app design",
+        paragraphs: [
+          "Confirm the firm's identity, licensing, eligible jurisdictions and product range through the relevant regulator. For a US-registered broker or professional, FINRA BrokerCheck provides registration and background information. Regulatory arrangements differ by country, so check the authority that applies to the firm and your account rather than assuming a familiar app name provides the same protections everywhere.",
+          "Read the account agreement and fee schedule. Compare commissions, minimum charges, currency conversion, transfers, inactivity and account-closing fees where applicable. Check supported markets, order types, customer support, statements and how cash and securities are held. A zero-commission headline does not describe every cost of an investment.",
+        ],
+        table: {
+          caption: "Questions to ask before opening an online brokerage account",
+          headings: ["Area", "Question to check"],
+          rows: [
+            ["Firm", "Which regulator oversees the provider and which entity holds my account?"],
+            ["Products", "Can I access the specific stocks or ETFs I have researched?"],
+            ["Costs", "What will funding, trading, holding and transferring cost?"],
+            ["Service", "How do I get statements, report an error and contact support?"],
+          ],
+        },
+        sources: [2, 3],
+        links: [{ label: "Read TGAB's indicative pricing", href: "/pricing" }],
+      },
+      {
+        id: "account",
+        title: "Understand the account you are opening",
+        paragraphs: [
+          "A cash account requires you to pay for securities in full. A margin account can let you borrow against eligible securities, adding interest costs and the possibility of losses greater than your initial cash contribution. Check the account type selected on the application; do not assume cash is the default.",
+          "Expect identity and financial-information questions during formal account opening. Check how deposits, withdrawals and uninvested cash are handled, and verify the destination of any transfer through the provider's official channels. TGAB currently accepts registrations of interest only, not client money; final account terms and eligibility will be confirmed at onboarding.",
+        ],
+        sources: [1],
+        links: [{ label: "See TGAB's current launch and account status", href: "/faq" }],
+      },
+      {
+        id: "first-order",
+        title: "Research the investment, then review the order",
+        paragraphs: [
+          "A ticker is a starting point, not a reason to invest. For a company, read its filings and risks; for an ETF, read its mandate, holdings and expenses. Consider whether the position overlaps with what you already own and whether its potential loss fits your plan.",
+          "Before submitting an online order, confirm the security name, ticker, buy or sell direction, quantity, order type, session and estimated fees. A market order seeks execution at available prices; a limit order sets a price boundary but may remain unfilled. Check the confirmation and account statement afterward rather than assuming an on-screen tap completed exactly as expected.",
+        ],
+        sources: [4, 5],
+        links: [
+          { label: "Compare stocks and ETFs", href: "/insights/stocks-vs-etfs" },
+          { label: "Understand market and limit orders", href: "/insights/market-vs-limit-orders" },
+        ],
+      },
+      {
+        id: "security",
+        title: "Protect an online investment account",
+        paragraphs: [
+          "Use a unique strong passphrase and multifactor authentication when available. Keep your device and app updated, use the provider's official website or app, and treat unexpected messages asking you to sign in or move money as suspicious. Turn on available login, trade and transfer alerts.",
+          "Review statements and trade confirmations regularly. If you see an unauthorized transaction or an account detail you did not change, contact the firm through a verified channel promptly and keep a written record. Online convenience does not remove the need to monitor the account.",
+        ],
+        sources: [6],
+        links: [{ label: "Read TGAB's security approach", href: "/security" }],
+      },
+    ],
+    faqs: [
+      { question: "Can I buy stocks online without a brokerage account?", answer: "Most investors buy listed stocks through a brokerage account. Some companies offer direct stock purchase plans, with their own eligibility rules and fees. Check the route and terms before sending money." },
+      { question: "Is an online investing app the same as an investment adviser?", answer: "No. An app is an interface. The provider may offer brokerage, advisory services or both. Read the agreement to understand who makes decisions, what advice is offered and how the provider is paid." },
+      { question: "Does zero commission mean investing is free?", answer: "No. Spreads, fund expenses, currency conversion, transfers and other account charges may still apply. Read the complete fee schedule and product documents." },
+    ],
+    sources: [
+      { label: "SEC Investor.gov: Investing on Your Own", url: "https://www.investor.gov/introduction-investing/getting-started/investing-your-own" },
+      { label: "SEC Investor.gov: How to Open a Brokerage Account", url: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-43" },
+      { label: "SEC Investor.gov: Brokers", url: "https://www.investor.gov/introduction-investing/getting-started/working-investment-professional/brokers" },
+      { label: "FINRA: BrokerCheck", url: "https://brokercheck.finra.org/" },
+      { label: "SEC Investor.gov: Researching Investments", url: "https://www.investor.gov/introduction-investing/getting-started/researching-investments" },
+      { label: "SEC Investor.gov: Types of Orders", url: "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders" },
+      { label: "SEC Investor.gov: Protecting Your Online Investment Accounts from Fraud", url: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated-2" },
+    ],
+  },
+  {
+    slug: "how-to-research-stocks",
+    title: "How to Research Stocks Before Investing — TGAB",
+    heading: "How to research stocks:",
+    accent: "before you invest.",
+    description: "How to research stocks before investing: read company filings, assess revenue and cash flow, consider valuation and concentration, then plan the trade.",
+    category: "Stock investing",
+    keywords: ["how to research stocks", "stock investments", "investing in stocks for beginners", "stock research checklist"],
+    summary: "Learn how to research stocks using company filings, financial questions and a position-size example before buying shares.",
+    date: "2026-10-01",
+    takeaway: "Buying a stock makes you an owner of one business. Research its operations, financial position, risks and price, then consider how much of your portfolio would depend on that one company.",
+    sections: [
+      {
+        id: "business",
+        title: "Understand the business behind the ticker",
+        paragraphs: [
+          "Stock investments depend on the businesses behind the tickers. A share price alone says little about a company's quality or value. Start by identifying what the business sells, who pays it, what drives demand and where it competes. Write down what would have to go right for your investment idea to work and what could prove it wrong.",
+          "For US public companies, the SEC's EDGAR database gives free access to filings. An annual Form 10-K includes the business description, risk factors, management's discussion and audited financial statements. Quarterly 10-Q and current 8-K filings can show what changed after the annual report. Check the company and filing date before relying on a search result or social-media summary.",
+        ],
+        sources: [0, 1],
+      },
+      {
+        id: "numbers",
+        title: "Read the numbers in context",
+        paragraphs: [
+          "Compare revenue and profit across several reporting periods and read management's explanation of major changes. Rising sales with falling margins, for example, deserves a closer look at costs and pricing. Cash flow matters too: accounting profit and cash generated from operations can differ.",
+          "Check debt, interest obligations, available cash and whether the company issues more shares. These are prompts for further research, not a mechanical pass-or-fail screen. Different industries use different measures, and one strong quarter does not establish a lasting trend.",
+        ],
+        table: {
+          caption: "A basic checklist for reading a company's filings",
+          headings: ["Question", "Where to start"],
+          rows: [
+            ["How does it earn money?", "10-K business section and segment reporting"],
+            ["What could go wrong?", "10-K risk factors and recent 8-K filings"],
+            ["Are results improving?", "Income statements and management discussion over multiple periods"],
+            ["Can it fund operations?", "Cash-flow statements, balance sheet and debt notes"],
+          ],
+        },
+        sources: [1, 2],
+      },
+      {
+        id: "valuation",
+        title: "Separate a good company from a good purchase price",
+        paragraphs: [
+          "A company's prospects can be attractive while its share price already assumes exceptional growth. One simple comparison is the price-to-earnings ratio: share price divided by earnings per share for the same period. A $60 share with $3 in annual earnings per share has a P/E of 20. That number alone does not tell you whether the stock is cheap or expensive.",
+          "Compare the measure with the company's history, peers and expected changes in earnings. P/E can be unhelpful when earnings are negative or distorted by unusual items. Do not treat a low ratio as proof of safety or a high ratio as proof of overvaluation. Read the underlying statements and consider several possible outcomes.",
+        ],
+      },
+      {
+        id: "portfolio-risk",
+        title: "Decide how much one stock could affect you",
+        paragraphs: [
+          "Even well-researched companies can disappoint. Suppose a $20,000 portfolio puts $2,000 into one stock. If that stock falls 30% while the rest is unchanged, the position loses $600, reducing the portfolio by 3%. If $8,000 had been in the same stock, the identical fall would cost $2,400, or 12% of the portfolio. These simplified figures exclude fees, taxes and movements elsewhere.",
+          "Consider other holdings in the same company or industry, including through funds. Diversification can reduce single-company exposure, but it cannot prevent losses in a broad market decline. Position size should reflect your financial situation and tolerance for loss, not just confidence in a forecast.",
+        ],
+        sources: [3],
+        links: [{ label: "Compare individual stocks with ETFs", href: "/insights/stocks-vs-etfs" }],
+      },
+      {
+        id: "trade-plan",
+        title: "Turn the research into a trade plan",
+        paragraphs: [
+          "Before buying, record why you want to own the business, what evidence you would revisit and how the position fits your time horizon. Check the bid and ask, order type, estimated trading charges and currency conversion if relevant. A limit order can cap the purchase price but may never fill.",
+          "After buying, read new filings and corporate announcements instead of judging the thesis only by daily price moves. Dividends and price gains are not guaranteed, and a stock can lose substantial value. TGAB's US equity access is planned for launch; actual availability and account permissions will be confirmed during onboarding.",
+        ],
+        sources: [4],
+        links: [
+          { label: "Learn how stock order types work", href: "/insights/market-vs-limit-orders" },
+          { label: "Explore TGAB's planned equity coverage", href: "/markets" },
+        ],
+      },
+    ],
+    faqs: [
+      { question: "What should a beginner read before investing in a stock?", answer: "Start with the company's recent 10-K, then check newer 10-Q and 8-K filings. Focus on the business, major risks, financial statements and management's explanation of results." },
+      { question: "Is a low share price a sign that a stock is cheap?", answer: "No. The price per share does not show the value of the whole company or its earnings. Share count, business prospects, financial strength and valuation all matter." },
+      { question: "How many stocks make a portfolio diversified?", answer: "There is no universal number. Diversification depends on position weights, industries and overlap with funds or other holdings. A few companies in the same sector can leave substantial concentration risk." },
+    ],
+    sources: [
+      { label: "SEC Investor.gov: Using EDGAR to Research Investments", url: "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments" },
+      { label: "SEC Investor.gov: How to Read a 10-K", url: "https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k" },
+      { label: "SEC Investor.gov: Researching Investments", url: "https://www.investor.gov/introduction-investing/getting-started/researching-investments" },
+      { label: "SEC Investor.gov: Asset Allocation and Diversification", url: "https://www.investor.gov/introduction-investing/getting-started/asset-allocation" },
+      { label: "FINRA: Stocks", url: "https://www.finra.org/investors/investing/investment-products/stocks" },
     ],
   },
 ];

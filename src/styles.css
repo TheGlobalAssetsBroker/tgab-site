@@ -381,6 +381,7 @@ body[data-page="not-found"] .page-hero {
 .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 .cards-2 { grid-template-columns: repeat(2, 1fr); }
 .cards-3 { grid-template-columns: repeat(3, 1fr); }
+.cards-5 { grid-template-columns: repeat(3, 1fr); }
 .card { min-height: 330px; padding: 28px; display: flex; flex-direction: column; border-radius: 28px 0 28px 0; color: #fff; background: var(--deep-green); transition: transform .3s cubic-bezier(0,0,.5,1); }
 .card:nth-child(even) { color: var(--deep-green); background: var(--pale); }
 .card:hover { transform: scale(1.02); }
@@ -819,6 +820,32 @@ html body .upper-right-arrow {
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
+
+/* Use the homepage hero artwork for link and control arrows on every device. */
+.action-arrow {
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  flex: 0 0 auto;
+  object-fit: contain;
+  vertical-align: -3px;
+  filter: brightness(0);
+}
+.action-arrow-right { transform: rotate(45deg); }
+.action-arrow-left { transform: rotate(-135deg); }
+.action-arrow-down { transform: rotate(135deg); }
+.btn-amber .action-arrow, .button-orange .action-arrow, .login-back .action-arrow,
+.insight-card:nth-child(odd) .action-arrow,
+.carousel-arrow:hover .action-arrow, .market-carousel-arrow:hover .action-arrow {
+  filter: brightness(0) invert(1);
+}
+.nav-dropdown .action-arrow { width: 15px; height: 15px; }
+.nav-chevron .action-arrow { width: 12px; height: 12px; }
+.tag-count { align-items: center; gap: 5px; }
+.tag-count .action-arrow { width: 12px; height: 12px; }
+.article-back { display: inline-flex; align-items: center; gap: 5px; }
+.login-back { display: inline-flex; align-items: center; gap: 5px; }
+.insight-card-link .action-arrow { width: 20px; height: 20px; }
 
 /* Insights use the site's existing palette, cards, tables and type family. */
 .insight-cards { align-items: stretch; }

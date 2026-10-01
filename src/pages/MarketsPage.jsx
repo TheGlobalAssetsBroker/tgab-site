@@ -1,4 +1,5 @@
 import { usePageEffects } from "../hooks/usePageEffects";
+import { ActionArrow } from "../components/ActionArrow";
 
 const marketQuotes = [
   { symbol: "SPY", name: "S&P 500 ETF", price: "634.12", change: "+0.42%", direction: "up" },
@@ -113,7 +114,8 @@ export default function MarketsPage() {
       </section>
       <section className="block">
         <div className="wrap rv">
-          <div className="head-row"><div><span className="section-kicker">Before the first trade</span><h2>Understand the <span className="it">instruments.</span></h2></div><a className="btn btn-ghost" href="/insights">All trading guides →</a></div>
+          <div className="head-row"><div><span className="section-kicker">Before the first trade</span><h2>Understand the <span className="it">instruments.</span></h2></div><a className="btn btn-ghost" href="/insights">All trading guides <ActionArrow /></a></div>
+          <p className="sub">New to investing? Start with <a href="/insights/how-to-start-investing-online">how to start investing online</a>. For individual shares, use the guide on <a href="/insights/how-to-research-stocks">how to research stocks</a> before choosing an instrument.</p>
           <div className="cards cards-3">
             <div className="card"><span className="glyph">Stocks &amp; ETFs</span><h3><a href="/insights/stocks-vs-etfs">Stocks vs ETFs</a></h3><p>Compare ownership, diversification, costs and the research behind each investment.</p></div>
             <div className="card"><span className="glyph">Trading essentials</span><h3><a href="/insights/market-vs-limit-orders">Market vs limit orders</a></h3><p>See how order types affect execution, price control and unfilled trades.</p></div>

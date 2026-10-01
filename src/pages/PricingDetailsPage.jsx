@@ -1,4 +1,5 @@
 import { usePageEffects } from "../hooks/usePageEffects";
+import { ActionArrow } from "../components/ActionArrow";
 
 export default function PricingDetailsPage() {
   usePageEffects("pricing-details", "Pricing Details — TGAB | Core vs Prime account comparison", "A side-by-side comparison of TGAB's Core and Prime account tiers — commissions, account minimums, platform access, support, and roadmap-market priority.");
@@ -16,7 +17,7 @@ export default function PricingDetailsPage() {
             <div>
               <h2>Which tier <span className="it">fits</span> you.</h2>
             </div>
-            <a className="btn btn-ghost" href="/pricing">Full fee schedule →</a>
+            <a className="btn btn-ghost" href="/pricing">Full fee schedule <ActionArrow /></a>
           </div>
           <div className="rv">
             <table className="tbl">

@@ -1,4 +1,5 @@
 import { usePageEffects } from "../hooks/usePageEffects";
+import { ActionArrow } from "../components/ActionArrow";
 
 export default function ContactPage() {
   usePageEffects("contact", "Contact — TGAB | Talk to The Global Assets Broker", "Contact TGAB — enquiries, partnerships, and priority onboarding for launch.");
@@ -17,8 +18,8 @@ export default function ContactPage() {
               <div className="contact-line"><span className="k">General</span><a href="mailto:accounts@tgab.net">accounts@tgab.net</a></div>
               <div className="contact-line"><span className="k">Partnerships</span><a href="mailto:accounts@tgab.net?subject=Partnerships">accounts@tgab.net</a></div>
               <div className="contact-line"><span className="k">Compliance &amp; legal</span><a href="mailto:accounts@tgab.net?subject=Compliance%20and%20legal">accounts@tgab.net</a></div>
-              <div className="contact-line"><span className="k">Careers</span><a href="/careers">careers.html →</a></div>
-              <div className="contact-line"><span className="k">Self-serve help</span><a href="/support">Help centre →</a></div>
+              <div className="contact-line"><span className="k">Careers</span><a href="/careers">careers.html <ActionArrow /></a></div>
+              <div className="contact-line"><span className="k">Self-serve help</span><a href="/support">Help centre <ActionArrow /></a></div>
               <div className="contact-line"><span className="k">Response time</span><span>Within 1–2 business days</span></div>
             </div>
             <div className="rv">
@@ -41,7 +42,7 @@ export default function ContactPage() {
             <h2>Ready to get <span className="it">started?</span></h2>
             <p className="sub">Skip the email — register your interest directly with your name, email, and a few quick details, and we'll be in touch when TGAB goes live.</p>
             <div className="hero-cta">
-              <a className="btn btn-amber btn-lg" href="/register" data-magnetic>Register interest →</a>
+              <a className="btn btn-amber btn-lg" href="/register" data-magnetic>Register interest <ActionArrow /></a>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { articleHeading, articlePath, articleReadTime } from "../content/insights";
+import { ActionArrow } from "./ActionArrow";
 
 export function InsightCards({ articles }) {
   return (
@@ -9,7 +10,7 @@ export function InsightCards({ articles }) {
           <span className="glyph">{article.category} · {articleReadTime(article)} min read</span>
           <h3><Link to={articlePath(article)}>{articleHeading(article)}</Link></h3>
           <p>{article.summary}</p>
-          <Link className="insight-card-link" to={articlePath(article)} aria-label={`Read ${articleHeading(article)}`}>Read guide <span aria-hidden="true">↗</span></Link>
+          <Link className="insight-card-link" to={articlePath(article)} aria-label={`Read ${articleHeading(article)}`}>Read guide <ActionArrow /></Link>
         </article>
       ))}
     </div>

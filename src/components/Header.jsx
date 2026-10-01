@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { ActionArrow } from "./ActionArrow";
 
 const navigation = [
   { label: "Markets", to: "/markets" },
@@ -125,11 +126,11 @@ export function Header() {
                     onClick={() => setOpenGroup((value) => value === item.id ? null : item.id)}
                   >
                     <span>{item.label}</span>
-                    <span className="nav-chevron" aria-hidden="true">⌄</span>
+                    <span className="nav-chevron" aria-hidden="true"><ActionArrow direction="down" /></span>
                   </button>
                   <ul className="nav-dropdown" id={`nav-${item.id}`} aria-label={`${item.label} pages`} aria-hidden={!expanded}>
                     {item.children.map((child) => (
-                      <li key={child.to}><NavLink to={child.to} tabIndex={expanded ? 0 : -1} onClick={closeNavigation}>{child.label}<span aria-hidden="true">{"↗\uFE0E"}</span></NavLink></li>
+                      <li key={child.to}><NavLink to={child.to} tabIndex={expanded ? 0 : -1} onClick={closeNavigation}>{child.label}<ActionArrow /></NavLink></li>
                     ))}
                   </ul>
                 </li>

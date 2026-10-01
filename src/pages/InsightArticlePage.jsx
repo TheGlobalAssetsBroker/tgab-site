@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { InsightCards } from "../components/InsightCards";
+import { ActionArrow } from "../components/ActionArrow";
 import { articles, articleReadTime, formatArticleDate } from "../content/insights";
 import { usePageEffects } from "../hooks/usePageEffects";
 import NotFoundPage from "./NotFoundPage";
@@ -39,7 +40,7 @@ function Article({ article }) {
             <nav className="article-toc" aria-label="In this guide">
               <span className="section-kicker">In this guide</span>
               <ol>{article.sections.map((section) => <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>)}<li><a href="#questions">Common questions</a></li><li><a href="#sources">Sources & further reading</a></li></ol>
-              <Link className="article-back" to="/insights">← All insights</Link>
+              <Link className="article-back" to="/insights"><ActionArrow direction="left" /> All insights</Link>
             </nav>
             <div className="article-copy">
               <aside className="article-takeaway" aria-label="Key takeaway"><span className="section-kicker">The key idea</span><p>{article.takeaway}</p></aside>
@@ -51,7 +52,7 @@ function Article({ article }) {
                   {section.after?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                   {section.list && <ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul>}
                   {section.sources && <p className="article-citations">Source{section.sources.length > 1 ? "s" : ""}: {section.sources.map((index, position) => <span key={index}>{position > 0 && "; "}<a href={article.sources[index].url}>{article.sources[index].label}</a></span>)}</p>}
-                  {section.links && <ul className="article-links">{section.links.map((link) => <li key={link.href}><Link to={link.href}>{link.label} <span aria-hidden="true">→</span></Link></li>)}</ul>}
+                  {section.links && <ul className="article-links">{section.links.map((link) => <li key={link.href}><Link to={link.href}>{link.label} <ActionArrow /></Link></li>)}</ul>}
                 </section>
               ))}
               <section className="article-section article-questions" id="questions" aria-labelledby="questions-title">

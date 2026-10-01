@@ -1,4 +1,5 @@
 import { usePageEffects } from "../hooks/usePageEffects";
+import { ActionArrow } from "../components/ActionArrow";
 
 export default function SupportPage() {
   usePageEffects("support", "Help Centre — TGAB | Support topics & how it works", "Self-serve help topics for TGAB: account & KYC, funding, trading platform, fees, and security — plus how the onboarding flow will work at launch.");
@@ -21,32 +22,32 @@ export default function SupportPage() {
             <a className="card topic-card" href="/faq">
               <span className="glyph">/1</span><h3>Account &amp; KYC</h3>
               <p>Eligibility, verification documents, and how digital onboarding through the TGAB client portal will work.</p>
-              <span className="tag-count">FAQ · Account &amp; KYC →</span>
+              <span className="tag-count">FAQ · Account &amp; KYC <ActionArrow /></span>
             </a>
             <a className="card topic-card" href="/platforms">
               <span className="glyph">/2</span><h3>Funding &amp; withdrawals</h3>
               <p>Deposit and withdrawal methods, processing, and statements — all handled through the client portal.</p>
-              <span className="tag-count">Platforms →</span>
+              <span className="tag-count">Platforms <ActionArrow /></span>
             </a>
             <a className="card topic-card" href="/platforms">
               <span className="glyph">/3</span><h3>Trading platform</h3>
               <p>How execution, order types, and market data work on <span data-platform-name>the trading platform</span>.</p>
-              <span className="tag-count">Platforms →</span>
+              <span className="tag-count">Platforms <ActionArrow /></span>
             </a>
             <a className="card topic-card" href="/pricing">
               <span className="glyph">/4</span><h3>Fees &amp; pricing</h3>
               <p>Commission schedule, account fees, and how exchange pass-throughs are billed.</p>
-              <span className="tag-count">Pricing →</span>
+              <span className="tag-count">Pricing <ActionArrow /></span>
             </a>
             <a className="card topic-card" href="/security">
               <span className="glyph">/5</span><h3>Security</h3>
               <p>Asset segregation, KYC/AML, two-factor authentication, and data handling.</p>
-              <span className="tag-count">Security &amp; trust →</span>
+              <span className="tag-count">Security &amp; trust <ActionArrow /></span>
             </a>
             <a className="card topic-card" href="/legal">
               <span className="glyph">/6</span><h3>Legal &amp; regulatory</h3>
               <p>Regulatory status, risk disclosure, terms of use, privacy, and complaints handling.</p>
-              <span className="tag-count">Legal centre →</span>
+              <span className="tag-count">Legal centre <ActionArrow /></span>
             </a>
           </div>
         </div>
