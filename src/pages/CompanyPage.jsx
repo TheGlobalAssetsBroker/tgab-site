@@ -47,8 +47,8 @@ export default function CompanyPage() {
           <h2>Follow the <span className="it grad-text">build.</span></h2>
           <p>Register your interest and we'll keep you informed as TGAB moves toward launch.</p>
           <div className="hero-cta">
-            <a className="btn btn-amber btn-lg" href="/register" data-cta="signup" data-magnetic>Register interest</a>
-            <a className="btn btn-ghost btn-lg" href="/contact">Contact us</a>
+            <a className="btn btn-amber btn-lg" href="/register/" data-cta="signup" data-magnetic>Register interest</a>
+            <a className="btn btn-ghost btn-lg" href="/contact/">Contact us</a>
           </div>
         </div>
       </section>

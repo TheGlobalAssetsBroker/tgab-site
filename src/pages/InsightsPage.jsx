@@ -25,7 +25,7 @@ export default function InsightsPage() {
         <div className="wrap">
           <h2>Your next step starts with <span className="it grad-text">understanding.</span></h2>
           <p>Explore TGAB's planned market coverage and indicative pricing, or register to receive launch updates.</p>
-          <div className="hero-cta"><Link className="btn btn-amber btn-lg" to="/markets">Explore markets</Link><Link className="btn btn-ghost btn-lg" to="/register">Get launch updates</Link></div>
+          <div className="hero-cta"><Link className="btn btn-amber btn-lg" to="/markets/">Explore markets</Link><Link className="btn btn-ghost btn-lg" to="/register/">Get launch updates</Link></div>
         </div>
       </section>
     </main>

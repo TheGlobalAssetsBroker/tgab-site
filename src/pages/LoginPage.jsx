@@ -50,7 +50,7 @@ export default function LoginPage() {
               <div className="form-field">
                 <div className="login-label-row">
                   <label htmlFor="login-password">Password</label>
-                  <Link to="/support">Forgot password?</Link>
+                  <Link to="/support/">Forgot password?</Link>
                 </div>
                 <div className="password-field">
                   <input id="login-password" name="password" type={showPassword ? "text" : "password"} autoComplete="current-password" required minLength="8" />
@@ -65,7 +65,7 @@ export default function LoginPage() {
             </form>
             <div className="login-register">
               <span>Not a client yet?</span>
-              <Link to="/register">Register your interest <ActionArrow /></Link>
+              <Link to="/register/">Register your interest <ActionArrow /></Link>
             </div>
           </div>
         </div>

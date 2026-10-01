@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { siteConfig } from "../config";
 
 const groups = [
-  ["Trade", [["Markets", "/markets"], ["Platforms", "/platforms"], ["Pricing", "/pricing"], ["Core vs Prime", "/pricing-details"]]],
-  ["Company", [["About TGAB", "/company"], ["Security", "/security"], ["Careers", "/careers"], ["Insights", "/insights"]]],
-  ["Support", [["FAQ", "/faq"], ["Help centre", "/support"], ["Contact", "/contact"], ["Accessibility", "/accessibility"]]],
-  ["Legal", [["Regulatory status", "/legal#regulatory"], ["Risk disclosure", "/legal#risk"], ["Privacy", "/legal#privacy"], ["Cookie policy", "/cookies"]]],
+  ["Trade", [["Markets", "/markets/"], ["Platforms", "/platforms/"], ["Pricing", "/pricing/"], ["Core vs Prime", "/pricing-details/"]]],
+  ["Company", [["About TGAB", "/company/"], ["Security", "/security/"], ["Careers", "/careers/"], ["Insights", "/insights/"]]],
+  ["Support", [["FAQ", "/faq/"], ["Help centre", "/support/"], ["Contact", "/contact/"], ["Accessibility", "/accessibility/"]]],
+  ["Legal", [["Regulatory status", "/legal/#regulatory"], ["Risk disclosure", "/legal/#risk"], ["Privacy", "/legal/#privacy"], ["Cookie policy", "/cookies/"]]],
 ];
 
 export function Footer() {
@@ -16,7 +16,7 @@ export function Footer() {
           <img className="footer-mark" src="/images/tgab-new-logo.webp" alt="TGAB — The Global Assets Broker" width="410" height="154" loading="lazy" decoding="async" />
           <h2>Built for the next market move.</h2>
           <p>Institutional-grade market access, transparent pricing, and a regulated-first approach.</p>
-          <Link className="button button-orange" to="/register">Register Interest <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
+          <Link className="button button-orange" to="/register/">Register Interest <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
         </div>
         <div className="footer-shell">
           <div className="footer-links">
@@ -28,7 +28,7 @@ export function Footer() {
       <div className="page-container footer-legal">
         <p>The Global Assets Broker is licensed by the Financial Services Commission, Mauritius, as an Investment Dealer (Full Service Dealer, excluding Underwriting), Licence No. GB26206568, issued under Section 29 of the Securities Act 2005.</p>
         <p><strong>Risk warning.</strong> Trading in financial instruments involves significant risk and can result in the loss of invested capital.</p>
-        <div><span>© {new Date().getFullYear()} The Global Assets Broker</span><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><Link to="/sitemap">Sitemap</Link></div>
+        <div><span>© {new Date().getFullYear()} The Global Assets Broker</span><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><Link to="/sitemap/">Sitemap</Link></div>
       </div>
     </footer>
   );

@@ -7,16 +7,16 @@ TGAB plans to launch with access to US equities, US-listed options, and US-liste
 ## Primary pages
 
 - [Home](https://tgab.com/): Company overview and launch proposition.
-- [Markets](https://tgab.com/markets): Launch products, roadmap products, instrument coverage, and market hours.
-- [Platforms](https://tgab.com/platforms): Planned third-party trading platform and TGAB client portal.
-- [Pricing](https://tgab.com/pricing): Indicative pre-launch commissions and account fees.
-- [Core vs Prime](https://tgab.com/pricing-details): Planned account-tier comparison.
-- [Security and trust](https://tgab.com/security): Client asset, account, and data-protection approach.
-- [Company](https://tgab.com/company): Corporate and regulatory overview.
-- [FAQ](https://tgab.com/faq): Answers about launch, eligibility, accounts, fees, and security.
-- [Legal](https://tgab.com/legal): Regulatory status, risk disclosure, terms, privacy, and complaints.
-- [Contact](https://tgab.com/contact): General and partnership enquiries.
-- [Register interest](https://tgab.com/register): Pre-launch interest registration; no client funds or identity documents are collected at this stage.
+- [Markets](https://tgab.com/markets/): Launch products, roadmap products, instrument coverage, and market hours.
+- [Platforms](https://tgab.com/platforms/): Planned third-party trading platform and TGAB client portal.
+- [Pricing](https://tgab.com/pricing/): Indicative pre-launch commissions and account fees.
+- [Core vs Prime](https://tgab.com/pricing-details/): Planned account-tier comparison.
+- [Security and trust](https://tgab.com/security/): Client asset, account, and data-protection approach.
+- [Company](https://tgab.com/company/): Corporate and regulatory overview.
+- [FAQ](https://tgab.com/faq/): Answers about launch, eligibility, accounts, fees, and security.
+- [Legal](https://tgab.com/legal/): Regulatory status, risk disclosure, terms, privacy, and complaints.
+- [Contact](https://tgab.com/contact/): General and partnership enquiries.
+- [Register interest](https://tgab.com/register/): Pre-launch interest registration; no client funds or identity documents are collected at this stage.
 
 ## Important interpretation notes
 
@@ -27,12 +27,12 @@ TGAB plans to launch with access to US equities, US-listed options, and US-liste
 
 ## Trading guides
 
-- [Insights](https://tgab.com/insights): Educational guides with worked examples and primary sources.
-- [Stocks vs ETFs](https://tgab.com/insights/stocks-vs-etfs): Ownership, diversification, fees and research considerations.
-- [Market vs limit orders](https://tgab.com/insights/market-vs-limit-orders): Order types, stops, partial fills and time in force.
-- [Options trading basics](https://tgab.com/insights/options-trading-basics): Calls, puts, premiums, expiration and assignment risks.
-- [How to start investing online](https://tgab.com/insights/how-to-start-investing-online): Brokerage accounts, costs, first orders and account security.
-- [How to research stocks](https://tgab.com/insights/how-to-research-stocks): Company filings, financial questions, valuation and concentration risk.
+- [Insights](https://tgab.com/insights/): Educational guides with worked examples and primary sources.
+- [Stocks vs ETFs](https://tgab.com/insights/stocks-vs-etfs/): Ownership, diversification, fees and research considerations.
+- [Market vs limit orders](https://tgab.com/insights/market-vs-limit-orders/): Order types, stops, partial fills and time in force.
+- [Options trading basics](https://tgab.com/insights/options-trading-basics/): Calls, puts, premiums, expiration and assignment risks.
+- [How to start investing online](https://tgab.com/insights/how-to-start-investing-online/): Brokerage accounts, costs, first orders and account security.
+- [How to research stocks](https://tgab.com/insights/how-to-research-stocks/): Company filings, financial questions, valuation and concentration risk.
 
 ## Contact
 

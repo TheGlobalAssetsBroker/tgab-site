@@ -27,6 +27,7 @@ const pages = [
   { path: "/cookies", page: "cookies", title: "Cookie Policy — TGAB", description: "How TGAB uses cookies and similar technologies on this website." },
   { path: "/accessibility", page: "accessibility", title: "Accessibility Statement — TGAB", description: "TGAB's accessibility commitment and how to report an accessibility issue on this website." },
   { path: "/sitemap", page: "sitemap", title: "Sitemap — TGAB", description: "Full list of pages on the TGAB website." },
+  { path: "/login", page: "login", title: "Client Login — TGAB", description: "Secure client portal login for TGAB account holders." },
 ];
 const server = await createServer({ root, server: { middlewareMode: true }, appType: "custom" });
 try {
@@ -52,13 +53,15 @@ try {
     await writeFile(output, html);
     console.log(`Prerendered ${page.path}`);
   }
-  // Explicit routes precede the SPA fallback, including hosts without file shadowing.
-  const redirects = await readFile(resolve(root, "public/_redirects"), "utf8");
-  const routes = pages.filter(({ path }) => path !== "/").flatMap(({ path }) => [
-    `${path} ${path}/index.html 200`,
-    `${path}/ ${path}/index.html 200`,
-  ]).join("\n");
-  await writeFile(resolve(root, "dist/_redirects"), `${routes}\n${redirects}`);
+  const markup404 = await render("/404");
+  let notFoundHtml = template
+    .replace(/<title>[\s\S]*?<\/title>/, "<title>Page not found — TGAB</title>")
+    .replace(/<meta\b[^>]*name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />')
+    .replace(/<meta\b[^>]*name="description"[^>]*>/, '<meta name="description" content="The requested TGAB page could not be found." />')
+    .replace(/<link\b[^>]*rel="preload"[^>]*href="\/images\/tgab-hero.webp"[^>]*>/g, "")
+    .replace("<body>", '<body data-page="not-found">');
+  notFoundHtml = notFoundHtml.replace('<div id="root"></div>', () => `<div id="root">${markup404}</div>`);
+  await writeFile(resolve(root, "dist/404.html"), notFoundHtml);
 } finally {
   await server.close();
 }

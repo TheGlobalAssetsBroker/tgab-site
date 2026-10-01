@@ -39,7 +39,7 @@ export default function CareersPage() {
           <p>No formal application process yet — just a real inbox and a real read.</p>
           <div className="hero-cta">
             <a className="btn btn-amber btn-lg" href="mailto:accounts@tgab.net?subject=Careers">Email us</a>
-            <a className="btn btn-ghost btn-lg" href="/company">About TGAB</a>
+            <a className="btn btn-ghost btn-lg" href="/company/">About TGAB</a>
           </div>
         </div>
       </section>

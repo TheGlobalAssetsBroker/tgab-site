@@ -17,7 +17,7 @@ export default function PricingDetailsPage() {
             <div>
               <h2>Which tier <span className="it">fits</span> you.</h2>
             </div>
-            <a className="btn btn-ghost" href="/pricing">Full fee schedule <ActionArrow /></a>
+            <a className="btn btn-ghost" href="/pricing/">Full fee schedule <ActionArrow /></a>
           </div>
           <div className="rv">
             <table className="tbl">
@@ -64,8 +64,8 @@ export default function PricingDetailsPage() {
           <h2>Pick your tier, <span className="it grad-text">register</span> your interest.</h2>
           <p>Both tiers are open for early registration — final terms confirmed at launch.</p>
           <div className="hero-cta">
-            <a className="btn btn-amber btn-lg" href="/register" data-cta="signup" data-magnetic>Open account</a>
-            <a className="btn btn-ghost btn-lg" href="/pricing">See fee schedule</a>
+            <a className="btn btn-amber btn-lg" href="/register/" data-cta="signup" data-magnetic>Open account</a>
+            <a className="btn btn-ghost btn-lg" href="/pricing/">See fee schedule</a>
           </div>
         </div>
       </section>

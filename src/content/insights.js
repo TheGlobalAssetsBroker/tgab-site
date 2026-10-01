@@ -55,7 +55,7 @@ export const articles = [
           "If you fund an account in a different currency, check conversion and transfer charges as well. A low headline commission does not answer those questions. Compare the fund's documents with the broker's fee schedule, including minimum commissions and any account or service fees.",
         ],
         sources: [3, 4],
-        links: [{ label: "Review TGAB's indicative pricing and fee disclosures", href: "/pricing" }],
+        links: [{ label: "Review TGAB's indicative pricing and fee disclosures", href: "/pricing/" }],
       },
       {
         id: "execution",
@@ -65,7 +65,7 @@ export const articles = [
           "For either a stock or an ETF, look at the current bid and ask rather than relying only on the last traded price. Decide whether you need a price boundary on the order. A limit order sets that boundary but might never fill; a market order does not fix the execution price.",
         ],
         sources: [1],
-        links: [{ label: "See market vs limit orders with worked examples", href: "/insights/market-vs-limit-orders" }],
+        links: [{ label: "See market vs limit orders with worked examples", href: "/insights/market-vs-limit-orders/" }],
       },
       {
         id: "checklist",
@@ -78,7 +78,7 @@ export const articles = [
           "Consider how a price decline would affect money you might need soon. Neither product guarantees capital preservation.",
           "Confirm instrument availability and account eligibility with your broker before planning a trade.",
         ],
-        links: [{ label: "Explore TGAB's planned US equities and ETF coverage", href: "/markets" }],
+        links: [{ label: "Explore TGAB's planned US equities and ETF coverage", href: "/markets/" }],
       },
     ],
     faqs: [
@@ -164,8 +164,8 @@ export const articles = [
         ],
         sources: [4],
         links: [
-          { label: "Explore TGAB's planned trading platform", href: "/platforms" },
-          { label: "Review the indicative commission schedule", href: "/pricing" },
+          { label: "Explore TGAB's planned trading platform", href: "/platforms/" },
+          { label: "Review the indicative commission schedule", href: "/pricing/" },
         ],
       },
     ],
@@ -277,8 +277,8 @@ export const articles = [
         paragraphs: ["TGAB lists US-listed options among its planned launch markets. Availability, permissions and final terms must be confirmed when onboarding opens. Learning the mechanics does not establish whether an options strategy suits your circumstances."],
         sources: [5],
         links: [
-          { label: "Review TGAB's planned listed-options coverage", href: "/markets" },
-          { label: "Read TGAB's risk disclosure", href: "/legal#risk" },
+          { label: "Review TGAB's planned listed-options coverage", href: "/markets/" },
+          { label: "Read TGAB's risk disclosure", href: "/legal/#risk" },
         ],
       },
     ],
@@ -335,7 +335,7 @@ export const articles = [
           ],
         },
         sources: [2, 3],
-        links: [{ label: "Read TGAB's indicative pricing", href: "/pricing" }],
+        links: [{ label: "Read TGAB's indicative pricing", href: "/pricing/" }],
       },
       {
         id: "account",
@@ -345,7 +345,7 @@ export const articles = [
           "Expect identity and financial-information questions during formal account opening. Check how deposits, withdrawals and uninvested cash are handled, and verify the destination of any transfer through the provider's official channels. TGAB currently accepts registrations of interest only, not client money; final account terms and eligibility will be confirmed at onboarding.",
         ],
         sources: [1],
-        links: [{ label: "See TGAB's current launch and account status", href: "/faq" }],
+        links: [{ label: "See TGAB's current launch and account status", href: "/faq/" }],
       },
       {
         id: "first-order",
@@ -356,8 +356,8 @@ export const articles = [
         ],
         sources: [4, 5],
         links: [
-          { label: "Compare stocks and ETFs", href: "/insights/stocks-vs-etfs" },
-          { label: "Understand market and limit orders", href: "/insights/market-vs-limit-orders" },
+          { label: "Compare stocks and ETFs", href: "/insights/stocks-vs-etfs/" },
+          { label: "Understand market and limit orders", href: "/insights/market-vs-limit-orders/" },
         ],
       },
       {
@@ -368,7 +368,7 @@ export const articles = [
           "Review statements and trade confirmations regularly. If you see an unauthorized transaction or an account detail you did not change, contact the firm through a verified channel promptly and keep a written record. Online convenience does not remove the need to monitor the account.",
         ],
         sources: [6],
-        links: [{ label: "Read TGAB's security approach", href: "/security" }],
+        links: [{ label: "Read TGAB's security approach", href: "/security/" }],
       },
     ],
     faqs: [
@@ -442,7 +442,7 @@ export const articles = [
           "Consider other holdings in the same company or industry, including through funds. Diversification can reduce single-company exposure, but it cannot prevent losses in a broad market decline. Position size should reflect your financial situation and tolerance for loss, not just confidence in a forecast.",
         ],
         sources: [3],
-        links: [{ label: "Compare individual stocks with ETFs", href: "/insights/stocks-vs-etfs" }],
+        links: [{ label: "Compare individual stocks with ETFs", href: "/insights/stocks-vs-etfs/" }],
       },
       {
         id: "trade-plan",
@@ -453,8 +453,8 @@ export const articles = [
         ],
         sources: [4],
         links: [
-          { label: "Learn how stock order types work", href: "/insights/market-vs-limit-orders" },
-          { label: "Explore TGAB's planned equity coverage", href: "/markets" },
+          { label: "Learn how stock order types work", href: "/insights/market-vs-limit-orders/" },
+          { label: "Explore TGAB's planned equity coverage", href: "/markets/" },
         ],
       },
     ],
@@ -473,7 +473,7 @@ export const articles = [
   },
 ];
 
-export const articlePath = (article) => `/insights/${article.slug}`;
+export const articlePath = (article) => `/insights/${article.slug}/`;
 export const articleHeading = (article) => `${article.heading} ${article.accent}`;
 export const articleReadTime = (article) => Math.ceil(JSON.stringify([article.takeaway, article.sections, article.faqs]).split(/\s+/).length / 200);
 export const formatArticleDate = (date) => new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T00:00:00Z`));

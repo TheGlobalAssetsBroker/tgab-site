@@ -9,7 +9,7 @@ export default function PricingPage() {
         <div className="wrap rv">
           <h1>One schedule. No <span className="it">surprises.</span></h1>
           <p>The figures below are TGAB's indicative pre-launch schedule. The final, binding fee schedule will be published before launch and provided to every client during onboarding.</p>
-          <p><a href="/pricing-details">Compare Core vs Prime account tiers <ActionArrow /></a></p>
+          <p><a href="/pricing-details/">Compare Core vs Prime account tiers <ActionArrow /></a></p>
         </div>
       </section>
       <section className="block">
@@ -60,8 +60,8 @@ export default function PricingPage() {
           <h2>Know your costs <span className="it grad-text">before</span> you trade.</h2>
           <p>Questions about the schedule? We'll answer them straight.</p>
           <div className="hero-cta">
-            <a className="btn btn-amber btn-lg" href="/register" data-cta="signup" data-magnetic>Open account</a>
-            <a className="btn btn-ghost btn-lg" href="/contact">Ask about pricing</a>
+            <a className="btn btn-amber btn-lg" href="/register/" data-cta="signup" data-magnetic>Open account</a>
+            <a className="btn btn-ghost btn-lg" href="/contact/">Ask about pricing</a>
           </div>
         </div>
       </section>

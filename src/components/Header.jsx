@@ -3,33 +3,33 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { ActionArrow } from "./ActionArrow";
 
 const navigation = [
-  { label: "Markets", to: "/markets" },
-  { label: "Platforms", to: "/platforms" },
+  { label: "Markets", to: "/markets/" },
+  { label: "Platforms", to: "/platforms/" },
   {
     id: "pricing",
     label: "Pricing",
     children: [
-      { label: "Pricing overview", to: "/pricing" },
-      { label: "Core vs Prime", to: "/pricing-details" },
+      { label: "Pricing overview", to: "/pricing/" },
+      { label: "Core vs Prime", to: "/pricing-details/" },
     ],
   },
-  { label: "Security", to: "/security" },
+  { label: "Security", to: "/security/" },
   {
     id: "company",
     label: "Company",
     children: [
-      { label: "About TGAB", to: "/company" },
-      { label: "Careers", to: "/careers" },
-      { label: "Insights", to: "/insights" },
+      { label: "About TGAB", to: "/company/" },
+      { label: "Careers", to: "/careers/" },
+      { label: "Insights", to: "/insights/" },
     ],
   },
   {
     id: "support",
     label: "Support",
     children: [
-      { label: "Help centre", to: "/support" },
-      { label: "FAQ", to: "/faq" },
-      { label: "Contact", to: "/contact" },
+      { label: "Help centre", to: "/support/" },
+      { label: "FAQ", to: "/faq/" },
+      { label: "Contact", to: "/contact/" },
     ],
   },
 ];
@@ -95,7 +95,7 @@ export function Header() {
         <Link className="brand" to="/" aria-label="TGAB home" onClick={closeNavigation}>
           <img className="brand-symbol" src="/images/tgab-new-logo.webp" alt="TGAB — The Global Assets Broker" width="190" height="54" decoding="async" fetchPriority="high" />
         </Link>
-        <Link className="mobile-nav-login" to="/login" onClick={closeNavigation}>Log In</Link>
+        <Link className="mobile-nav-login" to="/login/" onClick={closeNavigation}>Log In</Link>
         <button ref={menuButtonRef} className="menu-toggle" type="button" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="primary-links" onClick={toggleDrawer}>
           <span className="menu-toggle-icon" aria-hidden="true"><span /><span /><span /></span>
         </button>
@@ -107,7 +107,7 @@ export function Header() {
               }
 
               const expanded = openGroup === item.id;
-              const current = item.children.some((child) => pathname === child.to || pathname.startsWith(`${child.to}/`));
+              const current = item.children.some((child) => pathname === child.to || pathname.startsWith(child.to));
               return (
                 <li
                   className={`nav-item nav-group${expanded ? " open" : ""}${current ? " current" : ""}`}
@@ -137,7 +137,7 @@ export function Header() {
               );
             })}
           </ul>
-          <div className="nav-actions"><Link className="nav-login" to="/login" onClick={closeNavigation}>Log In</Link><Link className="button button-orange" to="/register" onClick={closeNavigation}>Open Account</Link></div>
+          <div className="nav-actions"><Link className="nav-login" to="/login/" onClick={closeNavigation}>Log In</Link><Link className="button button-orange" to="/register/" onClick={closeNavigation}>Open Account</Link></div>
         </div>
       </nav>
     </header>

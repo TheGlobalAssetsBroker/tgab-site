@@ -34,7 +34,7 @@ export default function AccessibilityPage() {
               <h2 id="known">Known limitations</h2>
               <p>As a pre-launch site under active development, some interior pages may not yet meet every WCAG success criterion. We treat accessibility issues as bugs, not feature requests, and prioritise fixes reported to us.</p>
               <h2 id="contact">Report an issue</h2>
-              <p>If you encounter an accessibility barrier anywhere on this site, contact <a href="mailto:accounts@tgab.net?subject=Accessibility">accounts@tgab.net</a> with "Accessibility" in the subject line, including the page and what happened. We aim to acknowledge accessibility reports within five business days, in line with our <a href="/legal#complaints">complaints process</a>.</p>
+              <p>If you encounter an accessibility barrier anywhere on this site, contact <a href="mailto:accounts@tgab.net?subject=Accessibility">accounts@tgab.net</a> with "Accessibility" in the subject line, including the page and what happened. We aim to acknowledge accessibility reports within five business days, in line with our <a href="/legal/#complaints">complaints process</a>.</p>
             </div>
           </div>
         </div>

@@ -67,8 +67,8 @@ export default function HomePage() {
             <h1>Global markets.<br /><span>Institutional access.</span></h1>
             <p>A multi-asset brokerage built on regulated infrastructure, transparent pricing, and institutional-grade execution.</p>
             <div className="hero-reference-actions">
-              <Link className="button button-orange" to="/register">Open Account <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
-              <Link className="button button-green" to="/markets">Explore Markets</Link>
+              <Link className="button button-orange" to="/register/">Open Account <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
+              <Link className="button button-green" to="/markets/">Explore Markets</Link>
             </div>
           </div>
         </div>
@@ -86,11 +86,11 @@ export default function HomePage() {
 
       <section className="markets-stage">
         <div className="page-container">
-          <div className="markets-heading rv"><h2>Explore Our Markets</h2><Link className="button button-orange" to="/markets">All Markets <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link></div>
+          <div className="markets-heading rv"><h2>Explore Our Markets</h2><Link className="button button-orange" to="/markets/">All Markets <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link></div>
           <div className="market-carousel-shell rv">
             <button className="market-carousel-arrow market-carousel-arrow-prev" type="button" aria-label="Show previous market" onClick={() => scrollMarketCarousel(-1)}><ActionArrow direction="left" /></button>
             <div className="market-carousel" ref={marketCarouselRef} role="region" aria-label="Available markets" tabIndex={0}>
-              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" loading="lazy" decoding="async" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets" aria-label={`Learn more about ${name}`}>+</Link></article>)}
+              {markets.map(([code, name, status, text, image]) => <article className="market-slide" key={code}><img className="market-card-image" src={image} alt="" aria-hidden="true" loading="lazy" decoding="async" /><span className="market-code">{code}</span><div><span className={`market-status ${status === "At launch" ? "launch" : ""}`}>{status}</span><h3>{name}</h3><p>{text}</p></div><Link to="/markets/" aria-label={`Learn more about ${name}`}>+</Link></article>)}
             </div>
             <button className="market-carousel-arrow market-carousel-arrow-next" type="button" aria-label="Show next market" onClick={() => scrollMarketCarousel(1)}><ActionArrow direction="right" /></button>
           </div>
@@ -104,7 +104,7 @@ export default function HomePage() {
             <h2 className="phrase-heading"><span>Institutional plumbing.</span><span>No retail shortcuts.</span></h2>
             <p>Every layer of the stack — clearing, custody, execution, onboarding — is chosen for durability and auditability.</p>
             <ul className="plain-list"><li>Regulated institutional clearing partners</li><li>Investment Dealer (Full Service Dealer, excluding Underwriting), Licence No. GB26206568</li><li>Bank-grade KYC / AML onboarding</li><li>Segregation of client assets</li></ul>
-            <Link className="button button-orange" to="/security">How We Protect You <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
+            <Link className="button button-orange" to="/security/">How We Protect You <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
           </div>
           <div className="infrastructure-panel rv">
             {infrastructure.map(([label, value]) => <div key={label}><span>{label}</span><b>{value}</b></div>)}
@@ -125,7 +125,7 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <Link className="button button-orange advantage-cta" to="/register">Get Started <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
+          <Link className="button button-orange advantage-cta" to="/register/">Get Started <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link>
         </div>
       </section>
 
@@ -133,9 +133,9 @@ export default function HomePage() {
         <div className="page-container">
           <h2 className="offers-title rv">Choose how you access the markets</h2>
           <div className="offers-grid rv">
-            <OfferCard name="Core" accent="lime" description="Full market access, straightforward terms." items={["US equities, options & ETFs from $0.003/share, $0.50/contract", "Free account opening, no minimum balance", "Trade through a proven third-party platform", "Standard support, 1–2 business day response"]} to="/register?tier=core" />
-            <OfferCard name="Prime" accent="green" description="Priority service for active and professional traders." items={["Everything in Core, on the same transparent commission schedule", "Priority support routing over standard queues", "Priority access as new roadmap markets open", "Dedicated onboarding assistance"]} to="/register?tier=prime" />
-            <OfferCard name="Both tiers" accent="orange" description="The same launch markets under the same regulatory structure." items={["US equities, listed options, and ETFs at launch", "The same transparent commission schedule", "Institutional clearing relationships", "Full KYC / AML onboarding"]} to="/pricing-details" />
+            <OfferCard name="Core" accent="lime" description="Full market access, straightforward terms." items={["US equities, options & ETFs from $0.003/share, $0.50/contract", "Free account opening, no minimum balance", "Trade through a proven third-party platform", "Standard support, 1–2 business day response"]} to="/register/?tier=core" />
+            <OfferCard name="Prime" accent="green" description="Priority service for active and professional traders." items={["Everything in Core, on the same transparent commission schedule", "Priority support routing over standard queues", "Priority access as new roadmap markets open", "Dedicated onboarding assistance"]} to="/register/?tier=prime" />
+            <OfferCard name="Both tiers" accent="orange" description="The same launch markets under the same regulatory structure." items={["US equities, listed options, and ETFs at launch", "The same transparent commission schedule", "Institutional clearing relationships", "Full KYC / AML onboarding"]} to="/pricing-details/" />
           </div>
         </div>
       </section>
@@ -151,13 +151,13 @@ export default function HomePage() {
               <div className="editorial-media platform-crop"><img src="/images/trading-platform-v2.webp" alt="Professional multi-panel trading platform interface" loading="lazy" decoding="async" /></div>
               <h3>One Account. A Proven Platform.</h3>
               <p>Access advanced charts, watchlists, options chains, and order management through proven third-party trading technology.</p>
-              <Link to="/platforms">Learn More</Link>
+              <Link to="/platforms/">Learn More</Link>
             </article>
             <article className="editorial-card rv">
               <div className="editorial-media"><img src="/images/tgab-editorial.webp" alt="Professional trader using an institutional trading workstation" loading="lazy" decoding="async" /></div>
               <h3>Two Ways To Access The Markets.</h3>
               <p>Choose Core for straightforward market access or Prime for priority service, dedicated onboarding, and early roadmap access.</p>
-              <Link to="/pricing-details">Compare Tiers</Link>
+              <Link to="/pricing-details/">Compare Tiers</Link>
             </article>
           </div>
         </div>
@@ -202,7 +202,7 @@ export default function HomePage() {
             <span className="section-kicker light">Multi-asset roadmap</span>
             <h2>US markets first.<br /><span>The world next.</span></h2>
             <p>TGAB launches with US equities, listed options, and ETFs, then expands into futures, FX, metals, indices, fixed income, and digital assets as the roadmap opens.</p>
-            <div className="button-row"><Link className="button button-orange" to="/markets">Explore Markets <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link><Link className="button button-green" to="/register">Register Interest</Link></div>
+            <div className="button-row"><Link className="button button-orange" to="/markets/">Explore Markets <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link><Link className="button button-green" to="/register/">Register Interest</Link></div>
           </div>
           <div className="orderbook-art rv" aria-label="Illustrative market depth graphic">
             <div className="orderbook-side asks">{[78,64,88,52,74,41].map((width, index) => <span key={index} style={{ "--bar": `${width}%`, "--delay": `${index * 70}ms` }}><i />{(6956 - index * .25).toFixed(2)}</span>)}</div>
@@ -217,7 +217,7 @@ export default function HomePage() {
           <span className="section-kicker light">Get in early</span>
           <h2>Be first through<br /><span>the door.</span></h2>
           <p>Register your interest now and get priority onboarding when TGAB goes live.</p>
-          <div className="button-row"><Link className="button button-orange" to="/register">Open Account <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link><Link className="button button-green" to="/contact">Talk To Us</Link></div>
+          <div className="button-row"><Link className="button button-orange" to="/register/">Open Account <img className="upper-right-arrow" src="/images/upper-right-arrow.png" alt="" aria-hidden="true" /></Link><Link className="button button-green" to="/contact/">Talk To Us</Link></div>
         </div>
       </section>
     </main>
@@ -225,7 +225,7 @@ export default function HomePage() {
 }
 
 function FeatureCard({ eyebrow, title, image, position }) {
-  return <article className="feature-card"><span>{eyebrow}</span><h3>{title}</h3><img src={image} alt="" aria-hidden="true" style={{ objectPosition: position }} loading="lazy" decoding="async" /><Link to="/platforms" aria-label={`Learn more about ${eyebrow}`}>+</Link></article>;
+  return <article className="feature-card"><span>{eyebrow}</span><h3>{title}</h3><img src={image} alt="" aria-hidden="true" style={{ objectPosition: position }} loading="lazy" decoding="async" /><Link to="/platforms/" aria-label={`Learn more about ${eyebrow}`}>+</Link></article>;
 }
 
 function OfferCard({ name, accent, description, items, to }) {

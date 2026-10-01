@@ -27,12 +27,12 @@ function Article({ article }) {
         <header className="page-hero article-hero">
           <div className="wrap">
             <nav className="article-breadcrumb" aria-label="Breadcrumb">
-              <ol><li><Link to="/">Home</Link></li><li><Link to="/insights">Insights</Link></li><li aria-current="page">{article.heading.replace(/:$/, "")}</li></ol>
+              <ol><li><Link to="/">Home</Link></li><li><Link to="/insights/">Insights</Link></li><li aria-current="page">{article.heading.replace(/:$/, "")}</li></ol>
             </nav>
             <span className="eyebrow">{article.category}</span>
             <h1>{article.heading} <span className="it">{article.accent}</span></h1>
             <p>{article.summary}</p>
-            <div className="article-meta"><Link to="/company" rel="author">By TGAB</Link><span>Published <time dateTime={article.date}>{formatArticleDate(article.date)}</time></span><span>{articleReadTime(article)} min read</span></div>
+            <div className="article-meta"><Link to="/company/" rel="author">By TGAB</Link><span>Published <time dateTime={article.date}>{formatArticleDate(article.date)}</time></span><span>{articleReadTime(article)} min read</span></div>
           </div>
         </header>
         <div className="block article-body-block">
@@ -40,7 +40,7 @@ function Article({ article }) {
             <nav className="article-toc" aria-label="In this guide">
               <span className="section-kicker">In this guide</span>
               <ol>{article.sections.map((section) => <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>)}<li><a href="#questions">Common questions</a></li><li><a href="#sources">Sources & further reading</a></li></ol>
-              <Link className="article-back" to="/insights"><ActionArrow direction="left" /> All insights</Link>
+              <Link className="article-back" to="/insights/"><ActionArrow direction="left" /> All insights</Link>
             </nav>
             <div className="article-copy">
               <aside className="article-takeaway" aria-label="Key takeaway"><span className="section-kicker">The key idea</span><p>{article.takeaway}</p></aside>
@@ -63,7 +63,7 @@ function Article({ article }) {
                 <h2 id="sources-title">Sources & further reading</h2>
                 <p>Prepared by TGAB using the investor education resources below. Sources checked on <time dateTime={article.date}>{formatArticleDate(article.date)}</time>. Examples are hypothetical and use US dollars.</p>
                 <ul>{article.sources.map((source) => <li key={source.url}><a href={source.url}>{source.label}</a></li>)}</ul>
-                <p className="article-disclosure">This guide provides general education, not a personal investment recommendation. Trading can result in loss of capital. Product access depends on eligibility, permissions and final launch terms. Read the <Link to="/legal#risk">risk disclosure</Link>.</p>
+                <p className="article-disclosure">This guide provides general education, not a personal investment recommendation. Trading can result in loss of capital. Product access depends on eligibility, permissions and final launch terms. Read the <Link to="/legal/#risk">risk disclosure</Link>.</p>
               </section>
             </div>
           </div>
@@ -79,7 +79,7 @@ function Article({ article }) {
         <div className="wrap">
           <h2>Explore the markets <span className="it grad-text">ahead.</span></h2>
           <p>TGAB is preparing to launch US equities, ETFs and listed options. Explore the planned offering or register for launch updates.</p>
-          <div className="hero-cta"><Link className="btn btn-amber btn-lg" to="/register">Get launch updates</Link><Link className="btn btn-ghost btn-lg" to="/markets">Explore markets</Link></div>
+          <div className="hero-cta"><Link className="btn btn-amber btn-lg" to="/register/">Get launch updates</Link><Link className="btn btn-ghost btn-lg" to="/markets/">Explore markets</Link></div>
         </div>
       </section>
     </main>

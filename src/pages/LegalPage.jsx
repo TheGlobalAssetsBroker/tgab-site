@@ -19,8 +19,8 @@ export default function LegalPage() {
               <a href="#terms">Terms of use</a>
               <a href="#privacy">Privacy</a>
               <a href="#complaints">Complaints</a>
-              <a href="/cookies">Cookie policy</a>
-              <a href="/accessibility">Accessibility</a>
+              <a href="/cookies/">Cookie policy</a>
+              <a href="/accessibility/">Accessibility</a>
             </nav>
             <div className="legal-body rv">
               <h2 id="regulatory">Regulatory status</h2>

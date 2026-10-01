@@ -47,7 +47,7 @@ export default function SecurityPage() {
                 <li>Dealing overseen by qualified dealers meeting the regulator's fit-and-proper standards</li>
                 <li>Compliance sign-off precedes commercial launch, not the other way round</li>
                 <li>Group governance, capital, and compliance standards set at the holding-company level</li>
-                <li><span>Full detail in the <a href="/legal#regulatory">regulatory status</a> section of our legal centre</span></li>
+                <li><span>Full detail in the <a href="/legal/#regulatory">regulatory status</a> section of our legal centre</span></li>
               </ul>
             </div>
             <div className="panel-art rv">
@@ -71,7 +71,7 @@ export default function SecurityPage() {
             <div className="card"><span className="glyph">/1</span><h3>Encryption in transit</h3><p>Connections between your device and the client portal and trading platform are encrypted.</p></div>
             <div className="card"><span className="glyph">/2</span><h3>Access controls</h3><p>Internal access to client data and systems is role-restricted and logged.</p></div>
             <div className="card"><span className="glyph">/3</span><h3>Vendor diligence</h3><p>Clearing, portal, and platform providers are chosen for institutional standing, not lowest cost.</p></div>
-            <div className="card"><span className="glyph">/4</span><h3>Data minimisation</h3><p>We collect what onboarding and regulation require — see our <a href="/legal#privacy">privacy notice</a>.</p></div>
+            <div className="card"><span className="glyph">/4</span><h3>Data minimisation</h3><p>We collect what onboarding and regulation require — see our <a href="/legal/#privacy">privacy notice</a>.</p></div>
           </div>
           <p className="sub rv">Specific technical certifications (e.g. SOC 2, ISO 27001) will be listed here if and when held — none are claimed today.</p>
         </div>
@@ -81,8 +81,8 @@ export default function SecurityPage() {
           <h2>Ask us <span className="it">anything</span> about how this works.</h2>
           <p>Compliance and security questions go straight to the team building this structure.</p>
           <div className="hero-cta">
-            <a className="btn btn-amber btn-lg" href="/contact">Contact compliance</a>
-            <a className="btn btn-ghost btn-lg" href="/faq">Read the FAQ</a>
+            <a className="btn btn-amber btn-lg" href="/contact/">Contact compliance</a>
+            <a className="btn btn-ghost btn-lg" href="/faq/">Read the FAQ</a>
           </div>
         </div>
       </section>

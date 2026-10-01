@@ -8,7 +8,7 @@ const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 const decode = (value) => value.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 const strip = (html) => decode(html.replace(/<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, ""));
 const readMeta = (head, attribute, key) => [...head.matchAll(new RegExp(`<meta ${attribute}="${key}" content="([^"]*)"`, "g"))].map((match) => decode(match[1]));
-const pages = [{ path: "/insights", page: "insights", ...insightsMeta }, ...articles.map((article) => ({ path: articlePath(article), page: "insight-article", title: article.title, description: article.description, article }))];
+const pages = [{ path: "/insights/", page: "insights", ...insightsMeta }, ...articles.map((article) => ({ path: articlePath(article), page: "insight-article", title: article.title, description: article.description, article }))];
 
 for (const page of pages) {
   test(`${page.path}: initial HTML includes content, unique metadata and valid structured data`, async () => {
@@ -20,7 +20,7 @@ for (const page of pages) {
     assert.equal(decode(head.match(/<title>(.*?)<\/title>/)[1]), page.title);
     assert.equal((body.match(/<h1\b/g) || []).length, 1);
     assert.equal((head.match(/rel="canonical"/g) || []).length, 1);
-    assert.ok(head.includes(`href="https://tgab.com${page.path}"`));
+    assert.ok(head.includes(`href="https://tgab.com${page.path.replace(/\/+$/, "")}/"`));
     for (const [attribute, name, content] of expected.meta) assert.deepEqual(readMeta(head, attribute, name), [content]);
     assert.ok(!head.includes('href="/images/tgab-hero.webp"'), "Do not preload the unrelated homepage image");
     for (const [id, schema] of Object.entries(expected.schemas)) {
@@ -46,17 +46,13 @@ for (const page of pages) {
   });
 }
 
-test("new guides have sitemap coverage and static rewrites ahead of the SPA fallback", async () => {
-  const [sitemap, mirrored, redirects] = await Promise.all([read("dist/sitemap.xml"), read("dist/seo/sitemap.xml"), read("dist/_redirects")]);
+test("new guides have sitemap coverage and no SPA fallback", async () => {
+  const [sitemap, mirrored] = await Promise.all([read("dist/sitemap.xml"), read("dist/seo/sitemap.xml")]);
   assert.equal(sitemap, mirrored);
   for (const page of pages) {
     assert.equal(sitemap.split(`<loc>https://tgab.com${page.path}</loc>`).length - 1, 1);
-    for (const path of [page.path, `${page.path}/`]) {
-      const rewrite = `${path} ${page.path}/index.html 200`;
-      assert.ok(redirects.includes(rewrite));
-      assert.ok(redirects.indexOf(rewrite) < redirects.indexOf("/* /index.html 200"));
-    }
   }
+  await assert.rejects(read("dist/_redirects"), { code: "ENOENT" });
 });
 
 test("online and stock investing guides expose their target topics in searchable HTML", async () => {
@@ -66,7 +62,7 @@ test("online and stock investing guides expose their target topics in searchable
   ];
   const [hub, markets] = await Promise.all([read("dist/insights/index.html"), read("dist/markets/index.html")]);
   for (const [slug, phrase] of targets) {
-    const path = `/insights/${slug}`;
+    const path = `/insights/${slug}/`;
     const html = await read(`dist${path}/index.html`);
     const head = html.split("</head>")[0];
     const h1 = strip(html.match(/<h1\b[^>]*>[\s\S]*?<\/h1>/)[0]).toLowerCase();
@@ -79,7 +75,7 @@ test("online and stock investing guides expose their target topics in searchable
 });
 
 test("every sitemap URL has useful initial HTML and a route-specific canonical", async () => {
-  const [sitemap, redirects] = await Promise.all([read("dist/sitemap.xml"), read("dist/_redirects")]);
+  const sitemap = await read("dist/sitemap.xml");
   const paths = [...sitemap.matchAll(/<loc>https:\/\/tgab\.com(\/[^<]*)<\/loc>/g)].map(([, path]) => path);
   for (const path of paths) {
     const html = await read(path === "/" ? "dist/index.html" : `dist${path}/index.html`);
@@ -92,30 +88,37 @@ test("every sitemap URL has useful initial HTML and a route-specific canonical",
     assert.ok(body.includes("<main"), path);
     assert.ok(body.includes("<h1"), path);
     assert.ok(strip(body).length > 500, path);
-    if (path !== "/") {
-      assert.ok(redirects.includes(`${path} ${path}/index.html 200`), path);
-      assert.ok(redirects.includes(`${path}/ ${path}/index.html 200`), path);
-    }
   }
 });
 
-test("every local page link in static guides resolves to a declared site URL", async () => {
+test("every local page link resolves to a declared site URL", async () => {
   const sitemap = await read("dist/sitemap.xml");
   const paths = new Set([...sitemap.matchAll(/<loc>https:\/\/tgab.com([^<]*)<\/loc>/g)].map((match) => match[1]));
-  paths.add("/login");
-  for (const page of pages) {
-    const html = await read(`dist${page.path}/index.html`);
+  paths.add("/login/");
+  for (const path of paths) {
+    const html = await read(path === "/" ? "dist/index.html" : `dist${path}index.html`);
     const body = html.split("<body")[1];
-    for (const [, href] of body.matchAll(/<a\b[^>]*href="(\/[^"#]*)(?:#[^"]*)?"/g)) assert.ok(paths.has(href), `Unknown page: ${href}`);
+    for (const [, href] of body.matchAll(/<a\b[^>]*href="(\/[^"#?]*)(?:[?#][^"]*)?"/g)) assert.ok(paths.has(href), `Unknown page from ${path}: ${href}`);
   }
 });
 
 test("non-article routes keep correct SEO types and indexing rules", () => {
   const ordinary = getPageSeo("markets", "Markets", "Market coverage", "/markets/");
-  assert.equal(ordinary.canonical, "https://tgab.com/markets");
+  assert.equal(ordinary.canonical, "https://tgab.com/markets/");
   assert.equal(ordinary.schemas["page-schema"]["@type"], "WebPage");
   assert.ok(!ordinary.meta.some(([, name]) => name.startsWith("article:") || name === "author"));
   for (const page of ["login", "not-found"]) assert.equal(getPageSeo(page, page, page, `/${page}`).meta.find(([, name]) => name === "robots")[2], "noindex, follow");
   const questions = [{ "@type": "Question", name: "Example", acceptedAnswer: { "@type": "Answer", text: "Answer" } }];
   assert.deepEqual(getPageSeo("faq", "FAQ", "Questions", "/faq", undefined, questions).schemas["page-schema"].mainEntity, questions);
+});
+
+test("login and missing pages have distinct non-indexable HTML", async () => {
+  const login = await read("dist/login/index.html");
+  const missing = await read("dist/404.html");
+  assert.deepEqual(readMeta(login.split("</head>")[0], "name", "robots"), ["noindex, follow"]);
+  assert.ok(login.includes('rel="canonical" href="https://tgab.com/login/"'));
+  assert.ok(login.includes("Welcome"));
+  assert.deepEqual(readMeta(missing.split("</head>")[0], "name", "robots"), ["noindex, follow"]);
+  assert.ok(!missing.includes('rel="canonical"'));
+  assert.ok(missing.includes("This page left"));
 });

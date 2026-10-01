@@ -54,8 +54,8 @@ export default function PlatformsPage() {
                 <li>Two-factor authentication as standard on every login</li>
               </ul>
               <div className="hero-cta">
-                <a className="btn btn-amber" href="/register" data-cta="signup">Open account</a>
-                <Link className="btn btn-ghost" to="/login" data-cta="login">Client login</Link>
+                <a className="btn btn-amber" href="/register/" data-cta="signup">Open account</a>
+                <Link className="btn btn-ghost" to="/login/" data-cta="login">Client login</Link>
               </div>
             </div>
             <div className="panel-art rv glow-edge">
@@ -75,7 +75,7 @@ export default function PlatformsPage() {
           <h2>Trade on infrastructure that's already <span className="it">proven.</span></h2>
           <p>Priority access to the platform and portal for early registrants at launch.</p>
           <div className="hero-cta">
-            <a className="btn btn-amber btn-lg" href="/register" data-cta="signup">Open account</a>
+            <a className="btn btn-amber btn-lg" href="/register/" data-cta="signup">Open account</a>
           </div>
         </div>
       </section>

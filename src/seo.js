@@ -2,10 +2,10 @@ import { siteConfig } from "./config.js";
 
 // One definition for both the initial HTML and client-side route changes.
 export function getPageSeo(page, title, description, pathname, article, faqItems = []) {
-  const path = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+  const path = pathname === "/" ? "/" : `${pathname.replace(/\/+$/, "")}/`;
   const canonical = `${siteConfig.siteUrl}${path}`;
   const image = `${siteConfig.siteUrl}/images/og-tgab.png`;
-  const organization = { "@type": "Organization", "@id": `${siteConfig.siteUrl}/#organization`, name: "The Global Assets Broker", url: `${siteConfig.siteUrl}/company` };
+  const organization = { "@type": "Organization", "@id": `${siteConfig.siteUrl}/#organization`, name: "The Global Assets Broker", url: `${siteConfig.siteUrl}/company/` };
   const meta = [
     ["name", "description", description],
     ["name", "robots", page === "login" || page === "not-found" ? "noindex, follow" : "index, follow, max-image-preview:large"],
@@ -53,7 +53,7 @@ export function getPageSeo(page, title, description, pathname, article, faqItems
   );
   const breadcrumbs = [
     { name: "Home", item: `${siteConfig.siteUrl}/` },
-    ...(article ? [{ name: "Insights", item: `${siteConfig.siteUrl}/insights` }] : []),
+    ...(article ? [{ name: "Insights", item: `${siteConfig.siteUrl}/insights/` }] : []),
     { name: article ? `${article.heading} ${article.accent}` : title.split("—")[0].trim(), item: canonical },
   ];
   return {

@@ -114,12 +114,12 @@ export default function MarketsPage() {
       </section>
       <section className="block">
         <div className="wrap rv">
-          <div className="head-row"><div><span className="section-kicker">Before the first trade</span><h2>Understand the <span className="it">instruments.</span></h2></div><a className="btn btn-ghost" href="/insights">All trading guides <ActionArrow /></a></div>
-          <p className="sub">New to investing? Start with <a href="/insights/how-to-start-investing-online">how to start investing online</a>. For individual shares, use the guide on <a href="/insights/how-to-research-stocks">how to research stocks</a> before choosing an instrument.</p>
+          <div className="head-row"><div><span className="section-kicker">Before the first trade</span><h2>Understand the <span className="it">instruments.</span></h2></div><a className="btn btn-ghost" href="/insights/">All trading guides <ActionArrow /></a></div>
+          <p className="sub">New to investing? Start with <a href="/insights/how-to-start-investing-online/">how to start investing online</a>. For individual shares, use the guide on <a href="/insights/how-to-research-stocks/">how to research stocks</a> before choosing an instrument.</p>
           <div className="cards cards-3">
-            <div className="card"><span className="glyph">Stocks &amp; ETFs</span><h3><a href="/insights/stocks-vs-etfs">Stocks vs ETFs</a></h3><p>Compare ownership, diversification, costs and the research behind each investment.</p></div>
-            <div className="card"><span className="glyph">Trading essentials</span><h3><a href="/insights/market-vs-limit-orders">Market vs limit orders</a></h3><p>See how order types affect execution, price control and unfilled trades.</p></div>
-            <div className="card"><span className="glyph">Listed options</span><h3><a href="/insights/options-trading-basics">Options trading basics</a></h3><p>Understand calls, puts, premiums and the obligations around expiration.</p></div>
+            <div className="card"><span className="glyph">Stocks &amp; ETFs</span><h3><a href="/insights/stocks-vs-etfs/">Stocks vs ETFs</a></h3><p>Compare ownership, diversification, costs and the research behind each investment.</p></div>
+            <div className="card"><span className="glyph">Trading essentials</span><h3><a href="/insights/market-vs-limit-orders/">Market vs limit orders</a></h3><p>See how order types affect execution, price control and unfilled trades.</p></div>
+            <div className="card"><span className="glyph">Listed options</span><h3><a href="/insights/options-trading-basics/">Options trading basics</a></h3><p>Understand calls, puts, premiums and the obligations around expiration.</p></div>
           </div>
         </div>
       </section>
@@ -128,8 +128,8 @@ export default function MarketsPage() {
           <h2>Ready when the <span className="it grad-text">bell</span> rings.</h2>
           <p>Open an account and be trading US markets from day one of launch.</p>
           <div className="hero-cta">
-            <a className="btn btn-amber btn-lg" href="/register" data-cta="signup" data-magnetic>Open account</a>
-            <a className="btn btn-ghost btn-lg" href="/pricing">See pricing</a>
+            <a className="btn btn-amber btn-lg" href="/register/" data-cta="signup" data-magnetic>Open account</a>
+            <a className="btn btn-ghost btn-lg" href="/pricing/">See pricing</a>
           </div>
         </div>
       </section>

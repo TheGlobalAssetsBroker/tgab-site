@@ -31,7 +31,7 @@ export default function CookiesPage() {
               <h2 id="changes">If this changes</h2>
               <p>Before launch, this policy will be reviewed alongside the client portal's own cookie usage, and — where legally required — a consent mechanism will be added. We won't silently start tracking without updating this page.</p>
               <h2 id="contact">Questions</h2>
-              <p>Contact <a href="mailto:accounts@tgab.net">accounts@tgab.net</a> with any cookie or privacy question. See also our <a href="/legal#privacy">privacy notice</a>.</p>
+              <p>Contact <a href="mailto:accounts@tgab.net">accounts@tgab.net</a> with any cookie or privacy question. See also our <a href="/legal/#privacy">privacy notice</a>.</p>
             </div>
           </div>
         </div>

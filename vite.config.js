@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { readFileSync } from "node:fs";
 
 const sitemap = readFileSync(new URL("./public/sitemap.xml", import.meta.url), "utf8");
-const staticPaths = new Set([...sitemap.matchAll(/<loc>https:\/\/tgab\.com(\/[^<]*)<\/loc>/g)].map(([, path]) => path));
+const staticPaths = new Set([...sitemap.matchAll(/<loc>https:\/\/tgab\.com(\/[^<]*)<\/loc>/g)].map(([, path]) => path.replace(/\/+$/, "")));
 
 export default defineConfig({
   plugins: [react(), {
